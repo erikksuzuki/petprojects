@@ -9,7 +9,137 @@ body {
 }
 
 .savedbox {
-  background-color: #ddd;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.hexapicture {
+  font-family: segoe ui symbol;
+  font-size: 40px;
+}
+
+.advancedpiccontainer {
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-size: 2px;
+}
+
+.tablecontainer td.lefttdthing {
+  width: 50%;
+  font-size: 13px;
+  text-align: center;
+}
+
+.tablecontainer td.righttdthing {
+  width: 50%;
+  font-size: 13px;
+  text-align: center;
+}
+
+.tablecontainer td.lefttdthingchange {
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+}
+.tablecontainer td.righttdthingchange {
+  width: 0%;
+  font-size: 13px;
+  text-align: center;
+}
+
+.advancedline {
+  background-color: white;
+  width: 50px;
+  height: 5px;
+  margin-bottom: 5px;
+  font-size: 2px;
+  position: relative;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.advancedlinechange {
+  background-color: #ff0077;
+  width: 50px;
+  height: 5px;
+  border: solid 1px white;
+  margin-bottom: 5px;
+  font-size: 2px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.advancedlineyin {
+  width: 50px;
+  height: 5px;
+  margin-bottom: 5px;
+  font-size: 2px;
+  position: relative;
+}
+.advancedlineyinchange {
+  width: 50px;
+  height: 5px;
+  margin-bottom: 5px;
+  font-size: 2px;
+  position: relative;
+}
+
+.yinleft {
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 18px;
+  height: 5px;
+  font-size: 2px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.yinright {
+  background-color: white;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 18px;
+  height: 5px;
+  font-size: 2px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.advancedlineyinchange .yinleft {
+  height: 5px;
+  width: 18px;
+  border: solid 1px white;
+  background-color: #ff0077;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.advancedlineyinchange .yinright {
+  height: 5px;
+  width: 18px;
+  border: solid 1px white;
+  background-color: #ff0077;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.gramnumber {
+  font-size: 15px;
+  font-family: "Times New Roman";
+  font-weight: bold;
+  position: relative;
+  left: -43px;
+  top: 46px;
+}
+
+.togglebutton {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-color: black;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+}
+.togglebutton:hover {
+  background-color: rgba(0, 100, 200, 0.7);
+  background-color: #ff0077;
 }
 
 @keyframes App-logo-spin {
