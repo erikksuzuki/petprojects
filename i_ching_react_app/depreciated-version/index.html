@@ -1,0 +1,912 @@
+<head>
+  <head>
+    <title>I Ching</title>
+  </head>
+  <style>
+    body {
+      padding-top: 40px;
+      background-color: #228899;
+      background-image: url("");
+      background-attachment: fixed;
+      background-size: cover;
+      color: white;
+      font-family: Calibri;
+      text-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
+    }
+
+    #contentboxcontainer {
+      margin-left: auto;
+      margin-right: auto;
+      width: 450px;
+      text-align: center;
+    }
+
+    #contentboxone {
+      text-align: center;
+      width: 150px;
+      height: 130px;
+    }
+
+    #savedbox {
+      width: 502px;
+      border-radius: 30px;
+      background-color: rgba(0, 120, 150, 0.5);
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0.3);
+    }
+
+    .hexapicture {
+      font-family: segoe ui symbol;
+      font-size: 40px;
+    }
+
+    .advancedpiccontainer {
+      width: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      font-size: 2px;
+    }
+
+    .tablecontainer {
+      width: 400px;
+      border: solid 0px white;
+    }
+
+    .tablecontainer td.lefttdthing {
+      width: 50%;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .tablecontainer td.righttdthing {
+      width: 50%;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .tablecontainer td.lefttdthingchange {
+      width: 100%;
+      font-size: 13px;
+      text-align: center;
+    }
+    .tablecontainer td.righttdthingchange {
+      width: 0%;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .advancedline {
+      background-color: white;
+      width: 50px;
+      height: 5px;
+      margin-bottom: 5px;
+      font-size: 2px;
+      position: relative;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .advancedlinechange {
+      background-color: #ff0077;
+      width: 48px;
+      height: 3px;
+      border: solid 1px white;
+      margin-bottom: 5px;
+      font-size: 2px;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .advancedlineyin {
+      width: 50px;
+      height: 5px;
+      margin-bottom: 5px;
+      font-size: 2px;
+      position: relative;
+    }
+    .advancedlineyinchange {
+      width: 50px;
+      height: 5px;
+      margin-bottom: 5px;
+      font-size: 2px;
+      position: relative;
+    }
+
+    .yinleft {
+      background-color: white;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 18px;
+      height: 5px;
+      font-size: 2px;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+    .yinright {
+      background-color: white;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 18px;
+      height: 5px;
+      font-size: 2px;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+    .advancedlineyinchange .yinleft {
+      height: 3px;
+      width: 16px;
+      border: solid 1px white;
+      background-color: #ff0077;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+    .advancedlineyinchange .yinright {
+      height: 3px;
+      width: 16px;
+      border: solid 1px white;
+      background-color: #ff0077;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+    .gramnumber {
+      font-size: 15px;
+      font-family: "Times New Roman";
+      font-weight: bold;
+      position: relative;
+      left: -43px;
+      top: 46px;
+    }
+
+    .togglebutton {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      background-color: black;
+      text-align: center;
+      padding: 5px 15px 5px 15px;
+    }
+    .togglebutton:hover {
+      background-color: rgba(0, 100, 200, 0.7);
+      background-color: #ff0077;
+    }
+    a.navbar {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      background-color: white;
+      font-size: 14px;
+      font-family: Calibri Light;
+      z-index: 10000;
+      box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+      text-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    .navlogo {
+      height: 40px;
+    }
+    .naybutton {
+      position: fixed;
+      top: 5px;
+      background-color: #ffffff;
+      color: black;
+      padding: 5px 15px 5px 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-family: calibri;
+      letter-spacing: 2px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+    .navbutton:hover {
+      background-color: 4000;
+      color: white;
+    }
+</style>
+<script language"javascript">
+var flipone = flipcoins();
+var fliptwo = flipcoins();
+var flipthree = flipcoins();
+var flipfour = flipcoins();
+var flipfive = flipcoins();
+var flipsix = flipcoins();
+
+var timeout;
+var t = 0;
+var randomtime;
+
+function flipcoins() {
+  var coinvalue;
+  coinvalue =
+    Math.floor(Math.random() * 2) +
+    2 +
+    (Math.floor(Math.random() * 2) + 2) +
+    (Math.floor(Math.random() * 2) + 2);
+  console.log("coinvalue = " + coinvalue);
+  return coinvalue;
+}
+
+function drawline(coinvalue) {
+  var line;
+  if (coinvalue == 6) {
+    line = "B";
+  }
+  if (coinvalue == 7) {
+    line = "V";
+  }
+  if (coinvalue == 8) {
+    line = "P";
+  }
+  if (coinvalue == 9) {
+    line = "W";
+  }
+  console.log("drawline = " + line);
+  return line;
+}
+
+function hexastring() {
+  var stringvalue;
+  stringvalue =
+    drawline(flipone) +
+    drawline(fliptwo) +
+    drawline(flipthree) +
+    drawline(flipfour) +
+    drawline(flipfive) +
+    drawline(flipsix);
+  console.log("hexastring = " + stringvalue);
+  return stringvalue;
+}
+
+function getHexaNumber(hexvalue) {
+  var hexanumber;
+  if (hexvalue == "VVVVVV") {
+    hexanumber = 1;
+  }
+  if (hexvalue == "PPPPPP") {
+    hexanumber = 2;
+  }
+  if (hexvalue == "VPPPVP") {
+    hexanumber = 3;
+  }
+  if (hexvalue == "PVPPPV") {
+    hexanumber = 4;
+  }
+  if (hexvalue == "VVVPVP") {
+    hexanumber = 5;
+  }
+  if (hexvalue == "PVPVVV") {
+    hexanumber = 6;
+  }
+  if (hexvalue == "PVPPPP") {
+    hexanumber = 7;
+  }
+  if (hexvalue == "PPPPVP") {
+    hexanumber = 8;
+  }
+  if (hexvalue == "VVVPVV") {
+    hexanumber = 9;
+  }
+  if (hexvalue == "VVPVVV") {
+    hexanumber = 10;
+  }
+  if (hexvalue == "VVVPPP") {
+    hexanumber = 11;
+  }
+  if (hexvalue == "PPPVVV") {
+    hexanumber = 12;
+  }
+  if (hexvalue == "VPVVVV") {
+    hexanumber = 13;
+  }
+  if (hexvalue == "VVVVPV") {
+    hexanumber = 14;
+  }
+  if (hexvalue == "PPVPPP") {
+    hexanumber = 15;
+  }
+  if (hexvalue == "PPPVPP") {
+    hexanumber = 16;
+  }
+  if (hexvalue == "VPPVVP") {
+    hexanumber = 17;
+  }
+  if (hexvalue == "PVVPPV") {
+    hexanumber = 18;
+  }
+  if (hexvalue == "VVPPPP") {
+    hexanumber = 19;
+  }
+  if (hexvalue == "PPPPVV") {
+    hexanumber = 20;
+  }
+  if (hexvalue == "VPPVPV") {
+    hexanumber = 21;
+  }
+  if (hexvalue == "VPVPPV") {
+    hexanumber = 22;
+  }
+  if (hexvalue == "PPPPPV") {
+    hexanumber = 23;
+  }
+  if (hexvalue == "VPPPPP") {
+    hexanumber = 24;
+  }
+  if (hexvalue == "VPPVVV") {
+    hexanumber = 25;
+  }
+  if (hexvalue == "VVVPPV") {
+    hexanumber = 26;
+  }
+  if (hexvalue == "VPPPPV") {
+    hexanumber = 27;
+  }
+  if (hexvalue == "PVVVVP") {
+    hexanumber = 28;
+  }
+  if (hexvalue == "PVPPVP") {
+    hexanumber = 29;
+  }
+  if (hexvalue == "VPVVPV") {
+    hexanumber = 30;
+  }
+  if (hexvalue == "PPVVVP") {
+    hexanumber = 31;
+  }
+  if (hexvalue == "PVVVPP") {
+    hexanumber = 32;
+  }
+  if (hexvalue == "PPVVVV") {
+    hexanumber = 33;
+  }
+  if (hexvalue == "VVVVPP") {
+    hexanumber = 34;
+  }
+  if (hexvalue == "PPPVPV") {
+    hexanumber = 35;
+  }
+  if (hexvalue == "VPVPPP") {
+    hexanumber = 36;
+  }
+  if (hexvalue == "VPVPVV") {
+    hexanumber = 37;
+  }
+  if (hexvalue == "VVPVPV") {
+    hexanumber = 38;
+  }
+  if (hexvalue == "PPVPVP") {
+    hexanumber = 39;
+  }
+  if (hexvalue == "PVPVPP") {
+    hexanumber = 40;
+  }
+  if (hexvalue == "VVPPPV") {
+    hexanumber = 41;
+  }
+  if (hexvalue == "VPPPVV") {
+    hexanumber = 42;
+  }
+  if (hexvalue == "VVVVVP") {
+    hexanumber = 43;
+  }
+  if (hexvalue == "PVVVVV") {
+    hexanumber = 44;
+  }
+  if (hexvalue == "PPPVVP") {
+    hexanumber = 45;
+  }
+  if (hexvalue == "PVVPPP") {
+    hexanumber = 46;
+  }
+  if (hexvalue == "PVPVVP") {
+    hexanumber = 47;
+  }
+  if (hexvalue == "PVVPVP") {
+    hexanumber = 48;
+  }
+  if (hexvalue == "VPVVVP") {
+    hexanumber = 49;
+  }
+  if (hexvalue == "PVVVPV") {
+    hexanumber = 50;
+  }
+  if (hexvalue == "VPPVPP") {
+    hexanumber = 51;
+  }
+  if (hexvalue == "PPVPPV") {
+    hexanumber = 52;
+  }
+  if (hexvalue == "PPVPVV") {
+    hexanumber = 53;
+  }
+  if (hexvalue == "VVPVPP") {
+    hexanumber = 54;
+  }
+  if (hexvalue == "VPVVPP") {
+    hexanumber = 55;
+  }
+  if (hexvalue == "PPVVPV") {
+    hexanumber = 56;
+  }
+  if (hexvalue == "PVVPVV") {
+    hexanumber = 57;
+  }
+  if (hexvalue == "VVPVVP") {
+    hexanumber = 58;
+  }
+  if (hexvalue == "PVPPVV") {
+    hexanumber = 59;
+  }
+  if (hexvalue == "VVPPVP") {
+    hexanumber = 60;
+  }
+  if (hexvalue == "VVPPVV") {
+    hexanumber = 61;
+  }
+  if (hexvalue == "PPVVPP") {
+    hexanumber = 62;
+  }
+  if (hexvalue == "VPVPVP") {
+    hexanumber = 63;
+  }
+  if (hexvalue == "PVPVPV") {
+    hexanumber = 64;
+  }
+  return hexanumber;
+}
+
+function hexagram() {
+  var gramvalue = hexastring();
+  for (i = 0; i < 6; i++) {
+    gramvalue = gramvalue.replace("B", "P");
+    gramvalue = gramvalue.replace("W", "V");
+  }
+  console.log("hexagram = " + getHexaNumber(gramvalue));
+  return getHexaNumber(gramvalue);
+}
+
+function hexachange() {
+  var gramvalue = hexastring();
+  for (i = 0; i < 6; i++) {
+    gramvalue = gramvalue.replace("B", "V");
+    gramvalue = gramvalue.replace("W", "P");
+  }
+  console.log("hexachange = " + getHexaNumber(gramvalue));
+  return getHexaNumber(gramvalue);
+}
+
+function drawlineAdvanced(letter) {
+  var vector;
+  if (letter == "B") {
+    vector =
+      '<div class="advancedlineyinchange"><div class="yinleft"></div><div class="yinright"></div></div>';
+  }
+  if (letter == "V") {
+    vector = '<div class="advancedline"></div>';
+  }
+  if (letter == "P") {
+    vector =
+      '<div class="advancedlineyin"><div class="yinleft"></div><div class="yinright"></div></div>';
+  }
+  if (letter == "W") {
+    vector = '<div class="advancedlinechange"></div>';
+  }
+  return vector;
+}
+
+function drawlineAdvancedChanged(letter) {
+  var vector;
+  if (letter == "B") {
+    vector = '<div class="advancedline"></div>';
+  }
+  if (letter == "V") {
+    vector = '<div class="advancedline"></div>';
+  }
+  if (letter == "P") {
+    vector =
+      '<div class="advancedlineyin"><div class="yinleft"></div><div class="yinright"></div></div>';
+  }
+  if (letter == "W") {
+    vector =
+      '<div class="advancedlineyin"><div class="yinleft"></div><div class="yinright"></div></div>';
+  }
+  return vector;
+}
+
+function getAdvancedHexapic(string) {
+  var hexastring = string;
+  var advancedpic;
+  var stringlineone = hexastring.charAt(0);
+  var stringlinetwo = hexastring.charAt(1);
+  var stringlinethree = hexastring.charAt(2);
+  var stringlinefour = hexastring.charAt(3);
+  var stringlinefive = hexastring.charAt(4);
+  var stringlinetop = hexastring.charAt(5);
+
+  advancedpic =
+    '<div class="advancedpiccontainer">' +
+    drawlineAdvanced(stringlinetop) +
+    drawlineAdvanced(stringlinefive) +
+    drawlineAdvanced(stringlinefour) +
+    drawlineAdvanced(stringlinethree) +
+    drawlineAdvanced(stringlinetwo) +
+    drawlineAdvanced(stringlineone) +
+    "</div>";
+  console.log("getAdvancedHexapic = " + advancedpic);
+  return advancedpic;
+}
+
+function getAdvancedHexapicChanged(string) {
+  var hexastring = string;
+  var advancedpic;
+  var stringlineone = hexastring.charAt(0);
+  var stringlinetwo = hexastring.charAt(1);
+  var stringlinethree = hexastring.charAt(2);
+  var stringlinefour = hexastring.charAt(3);
+  var stringlinefive = hexastring.charAt(4);
+  var stringlinetop = hexastring.charAt(5);
+
+  advancedpic =
+    '<div class="advancedpiccontainer">' +
+    drawlineAdvancedChanged(stringlinetop) +
+    drawlineAdvancedChanged(stringlinefive) +
+    drawlineAdvancedChanged(stringlinefour) +
+    drawlineAdvancedChanged(stringlinethree) +
+    drawlineAdvancedChanged(stringlinetwo) +
+    drawlineAdvancedChanged(stringlineone) +
+    "</div>";
+  console.log("getAdvancedHexapicChanged = " + advancedpic);
+  return advancedpic;
+}
+
+function getHexatitle(nombre) {
+  var hexatitle;
+  if (nombre == 1) {
+    hexatitle = "Heaven";
+  }
+  if (nombre == 2) {
+    hexatitle = "Earth";
+  }
+  if (nombre == 3) {
+    hexatitle = "Difficult Birth";
+  }
+  if (nombre == 4) {
+    hexatitle = "Youthful Folly";
+  }
+  if (nombre == 5) {
+    hexatitle = "Waiting";
+  }
+  if (nombre == 6) {
+    hexatitle = "Conflict";
+  }
+  if (nombre == 7) {
+    hexatitle = "Army";
+  }
+  if (nombre == 8) {
+    hexatitle = "Closeness";
+  }
+  if (nombre == 9) {
+    hexatitle = "Slight Restraint";
+  }
+  if (nombre == 10) {
+    hexatitle = "Stepping";
+  }
+  if (nombre == 11) {
+    hexatitle = "Granduer";
+  }
+  if (nombre == 12) {
+    hexatitle = "Obstacle";
+  }
+  if (nombre == 13) {
+    hexatitle = "Fellowship";
+  }
+  if (nombre == 14) {
+    hexatitle = "Great Measure";
+  }
+  if (nombre == 15) {
+    hexatitle = "Humility";
+  }
+  if (nombre == 16) {
+    hexatitle = "Elation";
+  }
+  if (nombre == 17) {
+    hexatitle = "Following";
+  }
+  if (nombre == 18) {
+    hexatitle = "Blight";
+  }
+  if (nombre == 19) {
+    hexatitle = "Approach";
+  }
+  if (nombre == 20) {
+    hexatitle = "Observation";
+  }
+  if (nombre == 21) {
+    hexatitle = "Biting";
+  }
+  if (nombre == 22) {
+    hexatitle = "Adornment";
+  }
+  if (nombre == 23) {
+    hexatitle = "Pulling Apart";
+  }
+  if (nombre == 24) {
+    hexatitle = "Return";
+  }
+  if (nombre == 25) {
+    hexatitle = "Innocence";
+  }
+  if (nombre == 26) {
+    hexatitle = "Great Restraint";
+  }
+  if (nombre == 27) {
+    hexatitle = "Nourishment";
+  }
+  if (nombre == 28) {
+    hexatitle = "Great Excess";
+  }
+  if (nombre == 29) {
+    hexatitle = "The Abyss";
+  }
+  if (nombre == 30) {
+    hexatitle = "Fire";
+  }
+  if (nombre == 31) {
+    hexatitle = "Resonance";
+  }
+  if (nombre == 32) {
+    hexatitle = "Endurance";
+  }
+  if (nombre == 33) {
+    hexatitle = "Retreat";
+  }
+  if (nombre == 34) {
+    hexatitle = "Great Might";
+  }
+  if (nombre == 35) {
+    hexatitle = "Advance";
+  }
+  if (nombre == 36) {
+    hexatitle = "Darkness";
+  }
+  if (nombre == 37) {
+    hexatitle = "Family";
+  }
+  if (nombre == 38) {
+    hexatitle = "Opposition";
+  }
+  if (nombre == 39) {
+    hexatitle = "Adversity";
+  }
+  if (nombre == 40) {
+    hexatitle = "Release";
+  }
+  if (nombre == 41) {
+    hexatitle = "Decrease";
+  }
+  if (nombre == 42) {
+    hexatitle = "Increase";
+  }
+  if (nombre == 43) {
+    hexatitle = "Resolution";
+  }
+  if (nombre == 44) {
+    hexatitle = "Encounter";
+  }
+  if (nombre == 45) {
+    hexatitle = "Gathering";
+  }
+  if (nombre == 46) {
+    hexatitle = "Ascending";
+  }
+  if (nombre == 47) {
+    hexatitle = "Confinement";
+  }
+  if (nombre == 48) {
+    hexatitle = "The Well";
+  }
+  if (nombre == 49) {
+    hexatitle = "Change";
+  }
+  if (nombre == 50) {
+    hexatitle = "The Cauldron";
+  }
+  if (nombre == 51) {
+    hexatitle = "Quake";
+  }
+  if (nombre == 52) {
+    hexatitle = "Mountain";
+  }
+  if (nombre == 53) {
+    hexatitle = "Gradual";
+  }
+  if (nombre == 54) {
+    hexatitle = "Marrying Maiden";
+  }
+  if (nombre == 55) {
+    hexatitle = "Abundance";
+  }
+  if (nombre == 56) {
+    hexatitle = "The Wanderer";
+  }
+  if (nombre == 57) {
+    hexatitle = "Kneeling";
+  }
+  if (nombre == 58) {
+    hexatitle = "Joy";
+  }
+  if (nombre == 59) {
+    hexatitle = "Disperse";
+  }
+  if (nombre == 60) {
+    hexatitle = "Notch";
+  }
+  if (nombre == 61) {
+    hexatitle = "Good Faith";
+  }
+  if (nombre == 62) {
+    hexatitle = "Slight Excess";
+  }
+  if (nombre == 63) {
+    hexatitle = "Complete";
+  }
+  if (nombre == 64) {
+    hexatitle = "Incomplete";
+  }
+  console.log("hexatitle = " + hexatitle);
+  return hexatitle;
+}
+
+function run() {
+  document.getElementById('contentboxone').innerHTML = getAdvancedHexapicChanged(hexastring());
+}
+
+function showreading() {
+  var contentboxone = document.getElementById('contentboxone');
+  contentboxone.innerHTML =
+    '<span class="gramnumber">' + hexagram() + "</span><br>" + getAdvancedHexapic(hexastring());
+  var contentboxtwo = document.getElementById("contentboxtwo");
+  if (hexagram() == hexachange()) {
+    contentboxtwo.innerHTML =
+      '<span class="gramnumber">' +
+      hexachange() +
+      "</span><br>" +
+      getAdvancedHexapicChanged(hexastring());
+  } else {
+    contentboxtwo.innerHTML =
+      '<span class="gramnumber">' +
+      hexachange() +
+      "</span><br>" +
+      getAdvancedHexapicChanged(hexastring());
+  }
+}
+
+function shufflereset() {
+  clearTimeout(timeout);
+  t = 0;
+  randomtime = Math.floor(Math.random() * 30) + 10;
+  shuffletimer();
+}
+
+function shuffletimer() {
+  if (t <= randomtime) {
+    flipone = 0;
+    fliptwo = 0;
+    flipthree = 0;
+    flipfour = 0;
+    flipfive = 0;
+    flipsix = 0;
+    flipone = flipcoins();
+    fliptwo = flipcoins();
+    flipthree = flipcoins();
+    flipfour = flipcoins();
+    flipfive = flipcoins();
+    flipsix = flipcoins();
+    showreading();
+  } else {
+    clearTimeout(timeout);
+  }
+
+  if (t <= randomtime) {
+    timeout = setTimeout("shuffletimer()", 100);
+  } else {
+    clearreading();
+    savereading();
+    clearTimeout(timeout);
+  }
+
+  t++;
+}
+
+
+function clearreading() {
+  var contentboxone = document.getElementById("contentboxone");
+  contentboxone.innerHTML = "";
+  var contentboxtwo = document.getElementById("contentboxtwo");
+  contentboxtwo.innerHTML = "";
+}
+
+function savereading() {
+  var savebox = document.getElementById("savedbox");
+
+  var newcenter = document.createElement("center");
+  var newtable = document.createElement("table");
+  newtable.className = "tablecontainer";
+
+  var newtbody = document.createElement("tbody");
+  var newtr = document.createElement("tr");
+  var newtdone = document.createElement("td");
+  newtdone.className = "lefttdthing";
+  newtdone.innerHTML =
+    '<span class="gramnumber">' +
+    hexagram() +
+    "</span><br>" +
+    getAdvancedHexapic(hexastring()) +
+    "" +
+    getHexatitle(hexagram()) +
+    "&nbsp;";
+  var newtdtwo = document.createElement("td");
+  newtdtwo.className = "righttdthing";
+  if (hexagram() == hexachange()) {
+    newtdone.className = "lefttdthingchange";
+    newtdtwo.classname = "righttdthingchange";
+    newtdtwo.innerHTML = "&nbsp;";
+  } else {
+    newtdtwo.innerHTML =
+      '<span class="gramnumber">' +
+      hexachange() +
+      "</span><br>" +
+      getAdvancedHexapicChanged(hexastring()) +
+      "" +
+      getHexatitle(hexachange()) +
+      "&nbsp;";
+  }
+
+  newtr.appendChild(newtdone);
+  newtr.appendChild(newtdtwo);
+  newtbody.appendChild(newtr);
+  newtable.appendChild(newtbody);
+  newcenter.appendChild(newtable);
+
+  savebox.insertBefore(newcenter, savebox.firstChild);
+}
+
+function clearall() {
+  var savebox = document.getElementById("savedbox");
+  savebox.innerHTML = '<span id="testbox" style="font-size: 30px; font-family: Segoe UI Symbol;"><img src="turtle.png" style="width:70px;margin-top:50px;margin-bottom: 50px;"></span><BR><div style="padding-bottom: 30px;font-size: 11px;letter-spacing:4px;color: rgba(255,255,255,0.5);">© ERIC SUZUKI</div>';
+}
+  
+</script>
+
+</head>
+<body onLoad="shufflereset()">
+
+
+<div id="contentboxcontainer">
+</div>
+
+<br>
+<center>
+  <a class="togglebutton" href="javascript: clearall();">Clear History</a>&nbsp;&nbsp;&nbsp;
+  <a class="togglebutton" href="javascript: shufflereset();">Flip Coins</a>
+</center>
+<br>
+
+<center>
+  <table class="tablecontainer">
+  <tbody border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="lefttdthing"><span id="contentboxone"></span></td>
+    <td class="righttdthing"><span id="contentboxtwo"></span></td>
+  </tr>
+  </tbody>
+  </table>
+  </center>
+
+<BR><BR>
+  <center>
+    <div id="savedbox" style="text-align: center; border: solid 0px white;">
+
+      <span id="testbox" style="font-size: 30px; font-family: Segoe UI Symbol;"><img src="turtle.png" style="width:70px;margin-top:50px;margin-bottom: 50px;"></span><BR>
+        <div style="padding-bottom: 30px;font-size: 11px;letter-spacing:4px;color: rgba(255,255,255,0.5);">© ERIC SUZUKI</div>
+    </div>
+  </center>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body {
+  background-color: #eee;
+  font-size: 1rem;
+}
+
+.tablecontainer {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.savedbox {
+  background-color: #ddd;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

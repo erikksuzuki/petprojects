@@ -1,0 +1,730 @@
+<html>
+<head>
+<title>Numerology Name Checker</title>
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<style>
+body{
+    font-size: 15px;
+    font-family: Calibri;
+    color: white;
+    background-color: #3355aa;
+    background-image: url('Ascent.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+#box {
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 30px; 
+    background-color: #347;
+    background-color: rgba(0,20,50,0.5);
+    color: #fff;
+    min-width: 500px; 
+    max-width: 45%; 
+    border-radius: 20px; 
+    text-align: center; 
+    padding: 20px; 
+    position: relative;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+}
+#headerbox {
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 30px; 
+    padding: 0px;
+    width: 540px;
+    text-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2); 
+    font-family: Calibri Light;
+    color: #fff;
+    font-size: 16px; 
+    text-transform: uppercase;
+    letter-spacing: 6px; 
+    text-align: center;
+}
+.copy{
+    color: #aaa;
+    min-width: 500px;
+    max-width: 45%;
+    border-radius: 20px;
+    padding: 5px 20px 5px 20px; 
+    vertical-align: center;
+    background-color: #347;
+    background-color: rgba(0,20,50,0.5);
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+}
+.nameinput {
+    background-color: black;
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+    border: solid 1px black;
+    height: 30px;
+    width: 99%;
+}
+.descriptions {
+    text-align: left;
+}
+.inputtable {
+    border: solid 1px black;
+    width: 100%;
+}
+.inputtable td {
+    color: #ffffff;
+    border: solid 1px black;
+    text-align: center;
+}
+.inputtable .tablesum {
+    width: 40px;
+}
+.inputtable .colorone {width: 40px;background-color: #ffdd77; color: #aa6600;}
+.inputtable .colortwo {width: 40px;background-color: #ccffcc; color: #8833dd;}
+.inputtable .colorthree {width: 40px;background-color: #ffcccc; color: #990000}
+.inputtable .colorfour {width: 40px;background-color: #bbddff; color: #224455;}
+.inputtable .colorfive {width: 40px;background-color: #bbbbbb}
+.inputtable .colorsix {width: 40px;background-color: #55cc55;}
+.inputtable .colorseven {width: 40px;background-color: #5555cc;}
+.inputtable .coloreight {width: 40px;background-color: #aa6600;}
+.inputtable .colornine {width: 40px;background-color: #cc0000;}
+
+.inputtable .tablecount {
+    width: 40px;
+}
+.inputtable .tableplanet {
+    width: 120px;
+}
+.inputfield {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    width: 90px;
+}
+.check {
+    font-family: Segoe UI Symbol;
+    color: #00cc00;
+}
+.crossed {
+    font-family: Segoe UI Symbol;
+    color: #aa0000;
+}
+.lock {
+    font-family: Segoei UI Symbol;
+    color: #555555;
+}
+.arrows {
+    font-family: Segoe UI Symbol; 
+    color: #555555;
+    font-size: lOpx;
+    border: solid Opx #eee;
+    width: 30px;
+    position: absolute;
+}
+.monospace {
+    font-size: 12px;
+    font-family: Courier New;
+    letter-spacing: 2px;
+}
+.button {
+    background-color: black; 
+    background-color: rgba(0,0,0,0.5); 
+    color: #fff;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-size: 11px;
+    padding: 6px 15px 6px 15px; 
+    border-radius: 3px;
+    position: relative;
+}
+.clearbutton {
+    background-color: black; 
+    background-color: rgba(0,0,0,0.5); 
+    color: #fff;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-size: 11px;
+    padding: 3px 15px 3px 15px; 
+    border-radius: 3px;
+}
+.clearbutton:hover { 
+    background-color: #444; 
+    color: #fff;
+}
+.clearbutton:focus {
+    background-color: #444;
+    color: #fff;
+}
+.button:hover {
+    background-color: #444;
+    color: #fff;
+}
+.lettertablebox {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 20%;
+    min-width: 200px;
+    background-color: #347;
+    background-color: rgba(0,20,50,0.5);
+    height: 100%;
+    font-size: 12px;
+}
+.lettertable {
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lettertable td {
+    border: solid 1px black;
+    text-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5); 
+    text-align: center;
+    width: 20px;
+    height: 25px;
+}
+.lettertable .numbercell {
+    background-color: black;
+    background-color: rgba(0,0,0,0.5);
+}
+.savednamesbox {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    background-color: #347;
+    background-color: rgba(0,20,50,0.5); 
+    border: solid Opx black;
+    height: 100%;
+    width: 20%;
+    min-width: 200px;
+}
+.savednametable td {
+    border: solid 1px black;
+}
+.savednametable {
+    width: 192px;
+    cursor: pointer;
+    color: #fff; 
+    font-size: 13px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.savednameanchor {
+    text-decoration: none;
+    color: white;
+}
+.savednametable .rowcolorone td {border-color: #ffdd77;}
+.savednametable .rowcolortwo td {border-color: #ccffcc;} 
+.savednametable .rowcolorthree td {border-color: #ffcccc;}
+.savednametable .rowcolorfour td {border-color: #bbddff;}
+.savednametable .rowcolorfive td {border-color: #cccccc;} 
+.savednametable .rowcolorsix td {border-color: #55cc55;} 
+.savednametable .rowcolorseven td {border-color: #5555cc;}
+.savednametable .rowcoloreight td {border-color: #aa6600;}
+.savednametable .rowcolornine td {border-color: #cc0000;}
+
+.savednametable .rowcolorone:hover td {border-color: #ffffff;}
+.savednametable .rowcolortwo:hover td {border-color: #ffffff;}
+.savednametable .rowcolorthree:hover td {border-color: #ffffff;}
+.savednametable .rowcolorfour:hover td {border-color: #ffffff;}
+.savednametable .rowcolorfive:hover td {border-color: #ffffff;}
+.savednametable .rowcolorsix:hover td {border-color: #ffffff;}
+.savednametable .rowcolorseven:hover td {border-color: #ffffff;}
+.savednametable .rowcoloreight:hover td {border-color: #ffffff;}
+.savednametable .rowcolornine:hover td {border-color: #ffffff;}
+
+.savednameanchor:focus td {border-color: #ffffff; text-decoration: underline;}
+
+.savednametable .colorone {width: 20px; background-color: #ffdd77;color: #aa6600; text-align: center;} 
+.savednametable .colortwo {width: 20px; background-color: #ccffcc;color: #8833dd; text-align: center;}
+.savednametable .colorthree {width: 20px; background-color: #ffcccc;color: #990000; text-align: center;}
+.savednametable .colorfour {width: 20px; background-color: #bbddff;color: #224455; text-align: center;} 
+.savednametable .colorfive {width: 20px; background-color: #cccccc; text-align: center;}
+.savednametable .colorsix {width: 20px; background-color: #55cc55; text-align: center;}
+.savednametable .colorseven {width: 20px; background-color: #5555cc; text-align: center;}
+.savednametable .coloreight {width: 20px; background-color: #aa6600; text-align: center;}
+.savednametable .colornine {width: 20px; background-color: #cc0000; text-align: center;}
+
+.savednametable .tablecount {width: 35px; text-align: center;}
+
+
+
+@media (max-width: 767px){
+	
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+<script language="javascript">
+var summedbox = document.getElementById('summedbox');
+var countedbox = document.getElementById('countedbox');
+var planetbox = document.getElementById('planetbox');
+var descriptionbox = document.getElementById('descriptionbox');
+var nameinputfield = document.getElementById('nameinputfield');
+
+function namevalue(stringinput) {
+    var replacedtext = stringinput;
+    for (i = 0; i < 100; i++) {
+        replacedtext = replacedtext.replace(' ',0);
+        replacedtext = replacedtext.replace('.',0); 
+        replacedtext = replacedtext.replace(',',0); 
+        replacedtext = replacedtext.replace('A',1); 
+        replacedtext = replacedtext.replace('B',2); 
+        replacedtext = replacedtext.replace('C',3); 
+        replacedtext = replacedtext.replace('D',4); 
+        replacedtext = replacedtext.replace('E',5); 
+        replacedtext = replacedtext.replace('F',8); 
+        replacedtext = replacedtext.replace('G',3); 
+        replacedtext = replacedtext.replace('H',5); 
+        replacedtext = replacedtext.replace('I',1); 
+        replacedtext = replacedtext.replace('J',1); 
+        replacedtext = replacedtext.replace('K',2); 
+        replacedtext = replacedtext.replace('L',3); 
+        replacedtext = replacedtext.replace('M',4); 
+        replacedtext = replacedtext.replace('N',5); 
+        replacedtext = replacedtext.replace('O',7); 
+        replacedtext = replacedtext.replace('P',8); 
+        replacedtext = replacedtext.replace('Q',1); 
+        replacedtext = replacedtext.replace('R',2); 
+        replacedtext = replacedtext.replace('S',3); 
+        replacedtext = replacedtext.replace('T',4); 
+        replacedtext = replacedtext.replace('U',6);
+        replacedtext = replacedtext.replace('V',6); 
+        replacedtext = replacedtext.replace('W',6); 
+        replacedtext = replacedtext.replace('X',5); 
+        replacedtext = replacedtext.replace('Y',1); 
+        replacedtext = replacedtext.replace('Z',7);
+    }
+    return replacedtext; 
+}
+
+function addvalues(numberstringresult) {
+    sumofnumbers = numberstringresult.charAt(0)*1
+    + numberstringresult.charAt(1)*1
+    + numberstringresult.charAt(2)*1
+    + numberstringresult.charAt(3)*1
+    + numberstringresult.charAt(4)*1
+    + numberstringresult.charAt(5)*1
+    + numberstringresult.charAt(6)*1
+    + numberstringresult.charAt(7)*1
+    + numberstringresult.charAt(8)*1
+    + numberstringresult.charAt(9)*1
+    + numberstringresult.charAt(10)*1
+    + numberstringresult.charAt(11)*1
+    + numberstringresult.charAt(12)*1
+    + numberstringresult.charAt(13)*1
+    + numberstringresult.charAt(14)*1
+    + numberstringresult.charAt(15)*1
+    + numberstringresult.charAt(16)*1
+    + numberstringresult.charAt(17)*1
+    + numberstringresult.charAt(18)*1
+    + numberstringresult.charAt(19)*1
+    + numberstringresult.charAt(20)*1
+    + numberstringresult.charAt(21)*1
+    + numberstringresult.charAt(22)*1
+    + numberstringresult.charAt(23)*1
+    + numberstringresult.charAt(24)*1
+    + numberstringresult.charAt(25)*1
+    + numberstringresult.charAt(26)*1
+    + numberstringresult.charAt(27)*1
+    + numberstringresult.charAt(28)*1
+    + numberstringresult.charAt(29)*1
+    + numberstringresult.charAt(30)*1
+    + numberstringresult.charAt(31)*1;
+
+    return sumofnumbers;
+}
+
+function sumvalues(numberscountedresult) {
+    var addednumbers = numberscountedresult + '';
+    var addedtwice = addednumbers.charAt(0)*1 + addednumbers.charAt(1)*1 + addednumbers.charAt(2)*1;
+
+    var addedtwicestring = addedtwice + '';
+    var sumofcount = addedtwicestring.charAt(0)*1 + addedtwicestring.charAt(1)*1;
+
+    return sumofcount;
+}
+
+function descriptionlookup(namenumber) {
+    var descriptiontext;
+    var nameinputfield = document.getElementById('nameinputfield'); 
+    var nametyped = nameinputfield.value;
+    var transtext = nametyped.toUpperCase(); 
+    var numberstring = namevalue(transtext);
+
+    if (namenumber == 1) {descriptiontext = '(No description)';}
+    else if (namenumber == 2) {descriptiontext = '(No description)';}
+    else if (namenumber == 3) {descriptiontext = 'This name number denotes hard work, intelligence, success and a comfortable life. They will be highly educated and will gradually progress in life.';}
+    else if (namenumber == 4) {descriptiontext = 'As this name number will be only for very short names, it signifies a person or a thing that is popular. It does not bring luck as one might deserve. They will have needless fears, sickness and opposition. They can be quite well informed and worldly-wise, but still they would work only as subordinates to others.';}
+    else if (namenumber == 5) {descriptiontext = 'This number gives the power to charm people, exude dynamism, lead a luxurious life and to enjoy fame and prominence. They spend money lavishly. These people should cultivate perseverance and concentration of mind.';}
+    else if (namenumber == 6) {descriptiontext = 'This number signifies a peaceful life, a satisfied and contented mind and a good standard of living. Being a single digit, it does not have much power.';}
+    else if (namenumber == 7) {descriptiontext = 'This name number represents high principles and virtuous qualities, which may flourish with grace. Unexpected changes will take place. Efforts will not produce the desired results.';}
+    else if (namenumber == 8) {descriptiontext = 'This Name number gives you great success in spiritual life. They have no control over pleasures of the flesh. Success will be delayed. After a big struggle they will succeed. They will have to face unexpected dangers and difficult circumstances.';}
+    else if (namenumber == 9) {descriptiontext = 'If the name comes under this number, it signifies wisdom and capability. It also denotes travel, struggles against odd situations and victory in the end. When they finally succeed, they will have a long life of luxury.';}
+    else if (namenumber == 10) {descriptiontext = 'This number when comes as name indicates the sound or resonance of Kundalini Power rising from the primary source called Muladhara and going up to the Sahasraram and then coming back to its starting point. (This is depicted in the ancient texts as a snake enmeshed within a wheel). Those named under this number will be dignified and popular. Confidence and patience co-exist in their lives but their fortunes will change frequently. (Zero prefixed by one causes “SAKATA YOGAM”. It is like a revolving wheel, with usual ups and downs frequently). They must be honest in ail their activities because they are';}
+    else if (namenumber == 11) {descriptiontext = 'Those having 11 as their name number will come up in life by their sheer faith in God.  They will profit by various means very easily. They may be riddled with unforeseen problems and dangers, as if to test their faith. Sometimes, they tend to meddle with matters that do not concern them. They are liable to be let down by their family and friends. If they have faith in God, they will definitely attain great heights in life. If they lack faith, they are bounds to face a lot of dangers.';}
+    else if (namenumber == 12) {descriptiontext = 'These people naturally possess the ability to attract people by their power of speech. They sacrifice their lives for the welfare and happiness of others by shouldering their burdens too.';}
+    else if (namenumber == 13) {descriptiontext = 'People in the western countries regard this number as unlucky and ominous. They do not stay in rooms or houses having this number and some hotels even do not have rooms with this number. The ideal example of this number is SRIRAM, the great hero of the Hindu epic, Ramayana. The name SRI RAM adds up to number 13. Much against his wish he had to punish others. Unexpected events of sorrowful nature occur frequently. Men of this number have bitter experiences and face a lot of difficulties because of women. Though these people do manage to come up in life materially, they would still lead sad lives full of struggles. This is not a desirable name number. This number gives only severe grief.';}
+    else if (namenumber == 14) {descriptiontext = 'This number is suitable for trade. Those having this name number are always surrounded by a lot of people and things. They are successful in various trades and will meet a lot of people. They may have problems and disappointments by trusting others. They may face risk from thunder. lightning, water and fire. They undertake frequent travels. These people are advised to be careful while travelling in fast-moving vehicles. If the product in which they trade also comes under number 14, it will have excellent public support. The matters concerning love and marriage must be considered and reconsidered many times before a decision is taken. If not, these people may marry in haste and repent at leisure. This number can be called a very lucky number.';}
+    else if (namenumber == 15) {descriptiontext = 'The determination to success in all their plans and earn money and the quest for achieving their ends are signified by this number. Lust, revenge and malice may push the people of this Name number are a vile state of mind. They may become selfish gradually. A charming appearance and forceful speech will help them in achieving their interests. Though this name number is not one conducive to leading a virtuous life, it is one that is ideally suited for a purely materialistic one. An alluring personality, excellence in fine arts and a witty nature will yield positive results in any activity that can generate huge profits. Many people will come forward to help them in need. Life will be luxurious. If their birth number is also favorable, these people will attain fame, wealth and distinction in all aspects of life.';}
+    else if (namenumber == 16) {descriptiontext = 'This number signifies speedy progress and a sudden downfall. Ancient texts depict this number by a picture showing the shattering of a tall tower and a king with his crown falling from its top. This truth was proved when Japan (16) fell prey to the nuclear bombs. The Japanese Emperor was considered to be God-incarnate and his people would not even look at him from an elevated place. Unfortunately, the Americans bombed Japan stripping the Emperor of his status and the consequences are well known even today. If your name number is 16, it is better to change it to some other lucky number. This number induces new imaginative thoughts which will be reflected in the writings of the person.';}
+    else if (namenumber == 17) {descriptiontext = 'This Name number gives demonic qualities. Some ancient texts depict this number to be associated with Venus in whose house of ‘balance’ (Thula Rasi) Saturn is exalted as per Hindu Astrology. But, this only denotes the power of Saturn in its entirety. This name brings many problems and trials. However, they will persistently struggle without giving up. Failures will prompt them to struggle more actively. In the end they will be successful. This number will give permanent prosperity and great fame. These people risk their bodies and lives to attain their goals and so achieve enormous Prosperity. The world can never forget them. This number can give mystic powers.';}
+    else if (namenumber == 18) {descriptiontext = 'This name number, which signifies the decline of divinity, will bring in problems, procrastination in all matters, deviousness, and dangerous enemies. Their selfishness may induce them to indulge in antisocial activities. They follow evil ways consciously and become highly selfish. Life devoid of peace and rest will be the order of the day. This number signifies growth of personal desires at the cost of virtue. Desires will come to an end. Divine grace will get destroyed. (Hindu Epics record that Mahabharat war was';}
+    else if (namenumber == 19) {descriptiontext = 'Some Sanskrit works attribute “Mastery over the Three Worlds” to this Number (“Bhooh-Bhuvah-Suvah) and as such, these people will be the focus of attention wherever they are. This number indicates the RISING SUN. This also has been described as the “Prince of the celestial world‘‘ in ancient Indian texts and as an ‘ideal lover in Egyptian scriptures. The sun becomes brighter as the day lengthens and so also these people progress as their age advances. Position, status. happiness, success and wealth will be on a continuous rise. Being well- disciplined, they will have good life partners. They will look young and will be very active even in their advanced age. They must be honest even in matters concerned with sensual pleasures.';}
+    else if (namenumber == 20) {descriptiontext = 'This spiritual number represents a drumbeat heralding triumph or victory. People having this Name number work for liberation and social reforms. They are capable of providing relief to the masses from grief and struggles. The world will admire them. When they work with personal motives, they are extremely selfish and highly destructive. People with name number 20 will excel in medical practice using toxic medicines and deal with poisonous drugs. These people possess the ability to awaken the sleeping masses and lead them to very great achievements. When they go out of their way to satisfy their selfish needs, delay and utter failure will be imminent.';}
+    else if (namenumber == 21) {descriptiontext = 'These people are self-centered and concerned about their own happiness and matters profitable to them. With great determination, they arise steadily in life and reach the pinnacle of success. Their tactful behavior helps them to solve all their problems. They struggle hard in their early days but achieve success and happiness as they grow up. They will attain and retain good positions permanently in their lives.';}
+    else if (namenumber == 22) {descriptiontext = 'The characteristics of those born on the 22‘11 hold equally good for this Name number also. This number instigates base feelings and emotions. They are drawn towards gambling, drinking, speculation and other vices and will readily indulge in them. They may move towards self-destruction at a great speed and are generally surrounded by wicked and fraudulent people. They invariably earn a bad reputation. They dislike the counsel of others. If the influence of their date of birth is favorite, they can be successful. Otherwise, they must struggle to prevent total failure. Those with selfish motives invariably urge these people to devious ways in order to further their own interests. They are good administrators and can meet any problem or difficulty with courage. Dangers and dangerous circumstances are imminent. They often face humiliations.';}
+    else if (namenumber == 23) {descriptiontext = 'This number is the luckiest of all Mercury (5) numbers. These people find success in all their endeavors. All their plans will succeed. They can achieve things which others would not even dare to imagine. Their accomplishments will astonish those around them. Despite being such lucky people, if they do not strive hard, they would be enjoying luxuries that they are not worthy of. Since they succeed in all their efforts, they will earn the patronage, respect, honor and favor of people in very high positions. Hence, these people are advised to keep up high standards and work out plans to achieve their goals. If not, they might end up leading lives of luxury and pomp devoid of any personal accomplishment. They are the most-sought-after type executives in governments or in private enterprises.';}
+    else if (namenumber == 24) {descriptiontext = 'Those named under this number 24 will receive many favors from the government. This number helps them to reach very high positions in their careers easily. They will marry those who are much higher in status and wealth. If the name number comes under 24, these people can be found progressing very fast in uniformed services like the Defense, para-military forces and the Police. Even if they join at the lowest rank in any field, this number will help them to rise to very high position by sheer fortune.';}
+    else if (namenumber == 25) {descriptiontext = 'As this number gives good results in the end, it can be considered a good number. These people will undergo many trials in life. Every step in life will be filled with problems and difficulties. The victory gained over such problems, will give them self-confidence, spiritual growth and the support of those around them. They are worldly wise, known for clarity of thought and hence their actions will be well-planned. These people will establish ideals and standards for themselves and will adhere to them at all costs. Just as gold when cleansed of all impurities, becomes shiny and precious, the lives of these people will end with respect and honor after many trials. (Note the life of Mahatma Gandhi who used to sign as M.K.GANDHI).';}
+    else if (namenumber == 26) {descriptiontext = 'This number denotes poverty in old age and fruitless efforts. They undergo great losses due to friends and partners. Anything they do will end in failure and confusion, This number reduces one’s span of life and earns enemies who may even go to the extent of murdering them. These people, who at first begin their life with great principles, will later change their minds and end up only in pursuit of money and status. (Based on their general qualities of number 8 they will be a little more fortunate in their later years)';}
+    else if (namenumber == 27) {descriptiontext = 'This number signifies a clear mind and intelligence, unceasing hard work, accumulation of wealth, all round influence and positions of prominence and high rank. Especially in uniformed services like police, army, etc., they will rise very high in their ranks. This is as fortunate as number 24, which has been explained earlier in this book. They will be respected and treated as the best in their profession or service. They like to do social service and will be involved also in matters that would benefit them. This is a very fortunate number that brings spirituality and magical powers.';}
+    else if (namenumber == 28) {descriptiontext = 'This number denotes the influences contrary to the original text. Those with this Name number do progress and get all comforts at the initial stage of life but they will face struggles and difficulties in all their endeavors in life. They may have to start their lives again and again, always anew and afresh, many times over. Although they progress very fast in their lives, they finally lose everything due to the cruel stroke of fate. (Whenever I made such predictions about people coming under this number, my friends in the defense services would quote Mac Arthur and would ask if my predictions were reliable. My predictions were proved right, when American President Truman dismissed him suddenly). Those coming under this number will incur unexpected losses due to their friends and relatives. Money lent by them will rarely come back. As such. this number can only be regarded as an unlucky one, since all the hard-earned money may be lost unexpectedly.';}
+    else if (namenumber == 29) {descriptiontext = 'Those under this Name number often find it necessary to go to court to settle disputes. They will experience all sorts of problems in their families and will generally be let down by family and friends. Those who praised them yesterday may curse them today. These people live a life of mental agony and sorrow with their life partner. They get into deep troubles with the opposite sex. Any remedial measures taken to come out of these troubles may result in considerable delay and huge loss of money. The personal life will be full of ups and downs. Family life consists of events similar to the feats in a circus! Unless the name number is corrected properly, these people will encounter these problems forever.';}
+    else if (namenumber == 30) {descriptiontext = 'These people tend to live in a world of fantasy. They are wise thinkers. They like to do what they feel is right. They like to do what they feel is right. At times, just for their own satisfaction they get involved in certain difficult tasks, without expecting any returns. They have less interest in making money. They know their minds and conquer the same easily. They gain mystic powers through the control of their mind.';}
+    else if (namenumber == 31) {descriptiontext = 'These people do not care for profit or loss but want only the right to do what they will. Whatever may be the gain involved, they would not like to indulge in anything against their wish. They evince interest in astrology. philosophy and related sciences. These people do not care about what others do or say about them. They only wish to succeed and are never keen on the monetary benefits they gain from their successes. Having succeeded. they sometimes even forgo their due profits. By the 31. year they lose all their material possessions and savings. They regain them only by the age of 37. Unexpected happenings will bring about major changes in life. Even their death will be sudden and abrupt. However, when death draws nearer. they somehow become intuitive and sense it well in advance. If their birth number is 1 of any month, this number helps them to achieve great positions in their official career.';}
+    else if (namenumber == 32) {descriptiontext = 'This number can attract a variety of people. It can give them the favor of the masses. They come out with unique ideas and techniques even without prior experience. This potent and forceful number can make anyone a prominent person. If they lead their life according to their intuition, life will be wonderful. If they listen to the advice of others, failures may recur one after another. This number is said to be the epitome of wisdom and intuition. The story of King Vikramaditya is known to everyone. He had 32 steps to reach his throne. This was the reason for his intuition and his ability to talk humorously. They have above-average intelligence and a witty manner of speaking. They will become geniuses. Ups and downs will be common in their lives. They will attain high positions in life and will be youthful in appearance oven in old age.';}
+    else if (namenumber == 33) {descriptiontext = 'Ancient texts attribute this number to the Goddess of Wealth, Mahalakshmi or her male counterpart Kubera. This number signifies simultaneous growth in divine grace and prosperity. These people, surprisingly with or without their knowledge attain spiritual enlightenment. Along with divine grace, they are blessed with abundant wealth and properties like granaries, mills etc. They will have many luxurious things at their disposal. They may have everlasting wealth.';}
+    else if (namenumber == 34) {descriptiontext = 'In a way, this number can also be called lucky. This number will openly display the best qualities and capabilities of these persons in an attractive manner. This number improves their stature but cannot be considered as fortunate. If the birth number is also a favorable one, they can earn enormous wealth quite easily. If not, earning money itself will become a problem, there will be some problem in their family life. Most of the men will either be addicted to women or wine, their minds easily succumb to sensuous pleasures. This is the most fearful aspect of this number. (Be cautious about it)! Hence, they are advised to change this Name number to a more fortunate one.';}
+    else if (namenumber == 35) {descriptiontext = 'This number outwardly seems to be fortunate but the person will suffer losses because of friends and associates. These people will become very rich and popular but later lose all their money, Unexpected accidents may happen. This number helps in earning money through illegal means. Today‘s friends will become tomorrow‘s foes. They are very fickle minded. Expenses will mount. This number would create severe incurable pains in the stomach. (For those with heart problems, this Name number will be a curative factor). Those with this Name number must be very careful in their large business endeavors.';}
+    else if (namenumber == 36) {descriptiontext = 'This number can raise even poor people to an enviable status and make them live in mansions. Only once these people go away from their place of birth to distant regions do they attain success. They will travel extensively and occupy high positions. This number, though it appears very fortunate, will cause problems within the family. They may be surrounded by disloyal people.';}
+    else if (namenumber == 37) {descriptiontext = 'This is a very lucky number. It will lift even an ordinary person to the most prominent positions in life. It brings success in love and the patronage of the elite. These people will have good friends from both sexes. They will be greatly favored by men if they are women and vice versa. As a result, their lives will improve greatly. People will come forward to invest their capital with such people and accumulation of money and wealth will be easy through various moans. They will have an active interest in the fine arts and will, in all probability, lead comfortable and luxurious lives. They will be renowned for their pleasing grace, pleasant looks and attractive manner of speaking. As far as love affairs are concerned. they will be -jitters” because of their casual attitude towards opposite sex. This number. which gives unexpected success, is a desirable one. (Note: If people who occupy very high positions have their names under this number, it will bring them unnecessary problems. This number will bring good fortune to ordinary people. These people should remain satisfied when they attain a certain position in life and should not be ambitious. This number. will bring fortune automatically but will lose its power when one becomes too greedy.)';}
+    else if (namenumber == 38) {descriptiontext = 'The people under this name number will be honest, peace loving and gentle. When it is a name number of a person or a business, it will earn the help of the influential. This name number can bring great success. People under this number will make rapid development and earn fame and wealth even from very humble beginnings. At times, they will face a lot of dangers and get cheated by bad people, resulting in various difficulties. Even their deaths will be sudden, rather unexpected and unusual.';}
+    else if (namenumber == 39) {descriptiontext = 'These people are very sincere and hardworking. Invariably the name and fame that are rightfully due to them will be enjoyed by others. They work unceasingly for the welfare of others. They are not as healthy as the other Number 3 people and are prone to some kind of skin diseases or the other.';}
+    else if (namenumber == 40) {descriptiontext = 'Those under this number earn good friends, who will be of immense help to them in gaining jobs and positions of distinction. It provides accumulation of fine jewelry a. wealth. It also brings fame and prosperity. Yet it is their negative qualities that are noticed by others. They can perform any work without any fear. Eventually, their lives will turn out to be fruitless and in vain. They will lose all their money. They will blame the society for not recognizing their services or help. Lot of problems will come up in their lives and the end will be pathetic.';}
+    else if (namenumber == 41) {descriptiontext = 'This number denotes the qualities of charming and controlling. They are renowned achievers and they have high ideals. They are keen about their development and will be world- famous. When they become ‘heady‘ with success, they get into things or matters which are beyond their capability. The failures that could result from such situations will be cleverly hidden from the public view. They will lead successful lives.';}
+    else if (namenumber == 42) {descriptiontext = 'Those named under this number, even if they are poor at the beginning of their lives, will attain a very prominent rank or position in their careers. They will be greedy to some extent. They will have thrifty bent of mind and are smart in saving money. They hesitate to part with money even for their own comforts in life. Strength of mind and grace will flourish. If they are not selfish, certain diseases like diabetes, will get cured.';}
+    else if (namenumber == 43) {descriptiontext = 'This is a strange number. Their whole life will be revolutionary. Whatever profession in which they are involved, this number produces new enemies every minute. They have the tendency to resign from their jobs often. They will be constantly bringing out extreme ideas. They have extraordinary powers of imagination, speaking and writing as in the case of the other name numbers under 7. Their desires will be fulfilled at the end. This number, which is regarded as somewhat unlucky, indicates trials, great obstacles and revolutionary changes. They are sure to succeed in their ideals. (It is unlucky in the sense that they do not enjoy the luxuries, comforts of a peaceful life. Even their success will not yield them personal gains). Their shrewdness increases with age, but they will encounter more opposition than support for their capabilities and intelligence.';}
+    else if (namenumber == 44) {descriptiontext = 'This number helps in earning money easily. Industries involving many people, like cinema theatres, printing presses, coal and iron mining, painting, making of furniture and sports goods, and Organizing contests will earn them good income. Hiring out vehicles like buses, lorries and cars will also be rewarding. They can also run banks. One day everything will be closed down; only the owner will enjoy the profits in a proprietary concern. There is danger from fire and collapse of building. This number indicates that they may have to spend some time in prison. Their minds will go astray in bad ways. Their lives may be comfortable outside prison, but If they do not go to prison, disease will set in and make their lives miserable.';}
+    else if (namenumber == 45) {descriptiontext = 'This is a lucky Name number. Even those who struggle at. lower levels will be raised toa higher status and positions. They are good conversationalists and will be found in gatherings that Involve entertaining people. These hard-working people: will earn outstanding places in their career. They will achieve their goals at any-cost. People would wonder if their life was a big show. Even though they may have Nagging problems, they will retain their smile and will never allow anyone to know their problems, This number, Which assures a comfortable life, fame and wealth, is a desirable one. Diseases will also be cured.';}
+    else if (namenumber == 46) {descriptiontext = 'This has been described as the “crowned jewel” in the ancient texts. It means that when prudence, intelligence and knowledge is used wisely, it will bring the crown of life. Whatever may be the business, this number will help one to reach the pinnacle of success and can raise even the most ordinary person to the position of a ruler. Wealth and status will go up with the advancement of age. People belonging to this number should be honest in all walks of life.';}
+    else if (namenumber == 47) {descriptiontext = 'Those who come up very fast in life can be seen amongst the people having this name number. They will be very much concerned about their own progress and will work out plans to achieve the same and will not rest until they reach their goal. As far as money matters are concerned, they will be very lucky and can be considered very fortunate people. Many people in this number tend to lose their eyesight. Even the best treatment may be in vain and they suffer very much. For those who have the habit of hunting, it would be better for them to abstain from hunting and eating flesh of any kind.';}
+    else if (namenumber == 48) {descriptiontext = 'They will be more interested in religious matters. They face opposition in matters that Involve the society at large. They will do a lot of work for public welfare. These people create problems for themselves while attempting to do things beyond their capacity. Fate is against them most of the tirno.';}
+    else if (namenumber == 49) {descriptiontext = 'This name number brings abundant riches. Their fame will spread far and wide and their achievements will be the e, of others. They lead highly eventful lives a. travel a lot. Wonderful experiences, permanent prosperity, excellent properties and sudden fortunes will come to them. Accidents can also happen suddenly. If the birth number is a fortunate one, they lead happy lives. If not, they can end up being hated by others in the society and life will end in a tragic manner. This number kindles the power of imagination.';}
+    else if (namenumber == 50) {descriptiontext = 'They are very intelligent people and analyses everything thoroughly. They excel in education. Some people will shine as good teachers. Some others use their intelligence to make money. They are lucky after the age of 50. Their life span will improve, and they live longer.';}
+    else if (namenumber == 51) {descriptiontext = 'This is the most powerful of all numbers under six. It signifies sudden progress. Those who were just commoners yesterday will become popular and prominent overnight. Unusual circumstances will bring about an unexpected ascent in rank and status. Their body and mind will be bubbling with energy and become uncontrollable. They will be frequently lost in thought or will become emotionally active and put in untiring efforts in their work. These people who are active in body and mind cannot sleep peacefully. They become restless like a caged lion. To be precise, these people will be ruled by extra-ordinary energy or power of both body and mind. As there is a possibility of these people making enemies who could threaten their lives, it is advisable for them not to hurt others’ sentiments or feelings. This number is considered to be fortunate, as it signifies the accumulation of abundant wealth.';}
+    else if (namenumber == 52) {descriptiontext = 'This number also signifies some type of revolutionary qualities. If the birth number is favorable it could bring world renown. They can offer a solution to any problem and can charm many. If they are in the spiritual path, they can attain great powers and immense popularity. All their desires will be fulfilled. They can bring about a new era in the lives of others. (This power can also be found in number 25 to a certain extent). Their end will come abruptly, leaving their work unaccomplished. Although their personal! life will be fraught with problems, they are sure to be famous and favored by all.';}
+    else if (namenumber == 53) {descriptiontext = 'They experience success and failure in the beginning of life itself. As they grow older, their lives will become steadier and they will become well known. Though these people are intelligent, they are bound to get into problems beyond their control. These people who can convert failure into success, will perform good deeds and earn prestige and popularity. (This is an unstable number. Only if the birth number is favorable, will it bring desirable effects). They will be lucky in their old age.';}
+    else if (namenumber == 54) {descriptiontext = 'This number will give success step by slop. Failures can also happen. They may begin their lives with prestige, reputation and prosperity. Stubbornness and thoughtless decisions will make them lose their name and fame. Greed is their worst enemy that could make them lose all their wealth if they are not careful. In the fag end of their lives, they may achieve success. Their life will be without freedom and they will be under the control of others.';}
+    else if (namenumber == 55) {descriptiontext = 'This number predicts that both creation and destruction can be done by a single power. Indian Mantra Sastra books say that this will bring victory over enemies. Before entering the battle- field. Greek soldiers were ordered to wear a talisman marked with number 55 around their necks. This number is the epitome of will power and intuitive knowledge. People under this number will astonish others by their knowledge and win them over. They are acknowledged as scholars. Wisdom will develop. Intelligence will be as bright as lightning. If not used in the proper way, this may destroy them. Vast knowledge will be acquired by them.';}
+    else if (namenumber == 56) {descriptiontext = 'This number is full of wonders. Though this number tends to bring fortune and fame, it is the one that is used by those practicing various forms of occultism and divination. This number can free a person from all ties and can break bondage of any kind. Locks would open. Even the animals inside the cage would find their way out. As too much of an explanation would be dangerous, I do not wish to pursue this subject any further. (The number 29 represents powers of the body and mind while the number 56 gives magical powers). These people may experience a sudden loss of wealth and fame.';}
+    else if (namenumber == 57) {descriptiontext = 'This number gives victory or success in the beginning, but brings about gradual downfall and loss of interest in the end. Life which progresses at a very swift pace will grind to a halt all of a sudden. People named under this number will achieve great heights from humble beginnings but will later revert to their original positions.';}
+    else if (namenumber == 58) {descriptiontext = 'This number gives outstanding popularity and the power to captivate others. They are great achievers. Life‘s progress will be swift. They are pious, orthodox. great reformers, and are more attached to religion. If their birth number is 4 or 8 of any month they will hold positions of great responsibility a. fame. They may be sometimes forced to carry out certain things against their wishes. Outwardly these people appear to be very lucky but they also have a lot of unwanted fears within. If the names of those born under other birth numbers also come under this number, life will slowly take a turn for the worse and they will lose their reputation. They may become selfish and may have to undergo a lot of difficulties during their lifetime.';}
+    else if (namenumber == 59) {descriptiontext = 'Similar to persons belonging to number 50, these people are also research-minded. Their writings are full of humor and they would shine as Humor Kings“ among writers. They would become rich by writing and get excellent public support. Their aim will be to earn money. They will enjoy permanent fortunes. They may suffer from nervous diseases including paralysis. Hence, it is necessary for them to have good habits and keep themselves healthy.';}
+    else if (namenumber == 60) {descriptiontext = 'This number signifies peace, prosperity, appreciation of fine arts, a balanced state of mind and wisdom. They are skilled conversationalists who can put forth very logical arguments. Their family life will be happy and idealistic. This is quite a fortunate number.';}
+    else if (namenumber == 61) {descriptiontext = 'These people will quit a comfortable life and try new avenues according to their wishes. Successes and failures come in cycles. If they can take care of their health, their later years can be quite fruitful helping them win prestigious posts. Though they may seem to be leading happy lives, in reality, they will be unhappy in their family lives. They spend much time in making new efforts and will achieve victory. They will earn great fame.';}
+    else if (namenumber == 62) {descriptiontext = 'Generally it will give great fame, victories and a comfortable life. At times, great dangers and failures alternatively affect them. It could bring about serious enmity. It also causes misunderstanding among relatives. Family life will not be pleasant. Intellectual faculties will improve. These people can charm everyone easily. Those under this Name number sometimes can charm enemies too!';}
+    else if (namenumber == 63) {descriptiontext = 'This is also a lucky number. However, if this comes as a Name number, it will lead one into wrong ways. The ancient texts describe this number as one related to thieves; so the less said, the better!';}
+    else if (namenumber == 64) {descriptiontext = 'This number will create qual number of friends and foes. Opposition will be experienced in life. This gives extraordinary willpower, intelligence and knowledge. This will fetch fame by enabling them to do things that are considered impossible. This ensures high positions in the government. At times, this will give such a high position that everything will pay respect and hold these people in high esteem and awe. Their word words would cast a powerful influence.';}
+    else if (namenumber == 65) {descriptiontext = 'This number denotes divine grace and progress in spiritual life. It will earn the help of wealthy and powerful patrons. Marital life will be blissful. Persons under this name number may sometimes be injured in accidents and may have cuts or bruises on their bodies.';}
+    else if (namenumber == 66) {descriptiontext = 'This number denotes dynamism and oratorical skills, perfection in the fine arts, patronage from the government authorities and also a comfortable life.';}
+    else if (namenumber == 67) {descriptiontext = 'These people are exemplary artists (they may be artistes who perform) and work with great determination and vigor. They are patronized by power barons a. they reveal noble ideas. Men should control their passions and lust for women. Love, affection and grace make these people endearing. They can never achieve anything if they are selfish. This number, which helps to attract and conquer others, does not help non-artists.';}
+    else if (namenumber == 68) {descriptiontext = 'This number is lucky to a certain extent. However, life that starts quite pleasantly can suddenly grind to a halt. They will get involved in schemes that they cannot achieve and will be badly hurt. Their greed alone will spoil their career and life. The fortunes that came by an unforeseen stroke of luck may soon disappear. Hence, this number is not quite fortunate.';}
+    else if (namenumber == 69) {descriptiontext = 'The person named under this number will be like an uncrowned king, in any business they are involved in. They overtake others and retain their position safely by their own efforts. They are majestic in appearance, very prosperous and will achieve awe-inspiring status. Being emotional by nature, they are known to spend money lavishly for their self-satisfaction. They possess royal qualities and will lead extremely comfortable and luxurious lives. They are incomparable when it comes to charming others with their tact and speech.';}
+    else if (namenumber == 70) {descriptiontext = 'People represented by this number are of extreme nature. Their comfortable life gets disturbed by circumstances. There are frequent disappointments, failures and problems. But the later years will be fruitful, successful and filled with blessings. This number does not possess much power. If the destiny number is favorable, these people will be happy during their final years. If not, their problems may drown them in misery.';}
+    else if (namenumber == 71) {descriptiontext = 'This number which brings about obstacles initially, will later shower prosperity. They will be good counsellors to others because of their intelligence. This number may be considered fortunate.';}
+    else if (namenumber == 72) {descriptiontext = 'This is the best of all numbers under 9. Although these people struggle in their early years, they later enjoy life with all comforts. A mind devoid of doubt will be filled with joy. The wealth acquired by these people will remain intact in their family for many future generations. Money keeps on coming continuously, without fail. (Businessmen should take note of this advantageous number). It will also bring repute. This number signifies permanent wealth.';}
+    else if (namenumber == 73) {descriptiontext = 'This number strengthen mental faculties and bestows fame, wealth and power. People having this number will aspire to lead comfortable lives and will accomplish their desires without anybody’s knowledge. Suppose of the people in authority will be obtained and material possessions will be in plenty. If they are not honest, they will lose their fame. If they are the spiritual type, they will lead a peaceful and aristocratic life with pure hearts and noble thoughts.';}
+    else if (namenumber == 74) {descriptiontext = 'These people have great affinity towards their religion. They run short of money often. They will introduce social and religious reforms and spread their principles. However, this is not a desirable number. This name number is best suited only for hermits and priests and is not favorable to others. These people always remain worried about something or the other.';}
+    else if (namenumber == 75) {descriptiontext = 'All of a sudden they attain great fame. They will make good friends very soon. Unexpectedly, they become very popular. Fame and comforts will come in search of them. They become good poets and writers.';}
+    else if (namenumber == 76) {descriptiontext = 'Those having this name number lose all their worldly possessions at some point of time. They are very popular. They will be successful in philanthropic deeds. Surprisingly. they make money in new ways. Income comes through unexpected ways and they will be blessed. This grace will be utilized to get material gains. Their last years are generally spent in solitude, doing nothing but eating and sleeping.';}
+    else if (namenumber == 77) {descriptiontext = 'This number denotes sincere effort, self. confidence and hard work. Support from others brings in profits, fame and honor. Life will be very enchanting. They reap full benefits of this number only if they repose faith in God. They get chances to travel abroad.';}
+    else if (namenumber == 78) {descriptiontext = 'They are the most righteous type among all number 6 people. They have a great leaning towards their religion and orthodox beliefs. They can become good poets and can bring their listeners-under their spell. They are very generous and are fond of social service. They can earn or inherit large sums of money very easily. But, if they are not careful, they could lose all their possessions except the Divine grace. They attain success in practice of mantras and will be respected by one and all in society.';}
+    else if (namenumber == 79) {descriptiontext = 'People of this number tend to suffer very badly in the beginning of their lives with many difficulties. Later, these people will rise up quickly by their cleverness and sheer willpower. They will settle down very comfortably and will succeed in their endeavors. They will have popular support, a comfortable life and will achieve enduring success. They become very fortunate with the passage of time and also become great personalities.';}
+    else if (namenumber == 80) {descriptiontext = 'This number has strange mystic powers, but may lead to grave dangers if the date of birth is not favorable. Research in theology will be successful. Nature will change its course and help them. Though their fives are full of dangers and anxieties, they will be comfortable. Miracles will happen. It is a fortunate number.';}
+    else if (namenumber == 81) {descriptiontext = 'This number signifies a fortunate life. This will give development, good position and wealth. If these people are not careful, their luck could change for the worse. They will have opportunities to become teachers.';}
+    else if (namenumber == 82) {descriptiontext = 'This is the most powerful number and it can even elevate an ordinary person to the status of a ruler. Those having this number in their names, duty-conscious, who, with unceasing efforts, will dominate and rule like Lord Indra. They own lands, gold mines and precious stones. They are lovers of high-bred horses and will attain the pinnacles of fame. They create unnecessary problems in their love matters and will be excessively adamant in nature. Their eyes have magnetic powers. If the power of this number is properly understood and practiced, the yogic art of floating and walking on water can be mastered.';}
+    else if (namenumber == 83) {descriptiontext = 'This name number bestows prestigious posts, which will earn the respect and adoration of many. They will achieve a life of splendor and authority. These people will be successful.';}
+    else if (namenumber == 84) {descriptiontext = 'Early days will be full of struggles and worries. They earn enemies unnecessarily. Travelling benefits them. They do not get rewards commensurate to their efforts. They improve themselves to some extent spiritually. Though generally lacking in enthusiasm at first, they can go to extremes, if need be! If the influence of their birth date is favorable, they can be great achievers.';}
+    else if (namenumber == 85) {descriptiontext = 'This name number signifies those who come up the hard way. They not only overcome all afflictions but help in solving other‘s problems too. They reveal new ideas about religion and nature. They shine well in the field of medicine. They generally attain a position of distinction and honor.';}
+    else if (namenumber == 86) {descriptiontext = 'This number denotes those who come up in a gradual manner and the hard way. They get what they deserve. They earn the favor and help of rich people. With the help so received, they will lead comfortable and happy lives. They will have good savings and lead happy lives.';}
+    else if (namenumber == 87) {descriptiontext = 'This number can give mystic powers. Money will be earned by devious and illegal moans. In case of a “negative swing”, this number make people steal at midnight and helps them to charm snakes and control animals. If birth and destiny numbers are not positive, this number can be related to criminals and other bad elements. So, the less we discuss, the better.';}
+    else if (namenumber == 88) {descriptiontext = 'This number gives spiritual progress. They are generous and compassionate. They are affectionate to all creatures and will become popular.';}
+    else if (namenumber == 89) {descriptiontext = 'This number, which also signifies benefits, brings problems initially. They have a helping tendency and they will acquire great riches like land, houses and jewelry. Women are attracted to them easily. Society will respect the women of this Name number. They have a combination of beauty and wealth. They lead fearless lives with the help of their great power of speech and action. Initially, tire accidents may occur in their lives.';}
+    else if (namenumber == 90) {descriptiontext = 'As this number derives its full power from number 9, its people will go to any extent to get their desires fulfilled. Victory will be certain. They will become very wealthy and famous. For those who are interested in spiritual pursuits this number is not desirable.';}
+    else if (namenumber == 91) {descriptiontext = 'This indicates strong determination and frequent journeys. They will undertake many journeys and will do all things with great vigor. Maritime trade using boats and ships will bring them plenty of wealth. They attain success in breathing exercises like Pranayama. Comfortable living awaits them.';}
+    else if (namenumber == 92) {descriptiontext = 'This name number signifies gold, silver, land, wealth and possession of yogic power. If people having this name number can carefully practice the art of yogic breathing, they may even acquire the power of Astral projection or Kechari Mudra (defying diseases and death)';}
+    else if (namenumber == 93) {descriptiontext = 'These people are capable of doing marvelous things. They improve their worldly knowledge and are lucky to have their desires fulfilled. They excel in the field of histrionics through which they attain more fame. They earn through many business pursuits and lead very dignified lives.';}
+    else if (namenumber == 94) {descriptiontext = 'These people execute lots of good services for the sake of mankind in general. They bring reforms in society. Comfort and fame will come and go in their lives. Their fame and good work will generally be remembered even after their demise. This is a fortunate name number.';}
+    else if (namenumber == 95) {descriptiontext = 'This number signifies a disciplined life combined with daring events and honor. They are successful in trade and achieve distinction. By trading in a variety of new things, they amass wealth. They are excellent orators and will become popular in their line of business.';}
+    else if (namenumber == 96) {descriptiontext = 'This can give a combination of prosperity and higher education. All desires will be. fulfilled. They can excel in the fine arts easily. Women. will be charmed easily by these people. This is a fortunate number.';}
+    else if (namenumber == 97) {descriptiontext = 'This number gives proficiency in the scriptures and fine arts. It also gives eminence in a spiritual career. They will be successful in all their efforts and will be prosperous with astounding achievements to their credit.';}
+    else if (namenumber == 98) {descriptiontext = 'Like the people under Number 71, these people are also intelligent. But their lives are filled with worries and desires. Though they are intelligent, they may not benefit from that quality. Difficulties and chronic diseases may affect them.';}
+    else if (namenumber == 99) {descriptiontext = 'This Name number will lure its native to devious ways. Success will come along with enmity. This number signifies being attacked by enemies, and hence it is not a good number. (However they will be blessed with education, wealth and prosperity).';}
+    else if (namenumber == 100) {descriptiontext = 'Even though this number can give success in all efforts, it will not offer many opportunities. There will be plenty of money. This number implies a long and comfortable life, without any major achievements.';}
+    else if (namenumber == 101) {descriptiontext = 'Those under this name number will have greater help from governments or the people of authority (than from their own efforts). There will be lots of obstacles in their business. Slumps in business will be common. This cannot be considered a lucky number.';}
+    else if (namenumber == 102) {descriptiontext = 'This number signifies success at first, followed by struggles and confusion. These people cannot be called lucky.';}
+    else if (namenumber == 103) {descriptiontext = 'This Name number is also favorable. There will be improvement in material prosperity initially, followed by a change in business. They will face a lot of competition. Later years will be pleasant and comfortable.';}
+    else if (namenumber == 104) {descriptiontext = 'This number will bring an upward spurt in life followed by unexpected changes. Though they can be good achievers, they can only earn fame and not money.';}
+    else if (namenumber == 105) {descriptiontext = 'This number can give fortunes, satisfactory environment, great fame and accumulation of wealth. It will beget good progeny.';}
+    else if (namenumber == 106) {descriptiontext = 'There will be marked changes in life. They will experience many problems during their middle age. Their later years will be comfortable. They get into deep troubles that cannot be solved easily. This number is not a lucky one. Greed for worldly things will supersede the interest in seeking divine grace.';}
+    else if (namenumber == 107) {descriptiontext = 'This number will bring fame and success. If they are men, they will have problems due to women and if they are women, it will be from men. Even if they attain wealth, life will not be comfortable. However, they will be famous and influential.';}
+    else if (namenumber == 108) {descriptiontext = 'This number can give high positions and success. Everything will happen according to their desire. As this number induces its people to make good efforts resulting in success, it is a very lucky number.';}
+    else {descriptiontext = 'asdf';};
+
+    var transtext = nametyped.toUpperCase();
+    var numberstring = namevalue(transtext);
+    var numberstringescaped = escapestring(numberstring);
+    
+    var descriptionconcatenate = '<span class="monospace">' + transtext + '<BR>' + numberstringescaped + '&nbsp;&nbsp;=&nbsp;&nbsp;' + namenumber + '</span><BR><BR>Name No. ' + namenumber + '<BR><BR>' + descriptiontext;
+    
+    return descriptionconcatenate;;
+}
+
+function escapestring(numberstring) {
+    var numberstringescaped = numberstring;
+    for (i = 0; i < 100; i++) {
+        numberstringescaped = numberstringescaped.replace('0','&nbsp;');
+    };
+    return numberstringescaped;
+}
+
+function checkdigit() {
+    var summedbox = document.getElementById('summedbox');
+    var countedbox = document.getElementById('countedbox');
+    var planetbox = document.getElementById('planetbox');
+    var descriptionbox = document.getElementById('descriptionbox');
+    var nameinputfield = document.getElementById('nameinputfield');
+    var nametyped = nameinputfield.value;
+    var transtext = nametyped.toUpperCase();
+    var numberstring = namevalue(transtext);
+    var numberscounted = addvalues(numberstring);
+    var numberssummed = sumvalues(numberscounted);
+    var descriptionshown = descriptionlookup(numberscounted);
+
+    if (transtext.length == 0) {
+        summedbox.innerHTML = '';
+        summedbox.parentNode.className = 'tablesum';
+        countedbox.innerHTML = ''
+        planetbox.innerHTML = ''; 
+        descriptionbox.innerHTML = '';
+    };
+
+    if (transtext.length >= 1) {
+        summedbox.innerHTML = numberssummed;
+        countedbox.innerHTML = numberscounted;
+        if (numberssummed == 1) {
+            planetbox.innerHTML = 'Sun';
+            summedbox.parentNode.className = 'colorone';
+        };
+        if (numberssummed == 2) {
+            planetbox.innerHTML ='Moon'; 
+            summedbox.parentNode.className = 'colortwo';
+        };
+        if (numberssummed == 3) {
+            planetbox.innerHTML = 'Jupiter'; 
+            summedbox.parentNode.className = 'colorthree';
+        };
+        if (numberssummed == 4) {
+            planetbox.innerHTML ='Uranus';
+            summedbox.parentNode.className = 'colorfour';
+        };
+        if (numberssummed == 5) {
+            planetbox.innerHTML ='Mercury;'
+            summedbox.parentNode.className = 'colorfive'
+        };
+        if (numberssummed == 6) {
+            planetbox.innerHTML = 'Venus';
+            summedbox.parentNode.className = 'colorsix';
+        };
+        if (numberssummed == 7) {
+            planetbox.innerHTML = 'Neptune'; 
+            summedbox.parentNode.className = 'colorseven'
+        };
+        if (numberssummed == 8) {
+            planetbox.innerHTML = 'Saturn'; 
+            summedbox.parentNode.className = 'coloreight'
+        };
+        if (numberssummed == 9) {
+            planetbox.innerHTML	= 'Mars';
+            summedbox.parentNode.className = 'colornine'
+        };
+        descriptionbox.innerHTML = descriptionshown;
+    };
+}
+
+function clearall() {
+    document.forms.inputstuff.nameinputone.value = ''; 
+    document.forms.inputstuff.nameinputone.focus(); 
+    checkdigit();
+};
+
+function shownamezz(clickvalue) { 
+    document.forms.inputstuff.nameinputone.value = clickvalue;
+    checkdigit(); 
+    document.forms.inputstuff.nameinputone.focus();
+};
+
+
+function savename() {
+    var nameinputfield = document.getElementById('nameinputfield'); 
+    var nametyped = nameinputfield.value;
+    var transtext = nametyped.toUpperCase();
+    var numberstring = namevalue(transtext);
+    var numberscounted = addvalues(numberstring);
+    var numberssummed = sumvalues(numberscounted); 
+    var descriptionshown = descriptionlookup(numberscounted);
+
+    var savebox = document.getElementById('savednames');
+
+    var newanchor = document.createElement('a');
+    newanchor.setAttribute('href','javascript:shownamezz("' + nametyped + '");');
+    newanchor.className = 'savednameanchor';
+
+    var newtable = document.createElement('table');
+    newtable.className = 'savednametable';
+    newtable.setAttribute('cellspacing', '0');
+    newtable.setAttribute('onClick', 'shownamezz("' + nametyped + '");');
+    var newtr = document.createElement('tr');
+
+    if (numberssummed == 1) {newtr.className = 'rowcolorone';};
+    if (numberssummed == 2) {newtr.className = 'rowcolortwo';};
+    if (numberssummed == 3) {newtr.className = 'rowcolorthree';};
+    if (numberssummed == 4) {newtr.className = 'rowcolorfour';};
+    if (numberssummed == 5) {newtr.className = 'rowcolorfive';};
+    if (numberssummed == 6) {newtr.className = 'rowcolorsix';};
+    if (numberssummed == 7) {newtr.className = 'rowcolorseven';};
+    if (numberssummed == 8) {newtr.className = 'rowcoloreight';};
+    if (numberssummed == 9) {newtr.className = 'rowcolornine';};
+
+    var newtdone = document.createElement('td');
+    newtdone.className = 'tableinput';
+    var newtdtwo = document.createElement('td');
+    newtdtwo.className = 'tablecount';
+    var newtdthree = document.createElement('td');
+    if (numberssummed == 1) {newtdthree.className = 'colorone';};
+    if (numberssummed == 2) {newtdthree.className = 'colortwo';};
+    if (numberssummed == 3) {newtdthree.className = 'colorthree';};
+    if (numberssummed == 4) {newtdthree.className = 'colorfour';};
+    if (numberssummed == 5) {newtdthree.className = 'colorfive';};
+    if (numberssummed == 6) {newtdthree.className = 'colorsix';};
+    if (numberssummed == 7) {newtdthree.className = 'colorseven';};
+    if (numberssummed == 8) {newtdthree.className = 'coloreight';};
+    if (numberssummed == 9) {newtdthree.className = 'colornine';};
+
+    var newtextone = document.createTextNode(transtext); 
+    var newtexttwo = document.createTextNode(numberscounted);
+    var newtextthree = document.createTextNode(numberssummed);
+
+    newtdone.appendChild(newtextone);
+    newtdtwo.appendChild(newtexttwo);
+    newtdthree.appendChild(newtextthree);
+
+    newtr.appendChild(newtdone);
+    newtr.appendChild(newtdtwo);
+    newtr.appendChild(newtdthree);
+
+    newtable.appendChild(newtr);
+
+    newanchor.appendChild(newtable);
+
+    if (numberssummed >= 1) {
+        savebox.appendChild(newanchor);
+    } else {
+        clearall();
+    };
+    clearall();
+};
+
+function deleteallnames() {
+    var savebox = document.getElementById('savednames');
+    savebox.innerHTML = '<BR><center><a href="javascript:deleteallnames()" style="cursor: pointer; text-decoration: none;" class="clearbutton" onClick="deleteallnames();">Clear List</a></center><BR>';
+    clearall();
+};
+
+</script>
+</head>
+<body onLoad="clearall();">
+
+<div id="headerbox">
+    Name Number Calculator
+</div>
+<div id="box">
+    <table class="inputtable">
+        <tr>
+            <td class="tableinput">
+                <form id="nameform" action="javascript:savename();" name="inputstuff" style="margin-bottom: 0px;">
+                    <input style="text-transform: uppercase;" id="nameinputfield" type="text" AutoCompleteType="Disabled" autocomplete="off" name="nameinputone" class="nameinput" maxlength="31" onKeydown="checkdigit();" onKeyup="checkdigit();" />
+                </form>
+            </td>
+            <td class="tablecount"> 
+                <div id="countedbox">
+                </div>
+            </td>
+            <td class="tablesum">
+                <div id="summedbox" class="summedbox">
+                </div>
+            </td>
+            <td class="tableplanet">
+                <div id="planetbox">
+                    Planet
+                </div>
+            </td>
+        </tr>
+    </table>
+    <BR>
+    <div id="descriptionbox" class="descriptions">
+        Click Allow blocked content below to begin.
+    </div>
+    <BR><BR><BR>
+    <a style="cursor: pointer; text-decoration: none;" class="button" onClick="savename();">
+        Pin to Panel
+    </a>
+    <BR>
+</div>
+<BR>
+<center>
+    <div class="copy">
+        &copy; Eric Suzuki
+    </div>
+</center>
+
+
+<div id="savednames" class="savednamesbox">
+    <BR>
+    <center>
+        <a href="javascript:deleteallnames()" style="cursor: pointer; text-decoration: none;" class="clearbutton" onClick="deleteallnames();">
+            Clear List
+        </a>
+    </center>
+    <BR>
+</div>
+
+
+<div class="lettertablebox">
+    <div style="padding: 15px;">
+        <center>
+            The Chaldean System<BR>
+            of Numerology
+        </center>
+        <BR>
+        <table class="lettertable" cellspacing="0">
+            <tr><td class="numbercell">l</td><td>A</td><td>I</td><td>J</td><td>Q</td><td>Y</td></tr>
+            <tr><td class="numbercell">2</td><td>B</td><td>K</td><td>R</td><td> </td><td> </td></tr>
+            <tr><td class="numbercell">3</td><td>C</td><td>G</td><td>L</td><td>S</td><td> </td></tr>
+            <tr><td class="numbercell">5</td><td>E</td><td>H</td><td>N</td><td>X</td><td> </td></tr>
+            <tr><td class="numbercell">6</td><td>U</td><td>V</td><td>W</td><td> </td><td> </td></tr>
+            <tr><td class="numbercell">7</td><td>O</td><td>Z</td><td> </td><td> </td><td> </td></tr>
+            <tr><td class="numbercell">8</td><td>F</td><td>P</td><td> </td><td> </td><td> </td></tr>
+            <tr><td class="numbercell">9</td><td>-</td><td> </td><td> </td><td> </td><td> </td></tr>
+        </table>
+        <BR><BR>
+        Name descriptions are taken from the book Pandit Sethuraman's Science of Fortune
+    </div>
+</div>
+
+
+
+</body>
+</html>
