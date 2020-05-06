@@ -19,7 +19,6 @@ function Hexagram(props) {
       drawlineAdvanced(stringlinethree) +
       drawlineAdvanced(stringlinetwo) +
       drawlineAdvanced(stringlineone);
-    console.log("getAdvancedHexapic = " + advancedpic);
     return advancedpic;
   }
 

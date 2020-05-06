@@ -19,7 +19,6 @@ function Hexachange(props) {
       drawlineAdvancedChanged(stringlinethree) +
       drawlineAdvancedChanged(stringlinetwo) +
       drawlineAdvancedChanged(stringlineone);
-    console.log("getAdvancedHexapicChanged = " + advancedpic);
     return advancedpic;
   }
 
