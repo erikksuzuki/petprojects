@@ -8,6 +8,9 @@ import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/sty
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Switch from "@material-ui/core/Switch";
+import Box from "@material-ui/core/Box";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
@@ -30,6 +33,11 @@ function App() {
       fontSize: 12,
     },
     button: {
+      marginBottom: 10,
+    },
+    switch: {
+      fontSize: 12,
+      color: "#666",
       marginBottom: 10,
     },
   }));
@@ -92,13 +100,15 @@ function App() {
   }
 
   const [stringstate, setStringstate] = useState("VVVVVV");
+  const [readingstate, setReadingstate] = useState(false);
 
   var timesrun = 0;
   function resettimer() {
     timesrun = 0;
+    var randomtime = Math.floor(Math.random() * 20) + 10;
     const interval = setInterval(() => {
       timesrun += 1;
-      if (timesrun < 30) {
+      if (timesrun < randomtime) {
         setStringstate(getRandomHexagram());
       } else {
         clearInterval(interval);
@@ -106,11 +116,26 @@ function App() {
     }, 100);
   }
 
+  const [checked, setChecked] = useState(false);
+
+  const toggleChecked = () => {
+    setChecked((prev) => !prev);
+    setReadingstate((prev) => !prev);
+  };
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="sm" className="tablecontainer">
+          <Box display="flex" justifyContent="flex-end">
+            <FormControlLabel
+              className={classes.switch}
+              control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
+              label="Show all changing lines"
+              labelPlacement="start"
+            />
+          </Box>
           <Button
             className={classes.button}
             fullWidth="true"
@@ -138,7 +163,7 @@ function App() {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Descriptions string={stringstate} readingtype="lastyin" />
+                <Descriptions string={stringstate} readingtype={readingstate} />
               </Paper>
             </Grid>
           </Grid>

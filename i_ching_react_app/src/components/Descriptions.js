@@ -40,20 +40,20 @@ function Descriptions(props) {
     pickedline = linearray[hexastringprop.lastIndexOf("B")];
     pickedlinenumber =
       hexastringprop.lastIndexOf("B") + 1 == 6
-        ? "Changing Line Top"
+        ? "Top Changing Line"
         : "Changing Line " + (hexastringprop.lastIndexOf("B") + 1);
   } else if (hexastringprop.includes("W")) {
     pickedline = linearray[hexastringprop.lastIndexOf("W")];
     pickedlinenumber =
       hexastringprop.lastIndexOf("W") + 1 == 6
-        ? "Changing Line Top"
+        ? "Top Changing Line"
         : "Changing Line " + (hexastringprop.lastIndexOf("W") + 1);
   } else {
     pickedline = null;
     pickedlinenumber = null;
   }
 
-  if (readingtype == "lastyin") {
+  if (readingtype == false) {
     return (
       <div>
         <h3>
@@ -88,7 +88,7 @@ function Descriptions(props) {
           <p>{ReactHtmlParser(hexadescription)}</p>
           <div>
             {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line Top</div>')
+              ? ReactHtmlParser('<div class="lineheader">Top Changing Line</div>')
               : null}
           </div>
           <p>
