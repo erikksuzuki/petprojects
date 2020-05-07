@@ -24,17 +24,17 @@ function Hexachange(props) {
 
   function drawlineAdvancedChanged(letter) {
     var vector;
-    if (letter == "B") {
+    if (letter === "B") {
       vector = '<div class="advancedline"></div>';
     }
-    if (letter == "V") {
+    if (letter === "V") {
       vector = '<div class="advancedline"></div>';
     }
-    if (letter == "P") {
+    if (letter === "P") {
       vector =
         '<div class="advancedlineyin"><div class="yinleft"></div><div class="yinright"></div></div>';
     }
-    if (letter == "W") {
+    if (letter === "W") {
       vector =
         '<div class="advancedlineyin"><div class="yinleft"></div><div class="yinright"></div></div>';
     }

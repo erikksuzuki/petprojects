@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 
@@ -36,16 +36,13 @@ function App() {
       marginBottom: 10,
     },
   }));
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const theme = React.useMemo(
-    () =>
-      createMuiTheme({
-        palette: {
-          type: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
-  );
+
+  const theme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
   const classes = useStyles();
 
   function getRandomHexagram() {
@@ -66,16 +63,16 @@ function App() {
     }
     function drawline(coinvalue) {
       var line;
-      if (coinvalue == 6) {
+      if (coinvalue === 6) {
         line = "B";
       }
-      if (coinvalue == 7) {
+      if (coinvalue === 7) {
         line = "V";
       }
-      if (coinvalue == 8) {
+      if (coinvalue === 8) {
         line = "P";
       }
-      if (coinvalue == 9) {
+      if (coinvalue === 9) {
         line = "W";
       }
       return line;
@@ -162,7 +159,7 @@ function App() {
                 <Descriptions string={stringstate} readingtype={readingstate} />
                 <br />
                 <br />
-                Version 0.5
+                Version 0.5 - by Eric Suzuki
               </Paper>
             </Grid>
           </Grid>

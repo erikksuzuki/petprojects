@@ -39,13 +39,13 @@ function Descriptions(props) {
   if (hexastringprop.includes("B")) {
     pickedline = linearray[hexastringprop.lastIndexOf("B")];
     pickedlinenumber =
-      hexastringprop.lastIndexOf("B") + 1 == 6
+      hexastringprop.lastIndexOf("B") + 1 === 6
         ? "Top Changing Line"
         : "Changing Line " + (hexastringprop.lastIndexOf("B") + 1);
   } else if (hexastringprop.includes("W")) {
     pickedline = linearray[hexastringprop.lastIndexOf("W")];
     pickedlinenumber =
-      hexastringprop.lastIndexOf("W") + 1 == 6
+      hexastringprop.lastIndexOf("W") + 1 === 6
         ? "Top Changing Line"
         : "Changing Line " + (hexastringprop.lastIndexOf("W") + 1);
   } else {
@@ -53,7 +53,7 @@ function Descriptions(props) {
     pickedlinenumber = null;
   }
 
-  if (readingtype == false) {
+  if (readingtype === false) {
     return (
       <div>
         <h3>
