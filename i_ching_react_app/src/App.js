@@ -15,12 +15,19 @@ import Container from "@material-ui/core/Container";
 import Hexagram from "./components/Hexagram";
 import Hexachange from "./components/Hexachange";
 
+import Descriptions from "./components/Descriptions";
+//import { HEXAGRAMS } from "../shared/hexagramdetails";
+
+import GetNumber from "./components/GetNumber";
+import GetNumberChanged from "./components/GetNumberChanged";
+
 function App() {
   const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       textAlign: "center",
       color: theme.palette.text.default,
+      fontSize: 12,
     },
     button: {
       marginBottom: 10,
@@ -130,7 +137,9 @@ function App() {
         <Container maxWidth="sm" className="savedbox">
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <Paper className={classes.paper}>Description</Paper>
+              <Paper className={classes.paper}>
+                <Descriptions string={stringstate} />
+              </Paper>
             </Grid>
           </Grid>
         </Container>
