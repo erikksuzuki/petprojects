@@ -138,7 +138,7 @@ function App() {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Descriptions string={stringstate} />
+                <Descriptions string={stringstate} readingtype="lastyin" />
               </Paper>
             </Grid>
           </Grid>
