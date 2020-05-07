@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 
 import "./App.css";
 
@@ -19,10 +18,6 @@ import Hexagram from "./components/Hexagram";
 import Hexachange from "./components/Hexachange";
 
 import Descriptions from "./components/Descriptions";
-//import { HEXAGRAMS } from "../shared/hexagramdetails";
-
-import GetNumber from "./components/GetNumber";
-import GetNumberChanged from "./components/GetNumberChanged";
 
 function App() {
   const useStyles = makeStyles((theme) => ({
@@ -127,6 +122,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline />
+
         <Container maxWidth="sm" className="tablecontainer">
           <Box display="flex" justifyContent="flex-end">
             <FormControlLabel
@@ -164,6 +160,9 @@ function App() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Descriptions string={stringstate} readingtype={readingstate} />
+                <br />
+                <br />
+                Version 0.5
               </Paper>
             </Grid>
           </Grid>
