@@ -21,6 +21,10 @@ function Descriptions(props) {
   var hexalinefive = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_five;
   var hexalinesix = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_six;
 
+  var hexatitlechanged = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].name;
+  var hexachangeddescription = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].description;
+
+  // PICK OUT THE RELEVENT LINE FOR SINGLE LINE READING
   var linearray = [
     hexalineone,
     hexalinetwo,
@@ -29,10 +33,6 @@ function Descriptions(props) {
     hexalinefive,
     hexalinesix,
   ];
-
-  var hexatitlechanged = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].name;
-  var hexachangeddescription = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].description;
-
   var pickedline;
   var pickedlinenumber;
 

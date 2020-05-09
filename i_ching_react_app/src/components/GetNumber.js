@@ -2,196 +2,196 @@ function GetNumber(props) {
   var hexastringprop = props.string;
   function getNumber(hexvalue) {
     var hexanumber;
-    if (hexvalue === "VVVVVV") {
+    if (hexvalue == "VVVVVV") {
       hexanumber = 1;
     }
-    if (hexvalue === "PPPPPP") {
+    if (hexvalue == "PPPPPP") {
       hexanumber = 2;
     }
-    if (hexvalue === "VPPPVP") {
+    if (hexvalue == "VPPPVP") {
       hexanumber = 3;
     }
-    if (hexvalue === "PVPPPV") {
+    if (hexvalue == "PVPPPV") {
       hexanumber = 4;
     }
-    if (hexvalue === "VVVPVP") {
+    if (hexvalue == "VVVPVP") {
       hexanumber = 5;
     }
-    if (hexvalue === "PVPVVV") {
+    if (hexvalue == "PVPVVV") {
       hexanumber = 6;
     }
-    if (hexvalue === "PVPPPP") {
+    if (hexvalue == "PVPPPP") {
       hexanumber = 7;
     }
-    if (hexvalue === "PPPPVP") {
+    if (hexvalue == "PPPPVP") {
       hexanumber = 8;
     }
-    if (hexvalue === "VVVPVV") {
+    if (hexvalue == "VVVPVV") {
       hexanumber = 9;
     }
-    if (hexvalue === "VVPVVV") {
+    if (hexvalue == "VVPVVV") {
       hexanumber = 10;
     }
-    if (hexvalue === "VVVPPP") {
+    if (hexvalue == "VVVPPP") {
       hexanumber = 11;
     }
-    if (hexvalue === "PPPVVV") {
+    if (hexvalue == "PPPVVV") {
       hexanumber = 12;
     }
-    if (hexvalue === "VPVVVV") {
+    if (hexvalue == "VPVVVV") {
       hexanumber = 13;
     }
-    if (hexvalue === "VVVVPV") {
+    if (hexvalue == "VVVVPV") {
       hexanumber = 14;
     }
-    if (hexvalue === "PPVPPP") {
+    if (hexvalue == "PPVPPP") {
       hexanumber = 15;
     }
-    if (hexvalue === "PPPVPP") {
+    if (hexvalue == "PPPVPP") {
       hexanumber = 16;
     }
-    if (hexvalue === "VPPVVP") {
+    if (hexvalue == "VPPVVP") {
       hexanumber = 17;
     }
-    if (hexvalue === "PVVPPV") {
+    if (hexvalue == "PVVPPV") {
       hexanumber = 18;
     }
-    if (hexvalue === "VVPPPP") {
+    if (hexvalue == "VVPPPP") {
       hexanumber = 19;
     }
-    if (hexvalue === "PPPPVV") {
+    if (hexvalue == "PPPPVV") {
       hexanumber = 20;
     }
-    if (hexvalue === "VPPVPV") {
+    if (hexvalue == "VPPVPV") {
       hexanumber = 21;
     }
-    if (hexvalue === "VPVPPV") {
+    if (hexvalue == "VPVPPV") {
       hexanumber = 22;
     }
-    if (hexvalue === "PPPPPV") {
+    if (hexvalue == "PPPPPV") {
       hexanumber = 23;
     }
-    if (hexvalue === "VPPPPP") {
+    if (hexvalue == "VPPPPP") {
       hexanumber = 24;
     }
-    if (hexvalue === "VPPVVV") {
+    if (hexvalue == "VPPVVV") {
       hexanumber = 25;
     }
-    if (hexvalue === "VVVPPV") {
+    if (hexvalue == "VVVPPV") {
       hexanumber = 26;
     }
-    if (hexvalue === "VPPPPV") {
+    if (hexvalue == "VPPPPV") {
       hexanumber = 27;
     }
-    if (hexvalue === "PVVVVP") {
+    if (hexvalue == "PVVVVP") {
       hexanumber = 28;
     }
-    if (hexvalue === "PVPPVP") {
+    if (hexvalue == "PVPPVP") {
       hexanumber = 29;
     }
-    if (hexvalue === "VPVVPV") {
+    if (hexvalue == "VPVVPV") {
       hexanumber = 30;
     }
-    if (hexvalue === "PPVVVP") {
+    if (hexvalue == "PPVVVP") {
       hexanumber = 31;
     }
-    if (hexvalue === "PVVVPP") {
+    if (hexvalue == "PVVVPP") {
       hexanumber = 32;
     }
-    if (hexvalue === "PPVVVV") {
+    if (hexvalue == "PPVVVV") {
       hexanumber = 33;
     }
-    if (hexvalue === "VVVVPP") {
+    if (hexvalue == "VVVVPP") {
       hexanumber = 34;
     }
-    if (hexvalue === "PPPVPV") {
+    if (hexvalue == "PPPVPV") {
       hexanumber = 35;
     }
-    if (hexvalue === "VPVPPP") {
+    if (hexvalue == "VPVPPP") {
       hexanumber = 36;
     }
-    if (hexvalue === "VPVPVV") {
+    if (hexvalue == "VPVPVV") {
       hexanumber = 37;
     }
-    if (hexvalue === "VVPVPV") {
+    if (hexvalue == "VVPVPV") {
       hexanumber = 38;
     }
-    if (hexvalue === "PPVPVP") {
+    if (hexvalue == "PPVPVP") {
       hexanumber = 39;
     }
-    if (hexvalue === "PVPVPP") {
+    if (hexvalue == "PVPVPP") {
       hexanumber = 40;
     }
-    if (hexvalue === "VVPPPV") {
+    if (hexvalue == "VVPPPV") {
       hexanumber = 41;
     }
-    if (hexvalue === "VPPPVV") {
+    if (hexvalue == "VPPPVV") {
       hexanumber = 42;
     }
-    if (hexvalue === "VVVVVP") {
+    if (hexvalue == "VVVVVP") {
       hexanumber = 43;
     }
-    if (hexvalue === "PVVVVV") {
+    if (hexvalue == "PVVVVV") {
       hexanumber = 44;
     }
-    if (hexvalue === "PPPVVP") {
+    if (hexvalue == "PPPVVP") {
       hexanumber = 45;
     }
-    if (hexvalue === "PVVPPP") {
+    if (hexvalue == "PVVPPP") {
       hexanumber = 46;
     }
-    if (hexvalue === "PVPVVP") {
+    if (hexvalue == "PVPVVP") {
       hexanumber = 47;
     }
-    if (hexvalue === "PVVPVP") {
+    if (hexvalue == "PVVPVP") {
       hexanumber = 48;
     }
-    if (hexvalue === "VPVVVP") {
+    if (hexvalue == "VPVVVP") {
       hexanumber = 49;
     }
-    if (hexvalue === "PVVVPV") {
+    if (hexvalue == "PVVVPV") {
       hexanumber = 50;
     }
-    if (hexvalue === "VPPVPP") {
+    if (hexvalue == "VPPVPP") {
       hexanumber = 51;
     }
-    if (hexvalue === "PPVPPV") {
+    if (hexvalue == "PPVPPV") {
       hexanumber = 52;
     }
-    if (hexvalue === "PPVPVV") {
+    if (hexvalue == "PPVPVV") {
       hexanumber = 53;
     }
-    if (hexvalue === "VVPVPP") {
+    if (hexvalue == "VVPVPP") {
       hexanumber = 54;
     }
-    if (hexvalue === "VPVVPP") {
+    if (hexvalue == "VPVVPP") {
       hexanumber = 55;
     }
-    if (hexvalue === "PPVVPV") {
+    if (hexvalue == "PPVVPV") {
       hexanumber = 56;
     }
-    if (hexvalue === "PVVPVV") {
+    if (hexvalue == "PVVPVV") {
       hexanumber = 57;
     }
-    if (hexvalue === "VVPVVP") {
+    if (hexvalue == "VVPVVP") {
       hexanumber = 58;
     }
-    if (hexvalue === "PVPPVV") {
+    if (hexvalue == "PVPPVV") {
       hexanumber = 59;
     }
-    if (hexvalue === "VVPPVP") {
+    if (hexvalue == "VVPPVP") {
       hexanumber = 60;
     }
-    if (hexvalue === "VVPPVV") {
+    if (hexvalue == "VVPPVV") {
       hexanumber = 61;
     }
-    if (hexvalue === "PPVVPP") {
+    if (hexvalue == "PPVVPP") {
       hexanumber = 62;
     }
-    if (hexvalue === "VPVPVP") {
+    if (hexvalue == "VPVPVP") {
       hexanumber = 63;
     }
-    if (hexvalue === "PVPVPV") {
+    if (hexvalue == "PVPVPV") {
       hexanumber = 64;
     }
     return hexanumber;
