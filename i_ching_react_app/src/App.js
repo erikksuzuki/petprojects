@@ -59,7 +59,9 @@ function App() {
       fontSize: 12,
     },
     button: {
-      marginBottom: 10,
+      marginTop: 10,
+      backgroundColor: "#666",
+      color: "white",
     },
     switch: {
       fontSize: 12,
@@ -88,10 +90,8 @@ function App() {
       if (timesrun < randomtime) {
         thisString = getRandomHexagram();
         setStringstate(thisString);
-        console.log("this current permutation is: " + thisString);
       } else {
         clearInterval(interval);
-        console.log("the final state state is: " + thisString);
         setReadingstring(thisString);
       }
     }, 100);
@@ -120,14 +120,6 @@ function App() {
               labelPlacement="start"
             />
           </Box>
-          <Button
-            className={classes.button}
-            fullWidth="true"
-            variant="outlined"
-            onClick={() => resettimer()}
-          >
-            Generate Hexagram
-          </Button>
 
           <Grid container spacing={1}>
             <Grid item xs={6}>
@@ -141,6 +133,12 @@ function App() {
               </Paper>
             </Grid>
           </Grid>
+
+          <Box display="flex" justifyContent="center">
+            <Button className={classes.button} variant="contained" onClick={() => resettimer()}>
+              Generate Hexagram
+            </Button>
+          </Box>
         </Container>
 
         <Container maxWidth="sm" className="savedbox">
