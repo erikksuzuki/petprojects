@@ -16,11 +16,37 @@
 .template {
   width: 1080px;
   height: 1080px;
-  box-shadow: 20px 20px 50px 0px rgba(0, 0, 0, 0.3);
 }
 
+#inputarea {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  border: solid 0px black;
+  position: absolute;
+  left: -1070px;
+}
 .heading {
-  width: 1080;
+  width: 1080px;
   position: absolute;
   top: 200px;
+}
+
+.generatebutton {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+#wrapper {
+  width: 500px;
+  height: 500px;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wrapper canvas {
+  max-width: 100%;
+  max-height: 100%;
 }

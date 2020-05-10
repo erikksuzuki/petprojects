@@ -5,6 +5,7 @@ import Template from "./components/Template";
 
 function App() {
   function generateScreenshot() {
+    document.getElementById("wrapper").innerHTML = "";
     html2canvas(document.getElementById("inputarea")).then(function (canvas) {
       document.getElementById("wrapper").appendChild(canvas);
     });
@@ -15,7 +16,9 @@ function App() {
         <Template bgcolor="#ff0000" textcolor="#ffffff" headercolor="#ffffff" />
       </div>
       <div className="container" id="wrapper"></div>
-      <button onClick={generateScreenshot}>Generate</button>
+      <button className="generatebutton" onClick={generateScreenshot}>
+        Generate
+      </button>
     </div>
   );
 }
