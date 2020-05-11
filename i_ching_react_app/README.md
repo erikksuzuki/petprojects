@@ -1,5 +1,7 @@
 # I Ching divination app
 
+Click here for working demo: [https://alkemyst.co/projects/iching/]
+
 ## Version history
 
 ### v0.5 - May 8th, 2020
