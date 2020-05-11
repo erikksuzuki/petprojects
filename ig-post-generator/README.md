@@ -1,6 +1,6 @@
 # Instagram post generator
 
-(Click here for working demo)[https://alkemyst.co/projects/instagenerator/]
+Click here for working demo: [https://alkemyst.co/projects/instagenerator/]
 
 ## Version history
 
