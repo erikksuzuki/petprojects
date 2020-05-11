@@ -43,6 +43,12 @@
   max-height: 100%;
 }
 
+.colorswatch {
+  width: 15px;
+  height: 15px;
+  border: solid 1px white;
+}
+
 .heading {
   width: 980px;
   position: relative;
@@ -69,8 +75,13 @@
 
 .logo {
   position: absolute;
-  left: 50px;
-  top: 50px;
+  left: 0px;
+  top: 0px;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-bottom: 25px;
+  width: 1080px;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .logo img {
@@ -109,5 +120,33 @@
   color: white;
 }
 .themeone .usertag {
+  color: white;
+}
+
+.theme-two {
+  width: 1080px;
+  height: 1080px;
+  background-color: #d81b60;
+  color: white;
+}
+
+.theme-three {
+  width: 1080px;
+  height: 1080px;
+  background-color: #e53935;
+  color: white;
+}
+
+.theme-four {
+  width: 1080px;
+  height: 1080px;
+  background-color: #00897b;
+  color: white;
+}
+
+.theme-five {
+  width: 1080px;
+  height: 1080px;
+  background-color: #3949ab;
   color: white;
 }

@@ -18,6 +18,9 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
+import { withStyles } from "@material-ui/core/styles";
+import { indigo, grey, pink, teal, red } from "@material-ui/core/colors";
+import Radio from "@material-ui/core/Radio";
 
 import Button from "@material-ui/core/Button";
 import Switch from "@material-ui/core/Switch";
@@ -71,15 +74,66 @@ function App() {
   const [subtitleState, setSubtitlestate] = useState("Subtitle");
   const [topicState, setTopicstate] = useState("Topic");
 
+  const [themeValue, setSelectedtheme] = useState("theme-one");
+
   const updatetitle = (e) => {
     setTitlestate(e.target.value);
   };
   const updatetopic = (e) => {
     setTopicstate(e.target.value);
   };
+  const updatetheme = (e) => {
+    setSelectedtheme(e.target.value);
+  };
   const updatesubtitle = (e) => {
     setSubtitlestate(e.target.value);
   };
+
+  const RadioOne = withStyles({
+    root: {
+      color: grey[300],
+      "&$checked": {
+        color: grey[300],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
+  const RadioTwo = withStyles({
+    root: {
+      color: pink[300],
+      "&$checked": {
+        color: pink[300],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
+  const RadioThree = withStyles({
+    root: {
+      color: red[300],
+      "&$checked": {
+        color: red[300],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
+  const RadioFour = withStyles({
+    root: {
+      color: teal[300],
+      "&$checked": {
+        color: teal[300],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
+  const RadioFive = withStyles({
+    root: {
+      color: indigo[300],
+      "&$checked": {
+        color: indigo[200],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,6 +151,7 @@ function App() {
             title={titleState}
             subtitle={subtitleState}
             topic={topicState}
+            theme={themeValue}
           />
         </div>
 
@@ -157,6 +212,48 @@ function App() {
                     <option value={"Topic: Questions and Answers"}>Questions and Answers</option>
                   </Select>
                 </FormControl>
+
+                <div>
+                  <br />
+                  Theme color:
+                  <br />
+                  <RadioOne
+                    checked={themeValue === "theme-one"}
+                    onChange={updatetheme}
+                    value="theme-one"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "A" }}
+                  />
+                  <RadioTwo
+                    checked={themeValue === "theme-two"}
+                    onChange={updatetheme}
+                    value="theme-two"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "B" }}
+                  />
+                  <RadioThree
+                    checked={themeValue === "theme-three"}
+                    onChange={updatetheme}
+                    value="theme-three"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "C" }}
+                  />
+                  <RadioFour
+                    checked={themeValue === "theme-four"}
+                    onChange={updatetheme}
+                    value="theme-four"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "D" }}
+                  />
+                  <RadioFive
+                    checked={themeValue === "theme-five"}
+                    onChange={updatetheme}
+                    value="theme-five"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "E" }}
+                  />
+                </div>
+
                 <Box display="flex" justifyContent="center">
                   <Button
                     className={classes.button}
