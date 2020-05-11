@@ -43,12 +43,6 @@
   max-height: 100%;
 }
 
-.colorswatch {
-  width: 15px;
-  height: 15px;
-  border: solid 1px white;
-}
-
 .heading {
   width: 980px;
   position: relative;
@@ -72,7 +66,6 @@
   margin-top: 30px;
   color: rgba(255, 255, 255, 0.7);
 }
-
 .logo {
   position: absolute;
   left: 0px;
@@ -83,7 +76,6 @@
   width: 1080px;
   background-color: rgba(0, 0, 0, 1);
 }
-
 .logo img {
   width: 300px;
 }
@@ -102,6 +94,39 @@
   font-size: 40px;
   color: white;
   font-family: "Jost";
+}
+
+.cover .innercontent {
+  display: none;
+}
+.inner .heading {
+  width: 980px;
+  position: relative;
+  top: 180px;
+  left: 50px;
+  font-size: 50px;
+  line-height: 60px;
+  font-family: "Jost";
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  border-bottom: solid 3px white;
+}
+.inner .innercontent {
+  display: block;
+  position: absolute;
+  width: 980px;
+  position: relative;
+  top: 180px;
+  left: 50px;
+  font-size: 45px;
+  line-height: 50px;
+  font-family: "Jost";
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 1);
+}
+.inner .subheading {
+  display: none;
 }
 
 .theme-one {
@@ -149,4 +174,29 @@
   height: 1080px;
   background-color: #3949ab;
   color: white;
+}
+
+.theme-six {
+  width: 1080px;
+  height: 1080px;
+  background-color: #ddd;
+  color: #111;
+}
+.theme-six .heading {
+  color: #111;
+}
+.theme-six .inner .heading {
+  border-bottom: solid 3px black;
+}
+.theme-six .subheading {
+  color: rgba(0, 0, 0, 0.6);
+}
+.theme-six .topictag {
+  color: #111;
+}
+.theme-six .usertag {
+  color: #111;
+}
+.theme-six .inner .innercontent {
+  color: #111;
 }

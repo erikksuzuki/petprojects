@@ -5,6 +5,8 @@ function Template(props) {
   const title = props.title;
   const subtitle = props.subtitle;
   const topic = props.topic;
+  const content = props.content;
+  const layout = props.layout;
 
   const permatitle = () => (title == "" ? "Title" : title);
 
@@ -15,14 +17,18 @@ function Template(props) {
   };
   return (
     <div className={theme}>
-      <div className="logo">
-        <img src="logowhite.png" />
-      </div>
-      <div className="heading">{permatitle()}</div>
-      <div className="subheading">{subtitle}</div>
+      <div className={layout}>
+        <div className="logo">
+          <img src="logowhite.png" />
+        </div>
+        <div className="heading">{permatitle()}</div>
+        <div className="subheading">{subtitle}</div>
 
-      <div className="usertag">@jobhackr</div>
-      <div className="topictag">{topic}</div>
+        <div className="innercontent">{content}</div>
+
+        <div className="usertag">@jobhackr</div>
+        <div className="topictag">{topic}</div>
+      </div>
     </div>
   );
 }

@@ -50,6 +50,9 @@ function App() {
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
+    textField: {
+      width: "80%",
+    },
   }));
   const classes = useStyles();
 
@@ -73,11 +76,18 @@ function App() {
   const [titleState, setTitlestate] = useState("Title");
   const [subtitleState, setSubtitlestate] = useState("Subtitle");
   const [topicState, setTopicstate] = useState("Topic");
-
   const [themeValue, setSelectedtheme] = useState("theme-one");
+  const [contentValue, setContentvalue] = useState("");
+  const [layoutState, setLayoutstate] = useState("cover");
 
   const updatetitle = (e) => {
     setTitlestate(e.target.value);
+  };
+  var contentstuff;
+  const updateinnercontent = (e) => {
+    contentstuff = e.target.value;
+    setContentvalue(contentstuff);
+    contentstuff.length > 0 ? setLayoutstate("inner") : setLayoutstate("cover");
   };
   const updatetopic = (e) => {
     setTopicstate(e.target.value);
@@ -91,9 +101,9 @@ function App() {
 
   const RadioOne = withStyles({
     root: {
-      color: grey[300],
+      color: grey[900],
       "&$checked": {
-        color: grey[300],
+        color: grey[900],
       },
     },
     checked: {},
@@ -134,6 +144,15 @@ function App() {
     },
     checked: {},
   })((props) => <Radio color="default" {...props} />);
+  const RadioSix = withStyles({
+    root: {
+      color: grey[300],
+      "&$checked": {
+        color: grey[200],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -147,11 +166,12 @@ function App() {
 
         <div id="inputarea">
           <Template
-            theme="theme-one"
             title={titleState}
             subtitle={subtitleState}
             topic={topicState}
             theme={themeValue}
+            content={contentValue}
+            layout={layoutState}
           />
         </div>
 
@@ -171,8 +191,9 @@ function App() {
                   onSubmit={handleSubmit}
                 >
                   <TextField
+                    className={classes.textField}
                     id="title"
-                    label="Your title here"
+                    label="Title"
                     variant="filled"
                     onChange={(e) => updatetitle(e)}
                   />
@@ -184,8 +205,9 @@ function App() {
                   onSubmit={handleSubmit}
                 >
                   <TextField
+                    className={classes.textField}
                     id="subtitle"
-                    label="Your subtitle"
+                    label="Cover subtitle"
                     variant="filled"
                     onChange={(e) => updatesubtitle(e)}
                   />
@@ -252,14 +274,33 @@ function App() {
                     name="radio-button-demo"
                     inputProps={{ "aria-label": "E" }}
                   />
+                  <RadioSix
+                    checked={themeValue === "theme-six"}
+                    onChange={updatetheme}
+                    value="theme-six"
+                    name="radio-button-demo"
+                    inputProps={{ "aria-label": "F" }}
+                  />
                 </div>
+                <br />
+                <form
+                  className={classes.root}
+                  noValidate
+                  autoComplete="off"
+                  onSubmit={handleSubmit}
+                >
+                  <TextField
+                    className={classes.textField}
+                    id="innercontent"
+                    multiline
+                    label="Inner carousel page contents"
+                    variant="outlined"
+                    onChange={(e) => updateinnercontent(e)}
+                  />
+                </form>
 
                 <Box display="flex" justifyContent="center">
-                  <Button
-                    className={classes.button}
-                    variant="contained"
-                    onClick={generateScreenshot}
-                  >
+                  <Button className={classes.button} variant="contained" onClick={handleSubmit}>
                     Render image
                   </Button>
                 </Box>
