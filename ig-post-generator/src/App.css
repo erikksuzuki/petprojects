@@ -38,6 +38,13 @@
   margin-right: auto;
 }
 
+@media only screen and (max-width: 767px) {
+  #wrapper {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 #wrapper canvas {
   max-width: 100%;
   max-height: 100%;
@@ -70,11 +77,10 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  padding-top: 40px;
+  padding-top: 60px;
   padding-left: 50px;
   padding-bottom: 25px;
   width: 1080px;
-  background-color: rgba(0, 0, 0, 1);
 }
 .logo img {
   width: 300px;
@@ -82,7 +88,7 @@
 .usertag {
   position: absolute;
   right: 50px;
-  bottom: 50px;
+  bottom: 80px;
   font-size: 50px;
   color: white;
   font-family: "Jost";
@@ -90,7 +96,7 @@
 .topictag {
   position: absolute;
   left: 50px;
-  bottom: 50px;
+  bottom: 80px;
   font-size: 40px;
   color: white;
   font-family: "Jost";

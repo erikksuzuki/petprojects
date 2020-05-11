@@ -74,7 +74,7 @@ function App() {
   }
 
   const [titleState, setTitlestate] = useState("Title");
-  const [subtitleState, setSubtitlestate] = useState("Subtitle");
+  const [subtitleState, setSubtitlestate] = useState("");
   const [topicState, setTopicstate] = useState("Topic");
   const [themeValue, setSelectedtheme] = useState("theme-one");
   const [contentValue, setContentvalue] = useState("");
@@ -177,13 +177,20 @@ function App() {
 
         <Container maxWidth="lg" className="tablecontainer">
           <Grid container spacing={1}>
-            <Grid item xs={6}>
+            <Grid item sm={6} xs={12}>
               <Paper className={classes.paper} elevation={3}>
                 <div className="container" id="wrapper"></div>
               </Paper>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item sm={6} xs={12}>
               <Paper className={classes.paper} elevation={3}>
+                <Box display="flex" justifyContent="center">
+                  <Button className={classes.button} variant="contained" onClick={handleSubmit}>
+                    Render image
+                  </Button>
+                </Box>
+                <br />
+                <br />
                 <form
                   className={classes.root}
                   noValidate
@@ -298,12 +305,6 @@ function App() {
                     onChange={(e) => updateinnercontent(e)}
                   />
                 </form>
-
-                <Box display="flex" justifyContent="center">
-                  <Button className={classes.button} variant="contained" onClick={handleSubmit}>
-                    Render image
-                  </Button>
-                </Box>
               </Paper>
             </Grid>
           </Grid>

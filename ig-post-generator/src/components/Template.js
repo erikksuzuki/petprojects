@@ -11,15 +11,30 @@ function Template(props) {
   const permatitle = () => (title == "" ? "Title" : title);
 
   const logo = () => {
-    if (3 > 1) {
-      return "../public/logowhite.png";
+    if (theme === "theme-one") {
+      return "logowhite.png";
+    }
+    if (theme === "theme-two") {
+      return "logowhitetransparent.png";
+    }
+    if (theme === "theme-three") {
+      return "logowhitetransparent.png";
+    }
+    if (theme === "theme-four") {
+      return "logowhitetransparent.png";
+    }
+    if (theme === "theme-five") {
+      return "logowhitetransparent.png";
+    }
+    if (theme === "theme-six") {
+      return "logoblack.png";
     }
   };
   return (
     <div className={theme}>
       <div className={layout}>
         <div className="logo">
-          <img src="logowhite.png" />
+          <img src={logo()} />
         </div>
         <div className="heading">{permatitle()}</div>
         <div className="subheading">{subtitle}</div>
