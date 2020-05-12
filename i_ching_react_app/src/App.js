@@ -155,7 +155,7 @@ function App() {
                 />
                 <br />
                 <br />
-                Version 0.6 - by Eric Suzuki
+                Version 0.65 - by Eric Suzuki
               </Paper>
             </Grid>
           </Grid>
