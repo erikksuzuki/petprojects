@@ -80,11 +80,13 @@ function App() {
   const [readingstring, setReadingstring] = useState("VVVVVV");
   const [readingtype, setReadingtype] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   function resettimer() {
     var timesrun = 0;
     var randomtime = Math.floor(Math.random() * 15) + 10;
     var thisString;
+    setLoading(true);
     const interval = setInterval(() => {
       timesrun += 1;
       if (timesrun < randomtime) {
@@ -93,6 +95,7 @@ function App() {
       } else {
         clearInterval(interval);
         setReadingstring(thisString);
+        setLoading(false);
       }
     }, 100);
   }
@@ -145,7 +148,11 @@ function App() {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Descriptions string={readingstring} readingtype={readingtype} />
+                <Descriptions
+                  string={readingstring}
+                  isloading={isLoading}
+                  readingtype={readingtype}
+                />
                 <br />
                 <br />
                 Version 0.6 - by Eric Suzuki

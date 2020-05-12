@@ -1,3 +1,27 @@
+@media (prefers-reduced-motion: no-preference) {
+  .loadingspin {
+    animation: loading-spin infinite 3s linear;
+  }
+}
+
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingspin {
+  width: 80px;
+}
+
+.loadcontainer {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
 body {
   background-color: #ff0077;
   font-size: 1rem;

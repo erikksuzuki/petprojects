@@ -8,6 +8,7 @@ function Descriptions(props) {
   var passedproperty = props;
   var hexastringprop = props.string;
   var readingtype = props.readingtype;
+  var isloading = props.isloading;
 
   var hexanumber = GetNumber(passedproperty);
   var hexanumberchanged = GetNumberChanged(passedproperty);
@@ -53,110 +54,122 @@ function Descriptions(props) {
     pickedlinenumber = null;
   }
 
-  if (readingtype === false) {
+  if (isloading) {
     return (
-      <div>
-        <h3>
-          {hexanumber} - {hexatitle}
-        </h3>
-        <div className="descriptiontext">
-          <p>{ReactHtmlParser(hexadescription)}</p>
-          <div>
-            {pickedline != null
-              ? ReactHtmlParser('<div class="lineheader">' + pickedlinenumber + "</div>")
-              : null}
-          </div>
-          <p>{pickedline != null ? ReactHtmlParser(pickedline) : null}</p>
-        </div>
-        <h3>
-          {hexanumber === hexanumberchanged
-            ? null
-            : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
-        </h3>
-        <div className="descriptiontext">
-          <p>{hexanumber === hexanumberchanged ? null : ReactHtmlParser(hexachangeddescription)}</p>
-        </div>
+      <div className="loadcontainer">
+        <img src="bagua.png" className="loadingspin" />
       </div>
     );
   } else {
-    return (
-      <div>
-        <h3>
-          {hexanumber} - {hexatitle}
-        </h3>
-        <div className="descriptiontext">
-          <p>{ReactHtmlParser(hexadescription)}</p>
-          <div>
-            {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Top Changing Line</div>')
-              : null}
+    if (readingtype === false) {
+      return (
+        <div>
+          <h3>
+            {hexanumber} - {hexatitle}
+          </h3>
+          <div className="descriptiontext">
+            <p>{ReactHtmlParser(hexadescription)}</p>
+            <div>
+              {pickedline != null
+                ? ReactHtmlParser('<div class="lineheader">' + pickedlinenumber + "</div>")
+                : null}
+            </div>
+            <p>{pickedline != null ? ReactHtmlParser(pickedline) : null}</p>
           </div>
-          <p>
-            {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-              ? ReactHtmlParser(hexalinesix)
-              : null}
-          </p>
-          <div>
-            {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line 5</div>')
-              : null}
+          <h3>
+            {hexanumber === hexanumberchanged
+              ? null
+              : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
+          </h3>
+          <div className="descriptiontext">
+            <p>
+              {hexanumber === hexanumberchanged ? null : ReactHtmlParser(hexachangeddescription)}
+            </p>
           </div>
-          <p>
-            {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
-              ? ReactHtmlParser(hexalinefive)
-              : null}
-          </p>
-          <div>
-            {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line 4</div>')
-              : null}
-          </div>
-          <p>
-            {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
-              ? ReactHtmlParser(hexalinefour)
-              : null}
-          </p>
-          <div>
-            {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line 3</div>')
-              : null}
-          </div>
-          <p>
-            {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
-              ? ReactHtmlParser(hexalinethree)
-              : null}
-          </p>
-          <div>
-            {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line 2</div>')
-              : null}
-          </div>
-          <p>
-            {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
-              ? ReactHtmlParser(hexalinetwo)
-              : null}
-          </p>
-          <div>
-            {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
-              ? ReactHtmlParser('<div class="lineheader">Changing Line 1</div>')
-              : null}
-          </div>
-          <p>
-            {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
-              ? ReactHtmlParser(hexalineone)
-              : null}
-          </p>
         </div>
-        <h3>
-          {hexanumber === hexanumberchanged
-            ? null
-            : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
-        </h3>
-        <div className="descriptiontext">
-          <p>{hexanumber === hexanumberchanged ? null : ReactHtmlParser(hexachangeddescription)}</p>
+      );
+    } else {
+      return (
+        <div>
+          <h3>
+            {hexanumber} - {hexatitle}
+          </h3>
+          <div className="descriptiontext">
+            <p>{ReactHtmlParser(hexadescription)}</p>
+            <div>
+              {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Top Changing Line</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
+                ? ReactHtmlParser(hexalinesix)
+                : null}
+            </p>
+            <div>
+              {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Changing Line 5</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
+                ? ReactHtmlParser(hexalinefive)
+                : null}
+            </p>
+            <div>
+              {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Changing Line 4</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
+                ? ReactHtmlParser(hexalinefour)
+                : null}
+            </p>
+            <div>
+              {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Changing Line 3</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
+                ? ReactHtmlParser(hexalinethree)
+                : null}
+            </p>
+            <div>
+              {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Changing Line 2</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
+                ? ReactHtmlParser(hexalinetwo)
+                : null}
+            </p>
+            <div>
+              {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
+                ? ReactHtmlParser('<div class="lineheader">Changing Line 1</div>')
+                : null}
+            </div>
+            <p>
+              {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
+                ? ReactHtmlParser(hexalineone)
+                : null}
+            </p>
+          </div>
+          <h3>
+            {hexanumber === hexanumberchanged
+              ? null
+              : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
+          </h3>
+          <div className="descriptiontext">
+            <p>
+              {hexanumber === hexanumberchanged ? null : ReactHtmlParser(hexachangeddescription)}
+            </p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
