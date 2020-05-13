@@ -60,7 +60,10 @@ function App() {
     },
     button: {
       marginTop: 10,
-      backgroundColor: "#666",
+      backgroundColor: "#222",
+      "&:hover": {
+        background: "#000",
+      },
       color: "white",
     },
     switch: {
@@ -155,7 +158,7 @@ function App() {
                 />
                 <br />
                 <br />
-                Version 0.65 - by Eric Suzuki
+                Version 0.70 - by Eric Suzuki
               </Paper>
             </Grid>
           </Grid>

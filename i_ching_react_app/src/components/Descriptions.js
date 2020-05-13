@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GetNumber from "./GetNumber";
 import GetNumberChanged from "./GetNumberChanged";
 import { HEXAGRAMS } from "../shared/hexagramdetails";
@@ -37,6 +37,10 @@ function Descriptions(props) {
   var pickedline;
   var pickedlinenumber;
 
+  useEffect(() => {
+    flipcard();
+  });
+
   if (hexastringprop.includes("B")) {
     pickedline = linearray[hexastringprop.lastIndexOf("B")];
     pickedlinenumber =
@@ -54,6 +58,30 @@ function Descriptions(props) {
     pickedlinenumber = null;
   }
 
+  const flipcard = () => {
+    if (isloading) {
+      console.log("loading");
+    } else {
+      console.log("descriptions loaded");
+      const flipCardContainer = document.querySelector(".flip-card-container");
+      flipCardContainer.classList.add("flip");
+      if (hexanumber != hexanumberchanged) {
+        const flipCardContainerTwo = document.querySelector(".flip-card-container-two");
+        flipCardContainerTwo.classList.add("flip");
+      }
+    }
+  };
+
+  const getCardImage = () => {
+    var cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
+    return "./cards-tao/" + cardnum + ".jpg";
+  };
+
+  const getCardChanged = () => {
+    var cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
+    return "./cards-tao/" + cardnum + ".jpg";
+  };
+
   if (isloading) {
     return (
       <div className="loadcontainer">
@@ -64,6 +92,16 @@ function Descriptions(props) {
     if (readingtype === false) {
       return (
         <div>
+          <div className="flip-card-container">
+            <div className="flip-card">
+              <div className="flip-card-front">
+                <img src="./cards/back.jpg" />
+              </div>
+              <div className="flip-card-back">
+                <img src={getCardImage()} />
+              </div>
+            </div>
+          </div>
           <h3>
             {hexanumber} - {hexatitle}
           </h3>
@@ -76,10 +114,28 @@ function Descriptions(props) {
             </div>
             <p>{pickedline != null ? ReactHtmlParser(pickedline) : null}</p>
           </div>
+
+          {hexanumber === hexanumberchanged ? null : (
+            <div>
+              <br />
+              <br />
+              <div className="flip-card-container-two">
+                <div className="flip-card">
+                  <div className="flip-card-front">
+                    <img src="./cards/back.jpg" />
+                  </div>
+                  <div className="flip-card-back">
+                    <img src={getCardChanged()} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           <h3>
             {hexanumber === hexanumberchanged
               ? null
-              : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
+              : ReactHtmlParser(hexanumberchanged + " - " + hexatitlechanged)}
           </h3>
           <div className="descriptiontext">
             <p>
@@ -91,6 +147,16 @@ function Descriptions(props) {
     } else {
       return (
         <div>
+          <div className="flip-card-container">
+            <div className="flip-card">
+              <div className="flip-card-front">
+                <img src="./cards/back.jpg" />
+              </div>
+              <div className="flip-card-back">
+                <img src={getCardImage()} />
+              </div>
+            </div>
+          </div>
           <h3>
             {hexanumber} - {hexatitle}
           </h3>
@@ -157,10 +223,28 @@ function Descriptions(props) {
                 : null}
             </p>
           </div>
+
+          {hexanumber === hexanumberchanged ? null : (
+            <div>
+              <br />
+              <br />
+              <div className="flip-card-container-two">
+                <div className="flip-card">
+                  <div className="flip-card-front">
+                    <img src="./cards/back.jpg" />
+                  </div>
+                  <div className="flip-card-back">
+                    <img src={getCardChanged()} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           <h3>
             {hexanumber === hexanumberchanged
               ? null
-              : ReactHtmlParser("<br><br>" + hexanumberchanged + " - " + hexatitlechanged)}
+              : ReactHtmlParser(hexanumberchanged + " - " + hexatitlechanged)}
           </h3>
           <div className="descriptiontext">
             <p>

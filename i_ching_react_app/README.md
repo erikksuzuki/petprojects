@@ -15,3 +15,7 @@ Code has been cleaned and descriptions only show once now for every generated he
 ### v0.65 - May 12th, 2020
 
 Loading spinner and layout adjustments
+
+### v0.70 - May 13th, 2020
+
+Added animated card images

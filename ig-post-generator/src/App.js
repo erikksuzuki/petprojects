@@ -184,13 +184,13 @@ function App() {
             </Grid>
             <Grid item sm={6} xs={12}>
               <Paper className={classes.paper} elevation={3}>
-                <Box display="flex" justifyContent="center">
+                <Box display="flex" justifyContent="center" className="mobile-render-button">
                   <Button className={classes.button} variant="contained" onClick={handleSubmit}>
                     Render image
                   </Button>
+                  <br />
+                  <br />
                 </Box>
-                <br />
-                <br />
                 <form
                   className={classes.root}
                   noValidate

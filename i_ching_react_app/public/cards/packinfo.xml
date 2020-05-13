@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<OrphalesePackData>
+  <tblPackInfo>
+    <PackName>Clark-Gill I Ching - Hexagrams</PackName>
+    <Publisher />
+    <Author>Anthony Clark and Richard Gill</Author>
+    <NoCards>64</NoCards>
+    <Description>Hexagrams
+</Description>
+    <TransparentRegions>0</TransparentRegions>
+    <CurveFactor>4</CurveFactor>
+    <URL />
+    <Copyright />
+    <ApplyPercentage>false</ApplyPercentage>
+    <PercentReversed>0</PercentReversed>
+    <DeckHeight>-1</DeckHeight>
+    <SpecificBackground>false</SpecificBackground>
+    <BackgroundFormColor>-16777216</BackgroundFormColor>
+    <BackgroundImagePosition>Center</BackgroundImagePosition>
+    <BackOfCard />
+  </tblPackInfo>
+</OrphalesePackData>
