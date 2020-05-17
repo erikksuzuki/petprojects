@@ -19,3 +19,7 @@ Loading spinner and layout adjustments
 ### v0.70 - May 13th, 2020
 
 Added animated card images
+
+### v0.90 - May 18th, 2020
+
+Separated unchanged and changed hexagrams into touch-enabled, swipable tabs

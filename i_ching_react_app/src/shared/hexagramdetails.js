@@ -131,7 +131,7 @@ export const HEXAGRAMS = [
     description:
       "Deep Waters on the face of the Earth:<BR>Surface waters flow together.<BR>The Superior Person recognizes the situation calls for joining together.<BR>Thus he cultivates friendly relations with all.<BR><BR>Good fortune is possible.<BR>Cast the coins again to discover if you have the qualities needed to lead such a group.<BR>Then there will be no error.<BR>Those uncertain will gradually join.<BR>Those who join too late will meet with misfortune.<BR><BR><span>SITUATION ANALYSIS:</span><BR>This is a time of connection with another or others -- not just an alliance, but a melding of parts into a new whole.<BR>Such a connection may be too close, too intense for some.<BR>Consult the oracle again to see if you have the qualities needed to strengthen and withstand such an intense synthesis. ",
     line_one:
-      "<BR>Confidently and sincerely seeking union.<BR>His devotion to you and to truth makes this alliance correct.<BR><BR>Unexpected good fortune.",
+      "Confidently and sincerely seeking union.<BR>His devotion to you and to truth makes this alliance correct.<BR><BR>Unexpected good fortune.",
     line_two: "Devotion comes from deep inside you.<BR>Good fortune if you keep to your course.",
     line_three: "You are seeking union with unworthy people.",
     line_four:

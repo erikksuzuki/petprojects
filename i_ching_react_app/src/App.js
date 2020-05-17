@@ -158,7 +158,14 @@ function App() {
                 />
                 <br />
                 <br />
-                Version 0.70 - by Eric Suzuki
+                <a
+                  href="https://github.com/erikksuzuki/petprojects/blob/master/i_ching_react_app/README.md"
+                  target="_blank"
+                  style={{ color: "white" }}
+                >
+                  Version 0.90
+                </a>{" "}
+                - by Eric Suzuki
               </Paper>
             </Grid>
           </Grid>

@@ -8,7 +8,7 @@ function Template(props) {
   const content = props.content;
   const layout = props.layout;
 
-  const permatitle = () => (title == "" ? "Title" : title);
+  const permatitle = () => (title == "" ? " " : title);
 
   const logo = () => {
     if (theme === "theme-one") {

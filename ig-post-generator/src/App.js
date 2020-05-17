@@ -73,7 +73,7 @@ function App() {
     });
   }
 
-  const [titleState, setTitlestate] = useState("Title");
+  const [titleState, setTitlestate] = useState(" ");
   const [subtitleState, setSubtitlestate] = useState("");
   const [topicState, setTopicstate] = useState("Topic");
   const [themeValue, setSelectedtheme] = useState("theme-one");
