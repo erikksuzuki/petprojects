@@ -12,6 +12,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -245,7 +247,7 @@ function Descriptions(props) {
             <TabPanel value={value} index={1} dir={theme.direction}>
               <div className={classes.tabPanel}>
                 {hexanumber === hexanumberchanged ? null : (
-                  <div>
+                  <div className="cardarrowcontainer">
                     <div className="flip-card-container-two">
                       <div className="flip-card">
                         <div className="flip-card-front">

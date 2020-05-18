@@ -58,6 +58,15 @@ function App() {
       color: theme.palette.text.default,
       fontSize: 12,
     },
+    paperTwo: {
+      paddingTop: 0,
+      paddingLeft: 0,
+      paddingRight: 0,
+      paddingBottom: 15,
+      textAlign: "center",
+      color: theme.palette.text.default,
+      fontSize: 12,
+    },
     button: {
       marginTop: 10,
       backgroundColor: "#222",
@@ -150,7 +159,7 @@ function App() {
         <Container maxWidth="sm" className="savedbox">
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
+              <Paper className={classes.paperTwo}>
                 <Descriptions
                   string={readingstring}
                   isloading={isLoading}
@@ -163,7 +172,7 @@ function App() {
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  Version 0.90
+                  Version 0.95
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>

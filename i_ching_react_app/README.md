@@ -23,3 +23,7 @@ Added animated card images
 ### v0.90 - May 18th, 2020
 
 Separated unchanged and changed hexagrams into touch-enabled, swipable tabs
+
+### v0.95 - May 18th, 2020
+
+Sass preprocessor and style fixes
