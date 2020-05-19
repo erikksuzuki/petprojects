@@ -274,3 +274,23 @@ body {
   left: -40px;
   top: 100px;
 }
+
+.MuiInput-underline::before {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: $accent-color !important;
+}
+
+.MuiInput-underline.Mui-focused::after {
+  border-bottom: 2px solid $accent-color;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked {
+  color: $accent-color !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: $accent-color !important;
+}

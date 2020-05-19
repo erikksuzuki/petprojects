@@ -27,3 +27,7 @@ Separated unchanged and changed hexagrams into touch-enabled, swipable tabs
 ### v0.95 - May 18th, 2020
 
 Sass preprocessor and style fixes
+
+### v1.00 - May 19th, 2020
+
+Clark-Gill cards and dropdown added

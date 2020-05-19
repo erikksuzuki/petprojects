@@ -63,6 +63,7 @@ function Descriptions(props) {
   var hexastringprop = props.string;
   var readingtype = props.readingtype;
   var isloading = props.isloading;
+  var cardstyle = props.cardtype;
 
   var hexanumber = GetNumber(passedproperty);
   var hexanumberchanged = GetNumberChanged(passedproperty);
@@ -132,12 +133,20 @@ function Descriptions(props) {
 
   const getCardImage = () => {
     var cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
-    return "./cards-tao/" + cardnum + ".jpg";
+    if (cardstyle === "Tao Oracle") {
+      return "./cards-tao/" + cardnum + ".jpg";
+    } else {
+      return "./cards/" + cardnum + ".jpg";
+    }
   };
 
   const getCardChanged = () => {
     var cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
-    return "./cards-tao/" + cardnum + ".jpg";
+    if (cardstyle === "Tao Oracle") {
+      return "./cards-tao/" + cardnum + ".jpg";
+    } else {
+      return "./cards/" + cardnum + ".jpg";
+    }
   };
 
   // variables and functions for tabs

@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 
+import "./App.css";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles";
+
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+
+import FormControl from "@material-ui/core/FormControl";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 import Switch from "@material-ui/core/Switch";
-import Box from "@material-ui/core/Box";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import Hexagram from "./components/Hexagram";
 import Hexachange from "./components/Hexachange";
@@ -77,8 +83,12 @@ function App() {
     },
     switch: {
       fontSize: 12,
-      color: "#666",
+      color: "#888",
       marginBottom: 10,
+    },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
     },
   }));
   const classes = useStyles();
@@ -93,6 +103,18 @@ function App() {
   const [readingtype, setReadingtype] = useState(false);
   const [checked, setChecked] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [cardstyle, setCardstyle] = useState("Clark-Gill I Ching");
+  const [open, setOpen] = useState(false);
+
+  const handleChange = (event) => {
+    setCardstyle(event.target.value);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   function resettimer() {
     var timesrun = 0;
@@ -127,14 +149,37 @@ function App() {
         <CssBaseline />
 
         <Container maxWidth="sm" className="tablecontainer">
-          <Box display="flex" justifyContent="flex-end">
-            <FormControlLabel
-              className={classes.switch}
-              control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
-              label="Show all changing lines"
-              labelPlacement="start"
-            />
-          </Box>
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
+              <Box display="flex" justifyContent="flex-start">
+                <FormControl className={classes.formControl} style={{ marginLeft: 0 }}>
+                  <Select
+                    labelId="demo-controlled-open-select-label"
+                    id="demo-controlled-open-select"
+                    open={open}
+                    onClose={handleClose}
+                    onOpen={handleOpen}
+                    value={cardstyle}
+                    onChange={handleChange}
+                    style={{ color: "#888" }}
+                  >
+                    <MenuItem value={"Clark-Gill I Ching"}>Clark-Gill I Ching</MenuItem>
+                    <MenuItem value={"Tao Oracle"}>Tao Oracle</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item xs={6}>
+              <Box display="flex" justifyContent="flex-end" style={{ marginTop: 11 }}>
+                <FormControlLabel
+                  className={classes.switch}
+                  control={<Switch size="small" checked={checked} onChange={toggleChecked} />}
+                  label="Show all lines"
+                  labelPlacement="start"
+                />
+              </Box>
+            </Grid>
+          </Grid>
 
           <Grid container spacing={1}>
             <Grid item xs={6}>
@@ -164,6 +209,7 @@ function App() {
                   string={readingstring}
                   isloading={isLoading}
                   readingtype={readingtype}
+                  cardtype={cardstyle}
                 />
                 <br />
                 <br />
@@ -172,7 +218,7 @@ function App() {
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  Version 0.95
+                  Version 1.00
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>
