@@ -31,3 +31,7 @@ Sass preprocessor and style fixes
 ### v1.00 - May 19th, 2020
 
 Clark-Gill cards and dropdown added
+
+### v1.10 - May 30th, 2020
+
+https://www.javascriptstuff.com/detect-image-load/

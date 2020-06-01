@@ -65,11 +65,12 @@ function Descriptions(props) {
   var isloading = props.isloading;
   var cardstyle = props.cardtype;
 
+  // titles and descriptions for unchanged
   var hexanumber = GetNumber(passedproperty);
-  var hexanumberchanged = GetNumberChanged(passedproperty);
-
   var hexatitle = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].name;
   var hexadescription = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].description;
+
+  // line descriptions
   var hexalineone = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_one;
   var hexalinetwo = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_two;
   var hexalinethree = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_three;
@@ -77,6 +78,8 @@ function Descriptions(props) {
   var hexalinefive = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_five;
   var hexalinesix = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_six;
 
+  // titles and descriptions for changed
+  var hexanumberchanged = GetNumberChanged(passedproperty);
   var hexatitlechanged = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].name;
   var hexachangeddescription = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].description;
 
@@ -89,12 +92,8 @@ function Descriptions(props) {
     hexalinefive,
     hexalinesix,
   ];
-  var pickedline;
   var pickedlinenumber;
-
-  useEffect(() => {
-    flipcard();
-  });
+  var pickedline;
 
   if (hexastringprop.includes("B")) {
     pickedline = linearray[hexastringprop.lastIndexOf("B")];
@@ -112,6 +111,10 @@ function Descriptions(props) {
     pickedline = null;
     pickedlinenumber = null;
   }
+
+  useEffect(() => {
+    flipcard();
+  });
 
   const flipcard = () => {
     if (isloading) {
@@ -253,6 +256,7 @@ function Descriptions(props) {
                 </div>
               </div>
             </TabPanel>
+
             <TabPanel value={value} index={1} dir={theme.direction}>
               <div className={classes.tabPanel}>
                 {hexanumber === hexanumberchanged ? null : (
@@ -327,67 +331,54 @@ function Descriptions(props) {
                   <p>{ReactHtmlParser(hexadescription)}</p>
                   <div>
                     {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Top Changing Line</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Top Changing Line</div><p>' +
+                            hexalinesix +
+                            "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-                      ? ReactHtmlParser(hexalinesix)
-                      : null}
-                  </p>
                   <div>
                     {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Changing Line 5</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Changing Line 5</div><p>' + hexalinefive + "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
-                      ? ReactHtmlParser(hexalinefive)
-                      : null}
-                  </p>
                   <div>
                     {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Changing Line 4</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Changing Line 4</div><p>' + hexalinefour + "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
-                      ? ReactHtmlParser(hexalinefour)
-                      : null}
-                  </p>
                   <div>
                     {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Changing Line 3</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Changing Line 3</div><p>' +
+                            hexalinethree +
+                            "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
-                      ? ReactHtmlParser(hexalinethree)
-                      : null}
-                  </p>
                   <div>
                     {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Changing Line 2</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Changing Line 2</div><p>' + hexalinetwo + "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
-                      ? ReactHtmlParser(hexalinetwo)
-                      : null}
-                  </p>
                   <div>
                     {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
-                      ? ReactHtmlParser('<div class="lineheader">Changing Line 1</div>')
+                      ? ReactHtmlParser(
+                          '<div class="lineheader">Changing Line 1</div><p>' + hexalineone + "</p>"
+                        )
                       : null}
                   </div>
-                  <p>
-                    {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
-                      ? ReactHtmlParser(hexalineone)
-                      : null}
-                  </p>
                 </div>
               </div>
             </TabPanel>
+
             <TabPanel value={value} index={1} dir={theme.direction}>
               <div className={classes.tabPanel}>
                 {hexanumber === hexanumberchanged ? null : (
