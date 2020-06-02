@@ -204,7 +204,7 @@ function App() {
         <Container maxWidth="sm" className="savedbox">
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <Paper className={classes.paperTwo}>
+              <Paper className={classes.paperTwo} elevation={3}>
                 <Descriptions
                   string={readingstring}
                   isloading={isLoading}
