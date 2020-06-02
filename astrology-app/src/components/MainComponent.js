@@ -12,6 +12,7 @@ import SwipeableViews from "react-swipeable-views";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import TextField from "@material-ui/core/TextField";
 
 import Button from "@material-ui/core/Button";
 
@@ -56,6 +57,11 @@ function MainComponent() {
     tabPanel: {
       fontSize: 12,
     },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
   }));
   const classes = useStyles();
   const theme = createMuiTheme({
@@ -98,10 +104,20 @@ function MainComponent() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const handleDate = (event) => {
+    theBirthday(event.target.value);
+  };
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
+  var userBirthday;
+
+  function theBirthday(date) {
+    userBirthday = date + "T12:00:00+00:00";
+    console.log(userBirthday);
+    return userBirthday;
+  }
 
   const url = new URL("https://api.prokerala.com/v1/astrology/planet-position");
 
@@ -111,7 +127,7 @@ function MainComponent() {
     let params = {
       ayanamsa: "1",
       chart_type: "`rasi`",
-      datetime: "1990-09-12T15:19:21+00:00",
+      datetime: userBirthday,
       coordinates: "10.214747,78.097626",
     };
     Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
@@ -123,23 +139,31 @@ function MainComponent() {
       "Content-Type": "application/json",
     };
 
-    fetch(url, {
-      method: "GET",
-      headers: headers,
-    })
-      .then((response) => response.json())
-      .then(function (json) {
-        console.log(json);
-        setPlanets([
-          json.response.planet_positions[0].rasi,
-          json.response.planet_positions[1].rasi,
-          json.response.planet_positions[2].rasi,
-          json.response.planet_positions[3].rasi,
-          json.response.planet_positions[4].rasi,
-          json.response.planet_positions[5].rasi,
-          json.response.planet_positions[6].rasi,
-        ]);
-      });
+    if (userBirthday != undefined) {
+      fetch(url, {
+        method: "GET",
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then(function (json) {
+          console.log(json);
+          if (json.response.planet_positions != undefined) {
+            return setPlanets([
+              json.response.planet_positions[0].rasi,
+              json.response.planet_positions[1].rasi,
+              json.response.planet_positions[2].rasi,
+              json.response.planet_positions[3].rasi,
+              json.response.planet_positions[4].rasi,
+              json.response.planet_positions[5].rasi,
+              json.response.planet_positions[6].rasi,
+            ]);
+          } else {
+            return setPlanets(["", "", "", "", "", "", ""]);
+          }
+        });
+    } else {
+      return null;
+    }
   }
 
   function clickthingy() {
@@ -150,8 +174,31 @@ function MainComponent() {
     <div className="Main">
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <br />
+        <br />
+        <Container maxWidth="sm">
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Paper className={classes.paperTwo} elevation={3}>
+                <br />
+                <form className={classes.container} noValidate>
+                  <TextField
+                    id="date"
+                    label="Birthday"
+                    type="date"
+                    className={classes.textField}
+                    onChange={handleDate}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                </form>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
 
-        <Container maxWidth="sm" className="tablecontainer">
+        <Container maxWidth="sm">
           <Box display="flex" justifyContent="center">
             <Button className={classes.button} variant="contained" onClick={clickthingy}>
               Fetch Horoscope Data
@@ -159,7 +206,7 @@ function MainComponent() {
           </Box>
         </Container>
 
-        <Container maxWidth="sm" className="savedbox">
+        <Container maxWidth="sm">
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Paper className={classes.paperTwo} elevation={3}>
@@ -243,11 +290,14 @@ function MainComponent() {
                     <PlanetPanel planet="Saturn" sign={planetsQuery[6]} />
                   </TabPanel>
                 </SwipeableViews>
-                <header>This is the beginning of something beautiful</header>
                 <br />
                 <br />
-                <a href="#" target="_blank" style={{ color: "white" }}>
-                  Version 0.05
+                <a
+                  href="https://github.com/erikksuzuki/petprojects/blob/master/astrology-app/README.md"
+                  target="_blank"
+                  style={{ color: "white" }}
+                >
+                  Version 0.70
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>

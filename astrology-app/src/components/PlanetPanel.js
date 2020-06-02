@@ -1,4 +1,5 @@
 import React from "react";
+import { planetData } from "../shared/planetData";
 import { makeStyles } from "@material-ui/core/styles";
 
 function PlanetPanel(props) {
@@ -21,7 +22,7 @@ function PlanetPanel(props) {
       Meena: 11,
     }[sign]);
 
-  const planetImage = "planets/" + planet + ".png";
+  const planetImage = "planets/" + planet.toLowerCase() + ".png";
 
   const constelationImages = [
     { backgroundImage: 'url("signs/aries.png")' },
@@ -53,51 +54,44 @@ function PlanetPanel(props) {
     "panelsign water",
   ];
 
+  function checkExists() {
+    if (signNumber(sign) === undefined) {
+      return "panelsign empty";
+    } else {
+      return constelationClass[signNumber(sign)];
+    }
+  }
+
+  function checkExistsTwo() {
+    if (signNumber(sign) === undefined) {
+      return "paneldescription emptier";
+    } else {
+      return "paneldescription";
+    }
+  }
+
   function logstuff() {
     console.log(signNumber(sign));
   }
 
+  const panelTitle = () =>
+    signNumber(sign) === undefined ? planet : "Natal " + planet + " in " + sign;
+
+  const planetDescription = () =>
+    signNumber(sign) === undefined
+      ? "Please enter a birth date"
+      : planetData[signNumber(sign)][planet];
+
   return (
     <div>
       <div className="panelsigncontainer">
-        <div
-          className={constelationClass[signNumber(sign)]}
-          style={constelationImages[signNumber(sign)]}
-        ></div>
+        <div className={checkExists()} style={constelationImages[signNumber(sign)]}></div>
         <img src={planetImage} className="panelplanet" />
       </div>
 
-      <div className="paneltitle">
-        Natal {planet} in {sign}
-      </div>
-      <div className="paneldescription">
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-          cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id
-          est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam
-          libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-          maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-          Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet
-          ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-          tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-          perferendis doloribus asperiores repellat.
-        </p>
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-          cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id
-          est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam
-          libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-          maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-          Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet
-          ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-          tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-          perferendis doloribus asperiores repellat.
-        </p>
-        <a onClick={logstuff} style={{ cursor: "pointer" }}>
-          Click to see log
-        </a>
+      <div className="paneltitle">{panelTitle()}</div>
+      <div className={checkExistsTwo()}>
+        <p>{planetDescription()}</p>
       </div>
     </div>
   );

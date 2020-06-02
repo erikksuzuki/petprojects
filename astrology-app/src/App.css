@@ -42,7 +42,10 @@
     transform: rotate(360deg);
   }
 }
-
+.empty {
+  border: ridge 4px #666666;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 .fire {
   border: ridge 4px #a74f4f;
 }
@@ -74,6 +77,11 @@
 .paneldescription {
   margin-top: 10px;
   text-align: justify;
+}
+
+.emptier {
+  padding-top: 20px;
+  text-align: center !important;
 }
 
 .MuiTab-root {
