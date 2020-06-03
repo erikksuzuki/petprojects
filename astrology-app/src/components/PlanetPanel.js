@@ -1,5 +1,6 @@
 import React from "react";
 import { planetData } from "../shared/planetData";
+import ReactHtmlParser from "react-html-parser";
 import { makeStyles } from "@material-ui/core/styles";
 
 function PlanetPanel(props) {
@@ -25,18 +26,18 @@ function PlanetPanel(props) {
   const planetImage = "planets/" + planet.toLowerCase() + ".png";
 
   const constelationImages = [
-    { backgroundImage: 'url("signs/aries.png")' },
-    { backgroundImage: 'url("signs/taurus.png")' },
-    { backgroundImage: 'url("signs/gemini.png")' },
-    { backgroundImage: 'url("signs/cancer.png")' },
-    { backgroundImage: 'url("signs/leo.png")' },
-    { backgroundImage: 'url("signs/virgo.png")' },
-    { backgroundImage: 'url("signs/libra.png")' },
-    { backgroundImage: 'url("signs/scorpio.png")' },
-    { backgroundImage: 'url("signs/sagittarius.png")' },
-    { backgroundImage: 'url("signs/capricorn.png")' },
-    { backgroundImage: 'url("signs/aquarius.png")' },
-    { backgroundImage: 'url("signs/pisces.png")' },
+    { backgroundImage: 'url("signs/aries.jpg")' },
+    { backgroundImage: 'url("signs/taurus.jpg")' },
+    { backgroundImage: 'url("signs/gemini.jpg")' },
+    { backgroundImage: 'url("signs/cancer.jpg")' },
+    { backgroundImage: 'url("signs/leo.jpg")' },
+    { backgroundImage: 'url("signs/virgo.jpg")' },
+    { backgroundImage: 'url("signs/libra.jpg")' },
+    { backgroundImage: 'url("signs/scorpio.jpg")' },
+    { backgroundImage: 'url("signs/sagittarius.jpg")' },
+    { backgroundImage: 'url("signs/capricorn.jpg")' },
+    { backgroundImage: 'url("signs/aquarius.jpg")' },
+    { backgroundImage: 'url("signs/pisces.jpg")' },
   ];
 
   const constelationClass = [
@@ -66,7 +67,7 @@ function PlanetPanel(props) {
     if (signNumber(sign) === undefined) {
       return "paneldescription emptier";
     } else {
-      return "paneldescription";
+      return "paneldescription dropcap";
     }
   }
 
@@ -80,7 +81,7 @@ function PlanetPanel(props) {
   const planetDescription = () =>
     signNumber(sign) === undefined
       ? "Please enter a birth date"
-      : planetData[signNumber(sign)][planet];
+      : ReactHtmlParser(planetData[signNumber(sign)][planet]);
 
   return (
     <div>

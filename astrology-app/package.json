@@ -11,6 +11,7 @@
     "astrologyjs": "^1.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-html-parser": "^2.0.2",
     "react-scripts": "3.4.1",
     "react-swipeable-views": "^0.13.9",
     "swisseph": "^0.5.13"

@@ -119,7 +119,9 @@ function MainComponent() {
     return userBirthday;
   }
 
-  const url = new URL("https://api.prokerala.com/v1/astrology/planet-position");
+  const url = new URL(
+    "https://cors-anywhere.herokuapp.com/https://api.prokerala.com/v1/astrology/planet-position"
+  );
 
   const [planetsQuery, setPlanets] = useState(["", "", "", "", "", "", ""]);
 
@@ -297,7 +299,7 @@ function MainComponent() {
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  Version 0.70
+                  Version 0.75
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>
