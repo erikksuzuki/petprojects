@@ -55,25 +55,15 @@ function PlanetPanel(props) {
     "panelsign water",
   ];
 
-  function checkExists() {
-    if (signNumber(sign) === undefined) {
-      return "panelsign empty";
-    } else {
-      return constelationClass[signNumber(sign)];
-    }
-  }
+  const panelsignClass = () =>
+    signNumber(sign) === undefined ? "panelsign empty" : constelationClass[signNumber(sign)];
 
-  function checkExistsTwo() {
-    if (signNumber(sign) === undefined) {
-      return "paneldescription emptier";
-    } else {
-      return "paneldescription dropcap";
-    }
-  }
+  const paneldescriptionClass = () =>
+    signNumber(sign) === undefined ? "paneldescription emptier" : "paneldescription dropcap";
 
-  function logstuff() {
-    console.log(signNumber(sign));
-  }
+  const leftarrowClass = () => (props.currenttab <= 5 ? "leftarrow" : "leftarrow disabled");
+
+  const rightarrowClass = () => (props.currenttab >= 1 ? "rightarrow" : "rightarrow disabled");
 
   const panelTitle = () =>
     signNumber(sign) === undefined ? planet : "Natal " + planet + " in " + sign;
@@ -83,15 +73,32 @@ function PlanetPanel(props) {
       ? "Please enter a birth date"
       : ReactHtmlParser(planetData[signNumber(sign)][planet]);
 
+  function handleChangeLeft() {
+    if (props.currenttab <= 5) {
+      return props.onChange(props.currenttab + 1);
+    } else {
+      return null;
+    }
+  }
+  function handleChangeRight() {
+    if (props.currenttab >= 1) {
+      return props.onChange(props.currenttab - 1);
+    } else {
+      return null;
+    }
+  }
+
   return (
     <div>
       <div className="panelsigncontainer">
-        <div className={checkExists()} style={constelationImages[signNumber(sign)]}></div>
+        <div className={panelsignClass()} style={constelationImages[signNumber(sign)]}></div>
         <img src={planetImage} className="panelplanet" />
+        <img src="leftarrow.png" className={leftarrowClass()} onClick={handleChangeLeft} />
+        <img src="rightarrow.png" className={rightarrowClass()} onClick={handleChangeRight} />
       </div>
 
       <div className="paneltitle">{panelTitle()}</div>
-      <div className={checkExistsTwo()}>
+      <div className={paneldescriptionClass()}>
         <p>{planetDescription()}</p>
       </div>
     </div>

@@ -36,15 +36,6 @@ function MainComponent() {
       backgroundColor: "rgba(0,0,0,0.3)",
       fontSize: 12,
     },
-    button: {
-      marginTop: 10,
-      marginBottom: 10,
-      backgroundColor: "#222",
-      "&:hover": {
-        background: "#000",
-      },
-      color: "white",
-    },
     switch: {
       fontSize: 12,
       color: "#888",
@@ -98,7 +89,7 @@ function MainComponent() {
       "aria-controls": `full-width-tabpanel-${index}`,
     };
   }
-
+  // index of swipable tabs initially set to 0
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -111,12 +102,23 @@ function MainComponent() {
     setValue(index);
   };
 
+  const handleChangeArrow = (newIndex) => {
+    setValue(newIndex);
+  };
+
   var userBirthday;
+
+  const [fetchbuttonClass, setButtonclass] = useState("fetchbuttonDisabled");
 
   function theBirthday(date) {
     userBirthday = date + "T12:00:00+00:00";
-    console.log(userBirthday);
-    return userBirthday;
+    console.log(date);
+    if (date !== undefined && date !== "") {
+      console.log(date);
+      setButtonclass("fetchbutton");
+    } else {
+      setButtonclass("fetchbuttonDisabled");
+    }
   }
 
   const url = new URL(
@@ -202,8 +204,8 @@ function MainComponent() {
 
         <Container maxWidth="sm">
           <Box display="flex" justifyContent="center">
-            <Button className={classes.button} variant="contained" onClick={clickthingy}>
-              Fetch Horoscope Data
+            <Button className={fetchbuttonClass} variant="contained" onClick={clickthingy}>
+              {fetchbuttonClass == "fetchbutton" ? "Fetch Horoscope Data" : "Enter Birth Date"}
             </Button>
           </Box>
         </Container>
@@ -241,7 +243,12 @@ function MainComponent() {
                     index={0}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Sun" sign={planetsQuery[0]} />
+                    <PlanetPanel
+                      planet="Sun"
+                      sign={planetsQuery[0]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -249,7 +256,12 @@ function MainComponent() {
                     index={1}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Moon" sign={planetsQuery[1]} />
+                    <PlanetPanel
+                      planet="Moon"
+                      sign={planetsQuery[1]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -257,7 +269,12 @@ function MainComponent() {
                     index={2}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Mercury" sign={planetsQuery[2]} />
+                    <PlanetPanel
+                      planet="Mercury"
+                      sign={planetsQuery[2]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -265,7 +282,12 @@ function MainComponent() {
                     index={3}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Venus" sign={planetsQuery[3]} />
+                    <PlanetPanel
+                      planet="Venus"
+                      sign={planetsQuery[3]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -273,7 +295,12 @@ function MainComponent() {
                     index={4}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Mars" sign={planetsQuery[4]} />
+                    <PlanetPanel
+                      planet="Mars"
+                      sign={planetsQuery[4]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -281,7 +308,12 @@ function MainComponent() {
                     index={5}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Jupiter" sign={planetsQuery[5]} />
+                    <PlanetPanel
+                      planet="Jupiter"
+                      sign={planetsQuery[5]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                   <TabPanel
                     className={classes.tabPanel}
@@ -289,7 +321,12 @@ function MainComponent() {
                     index={6}
                     dir={theme.direction}
                   >
-                    <PlanetPanel planet="Saturn" sign={planetsQuery[6]} />
+                    <PlanetPanel
+                      planet="Saturn"
+                      sign={planetsQuery[6]}
+                      currenttab={value}
+                      onChange={handleChangeArrow}
+                    />
                   </TabPanel>
                 </SwipeableViews>
                 <br />
@@ -299,7 +336,7 @@ function MainComponent() {
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  Version 0.75
+                  Version 0.90
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>

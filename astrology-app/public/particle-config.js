@@ -1,6 +1,6 @@
 /* ---- particles.js config ---- */
 
-particlesJS("aa_particles", {
+particlesJS("#aa_particles", {
   particles: {
     number: {
       value: 60,
@@ -73,11 +73,11 @@ particlesJS("aa_particles", {
     detect_on: "canvas",
     events: {
       onhover: {
-        enable: true,
+        enable: false,
         mode: "grab",
       },
       onclick: {
-        enable: true,
+        enable: false,
         mode: "push",
       },
       resize: true,

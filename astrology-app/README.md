@@ -19,3 +19,7 @@ Database and first fully working demo
 ### v0.75 - June 3rd, 2020
 
 Fixed particle.js dimensions. Optimized images. Added drop cap and line breaks to descriptions.
+
+### v0.90 - June 4th, 2020
+
+Added clickable arrow indicators with tab-switching functions and conditional classes (passes tab index from child to parent component). Style changes to drop cap, planet selector bar and fetch button. Fixed non-swipable area for touch devices.
