@@ -16,6 +16,7 @@ import TextField from "@material-ui/core/TextField";
 
 import Button from "@material-ui/core/Button";
 
+import { apikey } from "../shared/apikey";
 import PlanetPanel from "./PlanetPanel";
 
 function MainComponent() {
@@ -121,9 +122,7 @@ function MainComponent() {
     }
   }
 
-  const url = new URL(
-    "https://cors-anywhere.herokuapp.com/https://api.prokerala.com/v1/astrology/planet-position"
-  );
+  const url = new URL(apikey[0]);
 
   const [planetsQuery, setPlanets] = useState(["", "", "", "", "", "", ""]);
 
@@ -138,7 +137,7 @@ function MainComponent() {
 
     // requires API token from Prokerala and CORS bypasser
     let headers = {
-      Authorization: "Bearer {token}",
+      Authorization: apikey[1],
       Accept: "application/json",
       "Content-Type": "application/json",
     };

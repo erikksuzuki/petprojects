@@ -126,9 +126,12 @@
 }
 
 .dropcap p::first-letter {
+  display: block;
+  border: solid 1px #333;
   float: left;
   font-size: 37px;
   margin: 3px 5px 0 0;
+  line-height: 28px;
 }
 
 .MuiTab-root {
@@ -188,7 +191,4 @@
   color: white !important;
   opacity: 1;
   cursor: pointer !important;
-}
-.fetchbutton:hover {
-  background-color: rgba(0, 0, 0, 1) !important;
 }

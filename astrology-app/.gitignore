@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src/shared/apikey.js
 /.pnp
 .pnp.js
 
