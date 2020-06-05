@@ -70,10 +70,10 @@ particlesJS("#aa_particles", {
     },
   },
   interactivity: {
-    detect_on: "canvas",
+    detect_on: "window",
     events: {
       onhover: {
-        enable: false,
+        enable: true,
         mode: "grab",
       },
       onclick: {

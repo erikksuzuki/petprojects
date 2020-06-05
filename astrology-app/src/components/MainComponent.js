@@ -42,6 +42,9 @@ function MainComponent() {
       color: "#888",
       marginBottom: 10,
     },
+    button: {
+      color: "white",
+    },
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
