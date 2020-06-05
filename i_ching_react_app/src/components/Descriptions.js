@@ -51,6 +51,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
+    backgroundImage: `url('clothbg.jpg')`,
     width: "100%",
   },
   tabPanel: {
@@ -136,7 +137,7 @@ function Descriptions(props) {
 
   const getCardImage = () => {
     var cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
-    if (cardstyle === "Tao Oracle") {
+    if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
     } else {
       return "./cards/" + cardnum + ".jpg";
@@ -145,7 +146,7 @@ function Descriptions(props) {
 
   const getCardChanged = () => {
     var cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
-    if (cardstyle === "Tao Oracle") {
+    if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
     } else {
       return "./cards/" + cardnum + ".jpg";

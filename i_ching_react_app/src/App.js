@@ -63,6 +63,7 @@ function App() {
       textAlign: "center",
       color: theme.palette.text.default,
       fontSize: 12,
+      backgroundImage: `url('clothbg.jpg')`,
     },
     paperTwo: {
       paddingTop: 0,
@@ -72,6 +73,7 @@ function App() {
       textAlign: "center",
       color: theme.palette.text.default,
       fontSize: 12,
+      backgroundImage: `url('clothbg.jpg')`,
     },
     button: {
       marginTop: 10,
@@ -83,7 +85,7 @@ function App() {
     },
     switch: {
       fontSize: 12,
-      color: "#888",
+      color: `rgba(255,255,255,0.7)`,
       marginBottom: 10,
     },
     formControl: {
@@ -103,7 +105,7 @@ function App() {
   const [readingtype, setReadingtype] = useState(false);
   const [checked, setChecked] = useState(false);
   const [isLoading, setLoading] = useState(true);
-  const [cardstyle, setCardstyle] = useState("Clark-Gill I Ching");
+  const [cardstyle, setCardstyle] = useState("Tao Oracle Cards");
   const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
@@ -163,8 +165,8 @@ function App() {
                     onChange={handleChange}
                     style={{ color: "#888" }}
                   >
-                    <MenuItem value={"Clark-Gill I Ching"}>Clark-Gill I Ching</MenuItem>
-                    <MenuItem value={"Tao Oracle"}>Tao Oracle</MenuItem>
+                    <MenuItem value={"Clark-Gill Cards"}>Clark-Gill Cards</MenuItem>
+                    <MenuItem value={"Tao Oracle Cards"}>Tao Oracle Cards</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
@@ -218,7 +220,7 @@ function App() {
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  Version 1.00
+                  Version 1.10
                 </a>{" "}
                 - by Eric Suzuki
               </Paper>

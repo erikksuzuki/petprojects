@@ -1,77 +1,61 @@
 @media (prefers-reduced-motion: no-preference) {
   .loadingspin {
-    animation: loading-spin infinite 3s linear;
-  }
-}
+    animation: loading-spin infinite 3s linear; } }
 
 @keyframes loading-spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 .loadingspin {
-  width: 80px;
-}
+  width: 80px; }
 
 .loadcontainer {
   padding-top: 70px;
-  padding-bottom: 70px;
-}
+  padding-bottom: 70px; }
 
 body {
-  background-color: #0099ff;
-  font-size: 1rem;
-}
+  background-color: #716fff;
+  font-size: 1rem; }
 
 .tablecontainer {
   margin-top: 20px;
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
 .savedbox {
-  border-radius: 20px;
-}
+  border-radius: 20px; }
 
 .hexapicture {
   font-family: segoe ui symbol;
-  font-size: 40px;
-}
+  font-size: 40px; }
 
 .advancedpiccontainer {
   width: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  font-size: 2px;
-}
+  font-size: 2px; }
 
 .tablecontainer td.lefttdthing {
   width: 50%;
   font-size: 13px;
-  text-align: center;
-}
+  text-align: center; }
 
 .tablecontainer td.righttdthing {
   width: 50%;
   font-size: 13px;
-  text-align: center;
-}
+  text-align: center; }
 
 .tablecontainer td.lefttdthingchange {
   width: 100%;
   font-size: 13px;
-  text-align: center;
-}
+  text-align: center; }
 
 .tablecontainer td.righttdthingchange {
   width: 0%;
   font-size: 13px;
-  text-align: center;
-}
+  text-align: center; }
 
 .advancedline {
   background-color: white;
@@ -80,34 +64,30 @@ body {
   margin-bottom: 5px;
   font-size: 2px;
   position: relative;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .advancedlinechange {
-  background-color: #0099ff;
+  background-color: #716fff;
   width: 50px;
   height: 5px;
   border: solid 1px white;
   margin-bottom: 5px;
   font-size: 2px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .advancedlineyin {
   width: 50px;
   height: 5px;
   margin-bottom: 5px;
   font-size: 2px;
-  position: relative;
-}
+  position: relative; }
 
 .advancedlineyinchange {
   width: 50px;
   height: 5px;
   margin-bottom: 5px;
   font-size: 2px;
-  position: relative;
-}
+  position: relative; }
 
 .yinleft {
   background-color: white;
@@ -117,8 +97,7 @@ body {
   width: 18px;
   height: 5px;
   font-size: 2px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .yinright {
   background-color: white;
@@ -128,24 +107,21 @@ body {
   width: 18px;
   height: 5px;
   font-size: 2px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .advancedlineyinchange .yinleft {
   height: 5px;
   width: 18px;
   border: solid 1px white;
-  background-color: #0099ff;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  background-color: #716fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .advancedlineyinchange .yinright {
   height: 5px;
   width: 18px;
   border: solid 1px white;
-  background-color: #0099ff;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-}
+  background-color: #716fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); }
 
 .gramnumber {
   font-size: 15px;
@@ -153,8 +129,7 @@ body {
   font-weight: bold;
   position: relative;
   left: -43px;
-  top: 46px;
-}
+  top: 46px; }
 
 .togglebutton {
   text-decoration: none;
@@ -164,41 +139,36 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   background-color: black;
   text-align: center;
-  padding: 5px 15px 5px 15px;
-}
+  padding: 5px 15px 5px 15px; }
 
 .togglebutton:hover {
   background-color: rgba(0, 100, 200, 0.7);
-  background-color: #0099ff;
-}
+  background-color: #716fff; }
+
+.MuiInputBase-input {
+  color: rgba(255, 255, 255, 0.7) !important; }
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 .descriptiontext {
-  text-align: center;
-}
+  text-align: center; }
 
 .descriptiontext span {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .lineheader {
   margin-bottom: 0px;
   font-weight: bold;
   width: 100%;
   text-align: center;
-  border-bottom: solid 1px #0099ff;
+  border-bottom: solid 1px #716fff;
   padding-bottom: 8px;
-  border-top: solid 1px #0099ff;
-  padding-top: 8px;
-}
+  border-top: solid 1px #716fff;
+  padding-top: 8px; }
 
 .flip-card-container {
   width: 195px;
@@ -208,8 +178,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
 .flip-card-container-two {
   width: 195px;
@@ -219,24 +188,20 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
 .flip-card {
   position: relative;
   width: 100%;
   height: 100%;
   transition: transform 1s;
-  transform-style: preserve-3d;
-}
+  transform-style: preserve-3d; }
 
 .flip-card-container.flip .flip-card {
-  transform: rotateY(180deg);
-}
+  transform: rotateY(180deg); }
 
 .flip-card-container-two.flip .flip-card {
-  transform: rotateY(180deg);
-}
+  transform: rotateY(180deg); }
 
 .flip-card-front,
 .flip-card-back {
@@ -250,57 +215,48 @@ body {
   font-size: 2rem;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6); }
 
 .flip-card-front {
   background-color: #333333;
-  color: #fff;
-}
+  color: #fff; }
 
 .flip-card-back {
   background-color: #517fa4;
   color: #fff;
-  transform: rotateY(180deg);
-}
+  transform: rotateY(180deg); }
 
 .flip-card-front img,
 .flip-card-back img {
   width: 195px;
-  height: 293px;
-}
+  height: 293px; }
 
 .MuiTab-textColorPrimary.Mui-selected {
-  color: #0099ff !important;
-}
+  color: #716fff !important; }
+
+.MuiAppBar-colorDefault {
+  background-color: #000000 !important; }
 
 .MuiTabs-indicator {
-  background-color: #0099ff !important;
-}
+  background-color: #716fff !important; }
 
 .leftarrow {
   font-size: 34px;
   position: absolute;
   left: -40px;
-  top: 100px;
-}
+  top: 100px; }
 
 .MuiInput-underline::before {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important; }
 
 .MuiFormLabel-root.Mui-focused {
-  color: #0099ff !important;
-}
+  color: #716fff !important; }
 
 .MuiInput-underline.Mui-focused::after {
-  border-bottom: 2px solid #0099ff;
-}
+  border-bottom: 2px solid #716fff; }
 
 .MuiSwitch-colorSecondary.Mui-checked {
-  color: #0099ff !important;
-}
+  color: #716fff !important; }
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: #0099ff !important;
-}
+  background-color: #716fff !important; }

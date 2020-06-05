@@ -34,4 +34,4 @@ Clark-Gill cards and dropdown added
 
 ### v1.10 - May 30th, 2020
 
-https://www.javascriptstuff.com/detect-image-load/
+Visual overhaul: Particle.js, new favicon, style tweaks and image backgrounds
