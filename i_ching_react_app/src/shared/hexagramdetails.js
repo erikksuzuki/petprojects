@@ -385,7 +385,7 @@ export const HEXAGRAMS = [
       "Thunder regenerates deep within Earth's womb:<BR>Sage rulers recognized that the end of Earth's seasonal cycle was also the starting point of a new year and a time for dormancy.<BR>They closed the passes at the Solstice to enforce a rest from commerce and activity.<BR>The ruler himself did not travel.<BR><BR>You have passed this way before but you are not regressing.<BR>This is progress, for the cycle now repeats itself, and this time you are aware that it truly is a cycle.<BR>The return of old familiars is welcome.<BR>You can be as sure of this cycle as you are that seven days bring the start of a new week.<BR>Use this dormancy phase to plan which direction you will grow.<BR><BR><span>SITUATION ANALYSIS:</span><BR>You are about to experience a rebirth -- about to be given another chance, a new lease on life.<BR>You have persevered, gone the distance through an entire cycle -- through the Spring of hope or new passion, through a Summer of growth and building, only to be sacrificed like the archetypal Harvest King at the Autumn reaping.<BR>You lie dormant like seed beneath Winter snows now, healing and absorbing new energies in preparation for the new young Spring coming shortly to your life. ",
     line_one: "Return after straying off-trail.<BR>Good fortune and no blame.",
     line_two: "Your return is welcome.<BR>Great fortune.",
-    line_three: "<BR>Return after return after return.<BR>Risky, but never a mistake.",
+    line_three: "Return after return after return.<BR>Risky, but never a mistake.",
     line_four: "As the masses move on, you see a better path and return alone.",
     line_five: "Openly admitting your mistake, you humbly and nobly return.<BR>No blame.",
     line_six:

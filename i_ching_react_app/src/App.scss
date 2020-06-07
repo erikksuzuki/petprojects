@@ -1,19 +1,9 @@
-$accent-color: #716fff;
+$accent-color: #3e8ec4;
+$unchanged-color: #ffffffcb;
+$unchanged-color-small: #888888;
+$changed-shadow: 0px 2px 5px 1px #005d9b;
 
-@media (prefers-reduced-motion: no-preference) {
-  .loadingspin {
-    animation: loading-spin infinite 3s linear;
-  }
-}
-
-@keyframes loading-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import url("https://cdn.rawgit.com/lonekorean/gist-syntax-themes/d49b91b3/stylesheets/one-dark.css");
 
 .loadingspin {
   width: 80px;
@@ -91,7 +81,7 @@ body {
   border: solid 1px white;
   margin-bottom: 5px;
   font-size: 2px;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: $changed-shadow;
 }
 
 .advancedlineyin {
@@ -134,14 +124,14 @@ body {
   width: 18px;
   border: solid 1px white;
   background-color: $accent-color;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: $changed-shadow;
 }
 .advancedlineyinchange .yinright {
   height: 5px;
   width: 18px;
   border: solid 1px white;
   background-color: $accent-color;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: $changed-shadow;
 }
 .gramnumber {
   font-size: 15px;
@@ -188,15 +178,30 @@ body {
   font-weight: bold;
 }
 
-.lineheader {
+.lineheader,
+.lineheadergrey,
+.lineheadersmall,
+.lineheadersmallgrey {
+  margin-top: 30px;
   margin-bottom: 0px;
   font-weight: bold;
   width: 100%;
   text-align: center;
-  border-bottom: solid 1px $accent-color;
-  padding-bottom: 8px;
-  border-top: solid 1px $accent-color;
-  padding-top: 8px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.lineheader {
+  border: solid 2px $accent-color;
+}
+.lineheadergrey {
+  border: solid 2px $unchanged-color;
+}
+.lineheadersmall {
+  border: solid 1px $accent-color;
+}
+.lineheadersmallgrey {
+  border: solid 1px $unchanged-color-small;
 }
 
 .flip-card-container {
@@ -264,16 +269,20 @@ body {
   height: 293px;
 }
 
-.MuiTab-textColorPrimary.Mui-selected {
-  color: $accent-color !important;
-}
-
 .MuiAppBar-colorDefault {
   background-color: #000000 !important;
 }
 
+.MuiTab-textColorPrimary.Mui-selected {
+  color: $accent-color !important;
+}
+
 .MuiTabs-indicator {
   background-color: $accent-color !important;
+}
+
+.MuiTab-textColorPrimary.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .leftarrow {
@@ -301,4 +310,34 @@ body {
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
   background-color: $accent-color !important;
+}
+
+.introhex {
+  display: block;
+  width: 50px;
+  float: right;
+  margin: 5px 15px 5px 15px;
+}
+
+.codecontainer .MuiExpansionPanelDetails-root {
+  padding: 0 !important;
+  overflow-y: hidden !important;
+  overflow-x: scroll !important;
+}
+.codecontainer .MuiExpansionPanelSummary-root {
+  background-color: #203e57;
+}
+.gist .gist-file {
+  margin-bottom: 0 !important;
+  border: 0px solid !important;
+}
+.gist .gist-data {
+  border-bottom: 0px solid #ddd !important;
+}
+.gist .gist-meta {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.aboutlinks a {
+  color: $accent-color;
 }

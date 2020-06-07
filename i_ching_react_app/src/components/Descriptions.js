@@ -93,30 +93,126 @@ function Descriptions(props) {
     hexalinefive,
     hexalinesix,
   ];
-  var pickedlinenumber;
-  var pickedline;
 
-  if (hexastringprop.includes("B")) {
-    pickedline = linearray[hexastringprop.lastIndexOf("B")];
-    pickedlinenumber =
-      hexastringprop.lastIndexOf("B") + 1 === 6
-        ? "Top Changing Line"
-        : "Changing Line " + (hexastringprop.lastIndexOf("B") + 1);
-  } else if (hexastringprop.includes("W")) {
-    pickedline = linearray[hexastringprop.lastIndexOf("W")];
-    pickedlinenumber =
-      hexastringprop.lastIndexOf("W") + 1 === 6
-        ? "Top Changing Line"
-        : "Changing Line " + (hexastringprop.lastIndexOf("W") + 1);
+  let masterYinLine;
+  let pickedlineclass;
+
+  function findMasterYin() {
+    let changinglines = [];
+    let unchanginglines = [];
+    for (let i = 0; i < 6; i++) {
+      hexastringprop.charAt(i) === "B" || hexastringprop.charAt(i) === "W"
+        ? changinglines.push(hexastringprop.charAt(i) + i)
+        : unchanginglines.push(hexastringprop.charAt(i) + i);
+    }
+    if (changinglines.length === 1) {
+      masterYinLine = changinglines[0].charAt(1) * 1;
+    } else if (changinglines.length === 2) {
+      if (changinglines[0].charAt(0) === changinglines[1].charAt(0)) {
+        masterYinLine = changinglines[0].charAt(1) * 1;
+      } else {
+        changinglines[0].charAt(0) === "B"
+          ? (masterYinLine = changinglines[0].charAt(1) * 1)
+          : (masterYinLine = changinglines[1].charAt(1) * 1);
+      }
+    } else if (changinglines.length === 3) {
+      masterYinLine = changinglines[1].charAt(1) * 1;
+    } else if (changinglines.length === 4) {
+      masterYinLine = unchanginglines[1].charAt(1) * 1;
+    } else if (changinglines.length === 5) {
+      masterYinLine = unchanginglines[0].charAt(1) * 1;
+    } else if (changinglines.length === 6) {
+      masterYinLine = 6;
+    } else if (changinglines.length === 0) {
+      masterYinLine = null;
+    }
+    hexastringprop.charAt(masterYinLine) === "B" || hexastringprop.charAt(masterYinLine) === "W"
+      ? (pickedlineclass = "lineheader")
+      : (pickedlineclass = "lineheadergrey");
+    console.log(
+      "Changing: " +
+        changinglines +
+        ". Unchanging: " +
+        unchanginglines +
+        ". Master Yin index is: " +
+        masterYinLine
+    );
+  }
+
+  var pickedlineheader;
+  var pickedlinetext;
+
+  console.log(hexastringprop.charAt(masterYinLine));
+
+  findMasterYin();
+  if (masterYinLine != null && masterYinLine != 6 && masterYinLine != undefined) {
+    pickedlinetext = linearray[masterYinLine];
+    let changedstate = pickedlineclass === "lineheader" ? "Changing" : "Non-changing";
+    pickedlineheader =
+      masterYinLine === 5 ? (
+        <div className={pickedlineclass}>
+          ●&nbsp;&nbsp; Top Prevailing {changedstate} Line &nbsp;&nbsp;●
+        </div>
+      ) : (
+        <div className={pickedlineclass}>
+          ●&nbsp;&nbsp; Prevailing {changedstate} Line {masterYinLine + 1} &nbsp;&nbsp;●
+        </div>
+      );
+  } else if (masterYinLine === 6) {
+    pickedlinetext =
+      "All lines are changing.<br />Study closely the relationship between<br />this hexagram and the transformed hexagram.";
+    pickedlineheader = <div className="lineheader">All Lines Changing</div>;
   } else {
-    pickedline = null;
-    pickedlinenumber = null;
+    pickedlinetext = null;
+    pickedlineheader = null;
+  }
+  function getLineHeader(index) {
+    let thisheader;
+    if (index === masterYinLine) {
+      if (masterYinLine === 5) {
+        if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
+          thisheader =
+            '<div class="lineheader">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>';
+        } else {
+          thisheader =
+            '<div class="lineheadergrey">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>';
+        }
+      } else {
+        if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
+          thisheader =
+            '<div class="lineheader">●&nbsp;&nbsp; Prevailing Changing Line ' +
+            (index + 1) +
+            " &nbsp;&nbsp;●</div>";
+        } else {
+          thisheader =
+            '<div class="lineheadergrey">●&nbsp;&nbsp; Prevailing Non-changing Line ' +
+            (index + 1) +
+            " &nbsp;&nbsp;●</div>";
+        }
+      }
+    } else if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
+      thisheader = '<div class="lineheadersmall">Changing Line ' + (index + 1) + "</div>";
+    } else {
+      thisheader = '<div class="lineheadersmallgrey">Non-changing Line ' + (index + 1) + "</div>";
+    }
+    return thisheader;
   }
 
   useEffect(() => {
-    flipcard();
+    checkCard();
   });
 
+  // methods of rendering the card image
+  function checkCard() {
+    if (isloading || props.cardstate === true) {
+      setValue(0);
+      console.log("loading");
+    } else {
+      let img = document.createElement("img");
+      img.src = getCardImage();
+      img.onload = () => flipcard();
+    }
+  }
   const flipcard = () => {
     if (isloading) {
       setValue(0);
@@ -124,32 +220,32 @@ function Descriptions(props) {
     } else {
       console.log("descriptions loaded");
       if (value == 0) {
-        const flipCardContainer = document.querySelector(".flip-card-container");
-        flipCardContainer.classList.add("flip");
+        document.querySelector(".flip-card-container").classList.add("flip");
       } else {
         if (hexanumber != hexanumberchanged) {
-          const flipCardContainerTwo = document.querySelector(".flip-card-container-two");
-          flipCardContainerTwo.classList.add("flip");
+          document.querySelector(".flip-card-container-two").classList.add("flip");
         }
       }
     }
   };
-
   const getCardImage = () => {
     var cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
     if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
-    } else {
+    } else if (cardstyle === "Clark-Gill Cards") {
       return "./cards/" + cardnum + ".jpg";
+    } else {
+      return "./cards-loscarabeo/" + cardnum + ".jpg";
     }
   };
-
   const getCardChanged = () => {
     var cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
     if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
-    } else {
+    } else if (cardstyle === "Clark-Gill Cards") {
       return "./cards/" + cardnum + ".jpg";
+    } else {
+      return "./cards-loscarabeo/" + cardnum + ".jpg";
     }
   };
 
@@ -192,8 +288,8 @@ function Descriptions(props) {
             variant="fullWidth"
             aria-label="full width tabs example"
           >
-            <Tab label="Casted" {...a11yProps(0)} />
-            <Tab label="Changed" {...a11yProps(1)} disabled={disabled} />
+            <Tab label="Situation" {...a11yProps(0)} />
+            <Tab label="Transformed" {...a11yProps(1)} disabled={disabled} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -204,6 +300,7 @@ function Descriptions(props) {
           <TabPanel className={classes.tabPanel} value={value} index={0} dir={theme.direction}>
             <div className="loadcontainer">
               <img src="bagua.png" className="loadingspin" />
+              <br />
             </div>
           </TabPanel>
         </SwipeableViews>
@@ -222,8 +319,8 @@ function Descriptions(props) {
               variant="fullWidth"
               aria-label="full width tabs example"
             >
-              <Tab label="Casted" {...a11yProps(0)} />
-              <Tab label="Changed" {...a11yProps(1)} disabled={disabled} />
+              <Tab label="Situation" {...a11yProps(0)} />
+              <Tab label="Transformed" {...a11yProps(1)} disabled={disabled} />
             </Tabs>
           </AppBar>
           <SwipeableViews
@@ -248,12 +345,8 @@ function Descriptions(props) {
                 </h3>
                 <div className="descriptiontext">
                   <p>{ReactHtmlParser(hexadescription)}</p>
-                  <div>
-                    {pickedline != null
-                      ? ReactHtmlParser('<div class="lineheader">' + pickedlinenumber + "</div>")
-                      : null}
-                  </div>
-                  <p>{pickedline != null ? ReactHtmlParser(pickedline) : null}</p>
+                  <div>{pickedlinetext != null ? pickedlineheader : null}</div>
+                  <p>{pickedlinetext != null ? ReactHtmlParser(pickedlinetext) : null}</p>
                 </div>
               </div>
             </TabPanel>
@@ -304,8 +397,8 @@ function Descriptions(props) {
               variant="fullWidth"
               aria-label="full width tabs example"
             >
-              <Tab label="Casted" {...a11yProps(0)} />
-              <Tab label="Changed" {...a11yProps(1)} disabled={disabled} />
+              <Tab label="Situation" {...a11yProps(0)} />
+              <Tab label="Transformed" {...a11yProps(1)} disabled={disabled} />
             </Tabs>
           </AppBar>
           <SwipeableViews
@@ -330,52 +423,12 @@ function Descriptions(props) {
                 </h3>
                 <div className="descriptiontext">
                   <p>{ReactHtmlParser(hexadescription)}</p>
-                  <div>
-                    {hexastringprop.charAt(5) === "B" || hexastringprop.charAt(5) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Top Changing Line</div><p>' +
-                            hexalinesix +
-                            "</p>"
-                        )
-                      : null}
-                  </div>
-                  <div>
-                    {hexastringprop.charAt(4) === "B" || hexastringprop.charAt(4) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Changing Line 5</div><p>' + hexalinefive + "</p>"
-                        )
-                      : null}
-                  </div>
-                  <div>
-                    {hexastringprop.charAt(3) === "B" || hexastringprop.charAt(3) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Changing Line 4</div><p>' + hexalinefour + "</p>"
-                        )
-                      : null}
-                  </div>
-                  <div>
-                    {hexastringprop.charAt(2) === "B" || hexastringprop.charAt(2) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Changing Line 3</div><p>' +
-                            hexalinethree +
-                            "</p>"
-                        )
-                      : null}
-                  </div>
-                  <div>
-                    {hexastringprop.charAt(1) === "B" || hexastringprop.charAt(1) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Changing Line 2</div><p>' + hexalinetwo + "</p>"
-                        )
-                      : null}
-                  </div>
-                  <div>
-                    {hexastringprop.charAt(0) === "B" || hexastringprop.charAt(0) === "W"
-                      ? ReactHtmlParser(
-                          '<div class="lineheader">Changing Line 1</div><p>' + hexalineone + "</p>"
-                        )
-                      : null}
-                  </div>
+                  <div>{ReactHtmlParser(getLineHeader(5) + "<p>" + hexalinesix + "</p>")}</div>
+                  <div>{ReactHtmlParser(getLineHeader(4) + "<p>" + hexalinefive + "</p>")}</div>
+                  <div>{ReactHtmlParser(getLineHeader(3) + "<p>" + hexalinefour + "</p>")}</div>
+                  <div>{ReactHtmlParser(getLineHeader(2) + "<p>" + hexalinethree + "</p>")}</div>
+                  <div>{ReactHtmlParser(getLineHeader(1) + "<p>" + hexalinetwo + "</p>")}</div>
+                  <div>{ReactHtmlParser(getLineHeader(0) + "<p>" + hexalineone + "</p>")}</div>
                 </div>
               </div>
             </TabPanel>

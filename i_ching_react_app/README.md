@@ -32,6 +32,10 @@ Sass preprocessor and style fixes
 
 Clark-Gill cards and dropdown added
 
-### v1.10 - May 30th, 2020
+### v1.10 - June 6th, 2020
 
 Visual overhaul: Particle.js, new favicon, style tweaks and image backgrounds
+
+### v1.40 - June 7th, 2020
+
+Lo Scarabeo cards, React Router DOM, desktop/mobile navigation, Intro page, About page and new favicon added. Components re-organized. New algorithm for choosing prevailing line. Conditional switch label. Switch displays all lines, instead of only changing lines.

@@ -36,7 +36,7 @@ function Hexagram(props) {
   }
 
   return (
-    <div className="advancedpiccontainer">
+    <div className={props.className != undefined ? props.className : "advancedpiccontainer"}>
       {ReactHtmlParser(getAdvancedHexapic(hexastringprop))}
     </div>
   );
