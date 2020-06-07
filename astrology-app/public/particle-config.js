@@ -84,7 +84,7 @@ particlesJS("#aa_particles", {
     },
     modes: {
       grab: {
-        distance: 140,
+        distance: 100,
         line_linked: {
           opacity: 1,
         },
