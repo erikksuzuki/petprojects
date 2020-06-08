@@ -9,6 +9,7 @@ function FooterText() {
         href="https://github.com/erikksuzuki/petprojects/blob/master/i_ching_react_app/README.md"
         target="_blank"
         style={{ color: "white" }}
+        rel="noopener noreferrer"
       >
         Version 1.40
       </a>{" "}

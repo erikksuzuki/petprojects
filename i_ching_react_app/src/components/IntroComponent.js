@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
@@ -41,6 +40,10 @@ function IntroComponent(props) {
   }));
   const classes = useStyles();
 
+  useEffect(() => {
+    props.startFunction();
+  });
+
   return (
     <div>
       <Container maxWidth="sm" className="savedbox">
@@ -54,7 +57,7 @@ function IntroComponent(props) {
                 "I Ching" means "Classic of Changes" or "Book of Changes." (While mostly the
                 spelling "I Ching" is used, "Yijing" is in fact the official modern spelling.)
               </p>
-              <Hexagram string="VVPPVV" className="introhex" />
+              <Hexagram string={props.stringstate} className="introhex" />
               <p>
                 There are 64 different main kinds of situations in the I Ching. Each one is
                 indicated by a hexagram, which is a symbol made up by 6 lines, each of which can be

@@ -1,18 +1,19 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import "./App.css";
 
 import MainComponent from "./components/MainComponent";
 
 // basename="/projects/iching"
+// <BrowserRouter basename="/projects/iching">
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <MainComponent />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

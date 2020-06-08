@@ -6,9 +6,25 @@
   padding-top: 70px;
   padding-bottom: 70px; }
 
+.loadinghidden {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .loadingspin {
+    animation: loading-spin infinite 4s linear; } }
+
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 body {
   background-color: #3e8ec4;
-  font-size: 1rem; }
+  font-size: 13px;
+  text-shadow: 1px 1px 4px #000; }
 
 .tablecontainer {
   margin-top: 20px;
@@ -137,7 +153,8 @@ body {
   background-color: #3e8ec4; }
 
 .MuiInputBase-input {
-  color: rgba(255, 255, 255, 0.7) !important; }
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-shadow: none; }
 
 @keyframes App-logo-spin {
   from {
@@ -220,7 +237,7 @@ body {
   font-size: 2rem;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6); }
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5); }
 
 .flip-card-front {
   background-color: #333333;
@@ -281,7 +298,8 @@ body {
   overflow-x: scroll !important; }
 
 .codecontainer .MuiExpansionPanelSummary-root {
-  background-color: #203e57; }
+  background-color: #203e57;
+  text-shadow: none; }
 
 .gist .gist-file {
   margin-bottom: 0 !important;
@@ -293,5 +311,19 @@ body {
 .gist .gist-meta {
   background-color: rgba(0, 0, 0, 0.4) !important; }
 
+.gist .blob-code-inner,
+.gist .blob-num,
+.gist .gist-data,
+.gist .gist-meta,
+.gist .gist-file,
+.gist .highlight,
+body .gist span {
+  font-size: 11px !important;
+  font-size: 1rem; }
+
 .aboutlinks a {
-  color: #3e8ec4; }
+  color: #38aaf7;
+  text-decoration: none; }
+
+.MuiDrawer-paper {
+  background-color: #333333 !important; }

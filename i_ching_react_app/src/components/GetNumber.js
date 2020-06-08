@@ -1,16 +1,21 @@
-function GetNumber(props) {
-  var hexastringprop = props.string;
-
-  function hexagramnumber() {
-    var gramvalue = hexastringprop;
+function GetNumber(string) {
+  const unchanged = () => {
+    let convertedstring = string;
     for (let i = 0; i < 6; i++) {
-      gramvalue = gramvalue.replace("B", "P");
-      gramvalue = gramvalue.replace("W", "V");
+      convertedstring = convertedstring.replace("B", "P");
+      convertedstring = convertedstring.replace("W", "V");
     }
-    return getNumber(gramvalue);
-  }
-
-  const getNumber = (hexvalue) =>
+    return guaNumber(convertedstring);
+  };
+  const changed = () => {
+    let convertedstring = string;
+    for (let i = 0; i < 6; i++) {
+      convertedstring = convertedstring.replace("B", "V");
+      convertedstring = convertedstring.replace("W", "P");
+    }
+    return guaNumber(convertedstring);
+  };
+  const guaNumber = (newstring) =>
     ({
       VVVVVV: 1,
       PPPPPP: 2,
@@ -76,9 +81,11 @@ function GetNumber(props) {
       PPVVPP: 62,
       VPVPVP: 63,
       PVPVPV: 64,
-    }[hexvalue]);
-
-  return hexagramnumber();
+    }[newstring]);
+  return {
+    unchanged: unchanged(),
+    changed: changed(),
+  };
 }
 
 export default GetNumber;

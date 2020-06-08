@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import GetNumber from "./GetNumber";
-import GetNumberChanged from "./GetNumberChanged";
 import { HEXAGRAMS } from "../shared/hexagramdetails";
 import ReactHtmlParser from "react-html-parser";
 
@@ -12,8 +11,6 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,32 +57,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Descriptions(props) {
-  var passedproperty = props;
-  var hexastringprop = props.string;
-  var readingtype = props.readingtype;
-  var isloading = props.isloading;
-  var cardstyle = props.cardtype;
+  const readingtype = props.readingtype;
+  const isloading = props.isloading;
+  const cardstyle = props.cardstyle;
 
   // titles and descriptions for unchanged
-  var hexanumber = GetNumber(passedproperty);
-  var hexatitle = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].name;
-  var hexadescription = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].description;
+  const hexanumber = GetNumber(props.string).unchanged;
+  const hexatitle = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].name;
+  const hexadescription = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].description;
 
   // line descriptions
-  var hexalineone = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_one;
-  var hexalinetwo = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_two;
-  var hexalinethree = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_three;
-  var hexalinefour = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_four;
-  var hexalinefive = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_five;
-  var hexalinesix = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_six;
+  const hexalineone = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_one;
+  const hexalinetwo = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_two;
+  const hexalinethree = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_three;
+  const hexalinefour = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_four;
+  const hexalinefive = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_five;
+  const hexalinesix = HEXAGRAMS.filter((x) => x.id === hexanumber)[0].line_six;
 
   // titles and descriptions for changed
-  var hexanumberchanged = GetNumberChanged(passedproperty);
-  var hexatitlechanged = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].name;
-  var hexachangeddescription = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].description;
+  const hexanumberchanged = GetNumber(props.string).changed;
+  const hexatitlechanged = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].name;
+  const hexachangeddescription = HEXAGRAMS.filter((x) => x.id === hexanumberchanged)[0].description;
 
   // PICK OUT THE RELEVENT LINE FOR SINGLE LINE READING
-  var linearray = [
+  const linearray = [
     hexalineone,
     hexalinetwo,
     hexalinethree,
@@ -101,9 +96,9 @@ function Descriptions(props) {
     let changinglines = [];
     let unchanginglines = [];
     for (let i = 0; i < 6; i++) {
-      hexastringprop.charAt(i) === "B" || hexastringprop.charAt(i) === "W"
-        ? changinglines.push(hexastringprop.charAt(i) + i)
-        : unchanginglines.push(hexastringprop.charAt(i) + i);
+      props.string.charAt(i) === "B" || props.string.charAt(i) === "W"
+        ? changinglines.push(props.string.charAt(i) + i)
+        : unchanginglines.push(props.string.charAt(i) + i);
     }
     if (changinglines.length === 1) {
       masterYinLine = changinglines[0].charAt(1) * 1;
@@ -126,7 +121,7 @@ function Descriptions(props) {
     } else if (changinglines.length === 0) {
       masterYinLine = null;
     }
-    hexastringprop.charAt(masterYinLine) === "B" || hexastringprop.charAt(masterYinLine) === "W"
+    props.string.charAt(masterYinLine) === "B" || props.string.charAt(masterYinLine) === "W"
       ? (pickedlineclass = "lineheader")
       : (pickedlineclass = "lineheadergrey");
     console.log(
@@ -139,13 +134,13 @@ function Descriptions(props) {
     );
   }
 
-  var pickedlineheader;
-  var pickedlinetext;
+  let pickedlineheader;
+  let pickedlinetext;
 
-  console.log(hexastringprop.charAt(masterYinLine));
+  console.log(props.string.charAt(masterYinLine));
 
   findMasterYin();
-  if (masterYinLine != null && masterYinLine != 6 && masterYinLine != undefined) {
+  if (masterYinLine !== null && masterYinLine !== 6 && masterYinLine !== undefined) {
     pickedlinetext = linearray[masterYinLine];
     let changedstate = pickedlineclass === "lineheader" ? "Changing" : "Non-changing";
     pickedlineheader =
@@ -170,31 +165,35 @@ function Descriptions(props) {
     let thisheader;
     if (index === masterYinLine) {
       if (masterYinLine === 5) {
-        if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
-          thisheader =
-            '<div class="lineheader">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>';
-        } else {
-          thisheader =
-            '<div class="lineheadergrey">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>';
-        }
+        props.string.charAt(index) === "B" || props.string.charAt(index) === "W"
+          ? (thisheader =
+              '<div class="lineheader">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>')
+          : (thisheader =
+              '<div class="lineheadergrey">●&nbsp;&nbsp; Top Prevailing Line &nbsp;&nbsp;●</div>');
       } else {
-        if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
-          thisheader =
-            '<div class="lineheader">●&nbsp;&nbsp; Prevailing Changing Line ' +
-            (index + 1) +
-            " &nbsp;&nbsp;●</div>";
-        } else {
-          thisheader =
-            '<div class="lineheadergrey">●&nbsp;&nbsp; Prevailing Non-changing Line ' +
-            (index + 1) +
-            " &nbsp;&nbsp;●</div>";
-        }
+        props.string.charAt(index) === "B" || props.string.charAt(index) === "W"
+          ? (thisheader =
+              '<div class="lineheader">●&nbsp;&nbsp; Prevailing Changing Line ' +
+              (index + 1) +
+              " &nbsp;&nbsp;●</div>")
+          : (thisheader =
+              '<div class="lineheadergrey">●&nbsp;&nbsp; Prevailing Non-changing Line ' +
+              (index + 1) +
+              " &nbsp;&nbsp;●</div>");
       }
-    } else if (hexastringprop.charAt(index) === "B" || hexastringprop.charAt(index) === "W") {
-      thisheader = '<div class="lineheadersmall">Changing Line ' + (index + 1) + "</div>";
     } else {
-      thisheader = '<div class="lineheadersmallgrey">Non-changing Line ' + (index + 1) + "</div>";
+      if (index === 5) {
+        props.string.charAt(5) === "B" || props.string.charAt(5) === "W"
+          ? (thisheader = '<div class="lineheadersmall">Top Changing Line</div>')
+          : (thisheader = '<div class="lineheadersmallgrey">Top Non-changing Line</div>');
+      } else {
+        props.string.charAt(index) === "B" || props.string.charAt(index) === "W"
+          ? (thisheader = '<div class="lineheadersmall">Changing Line ' + (index + 1) + "</div>")
+          : (thisheader =
+              '<div class="lineheadersmallgrey">Non-changing Line ' + (index + 1) + "</div>");
+      }
     }
+
     return thisheader;
   }
 
@@ -219,17 +218,17 @@ function Descriptions(props) {
       console.log("loading");
     } else {
       console.log("descriptions loaded");
-      if (value == 0) {
+      if (value === 0) {
         document.querySelector(".flip-card-container").classList.add("flip");
       } else {
-        if (hexanumber != hexanumberchanged) {
+        if (hexanumber !== hexanumberchanged) {
           document.querySelector(".flip-card-container-two").classList.add("flip");
         }
       }
     }
   };
   const getCardImage = () => {
-    var cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
+    let cardnum = hexanumber - 1 > 9 ? hexanumber - 1 : "0" + (hexanumber - 1);
     if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
     } else if (cardstyle === "Clark-Gill Cards") {
@@ -239,7 +238,7 @@ function Descriptions(props) {
     }
   };
   const getCardChanged = () => {
-    var cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
+    let cardnum = hexanumberchanged - 1 > 9 ? hexanumberchanged - 1 : "0" + (hexanumberchanged - 1);
     if (cardstyle === "Tao Oracle Cards") {
       return "./cards-tao/" + cardnum + ".jpg";
     } else if (cardstyle === "Clark-Gill Cards") {
@@ -267,7 +266,7 @@ function Descriptions(props) {
   if (isloading) {
     disabled = true;
   } else {
-    if (hexanumber != hexanumberchanged) {
+    if (hexanumber !== hexanumberchanged) {
       disabled = null;
     } else {
       disabled = true;
@@ -299,7 +298,7 @@ function Descriptions(props) {
         >
           <TabPanel className={classes.tabPanel} value={value} index={0} dir={theme.direction}>
             <div className="loadcontainer">
-              <img src="bagua.png" className="loadingspin" />
+              <img src="bagua.png" style={{ width: 80, opacity: 0.01 }} alt="" />
               <br />
             </div>
           </TabPanel>
@@ -333,10 +332,10 @@ function Descriptions(props) {
                 <div className="flip-card-container">
                   <div className="flip-card">
                     <div className="flip-card-front">
-                      <img src="./cards/back.jpg" />
+                      <img src="./cards/back.jpg" alt="" />
                     </div>
                     <div className="flip-card-back">
-                      <img src={getCardImage()} />
+                      <img src={getCardImage()} alt="" />
                     </div>
                   </div>
                 </div>
@@ -358,10 +357,10 @@ function Descriptions(props) {
                     <div className="flip-card-container-two">
                       <div className="flip-card">
                         <div className="flip-card-front">
-                          <img src="./cards/back.jpg" />
+                          <img src="./cards/back.jpg" alt="" />
                         </div>
                         <div className="flip-card-back">
-                          <img src={getCardChanged()} />
+                          <img src={getCardChanged()} alt="" />
                         </div>
                       </div>
                     </div>
@@ -411,10 +410,10 @@ function Descriptions(props) {
                 <div className="flip-card-container">
                   <div className="flip-card">
                     <div className="flip-card-front">
-                      <img src="./cards/back.jpg" />
+                      <img src="./cards/back.jpg" alt="" />
                     </div>
                     <div className="flip-card-back">
-                      <img src={getCardImage()} />
+                      <img src={getCardImage()} alt="" />
                     </div>
                   </div>
                 </div>
@@ -440,10 +439,10 @@ function Descriptions(props) {
                     <div className="flip-card-container-two">
                       <div className="flip-card">
                         <div className="flip-card-front">
-                          <img src="./cards/back.jpg" />
+                          <img src="./cards/back.jpg" alt="" />
                         </div>
                         <div className="flip-card-back">
-                          <img src={getCardChanged()} />
+                          <img src={getCardChanged()} alt="" />
                         </div>
                       </div>
                     </div>

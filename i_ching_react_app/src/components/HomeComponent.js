@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Container from "@material-ui/core/Container";
@@ -75,7 +75,7 @@ function HomeComponent(props) {
                 string={props.readingstring}
                 isloading={props.isLoading}
                 readingtype={props.readingtype}
-                cardtype={props.cardstyle}
+                cardstyle={props.cardstyle}
                 cardstate={props.cardstate}
               />
               <FooterText />

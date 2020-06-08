@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Gist from "super-react-gist";
 
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
@@ -54,6 +53,10 @@ function AboutComponent(props) {
   }));
   const classes = useStyles();
 
+  useEffect(() => {
+    props.startFunction();
+  });
+
   return (
     <div>
       <Container maxWidth="sm" className="savedbox">
@@ -64,7 +67,7 @@ function AboutComponent(props) {
               <p>
                 This work is non-commercial and intended for personal and educational use. The first
                 of my original programming projects using modern Javascript libraries, it presented
-                several coding challenges, a couple of which I describe below.
+                several coding challenges, a few of which I describe below.
               </p>
               <h3>Method of divination:</h3>
               <div className="aboutlinks">
@@ -73,16 +76,21 @@ function AboutComponent(props) {
                   three coins are tossed to obtain a random value. Traditionally, "tails" are given
                   a value of 2 while "heads" are given a value of 3 per coin. Tossing the three
                   coins together gives the diviner a total value of 6, 7, 8 or 9, each value
-                  corresponding to a changing yin, yang, yin or changing yang line respectively.
+                  corresponding to type of "changing" or "unchanging" line respectively.
+                </p>
+                <p>
                   When repeated, the diviner is able to produce the 6 lines that comprise a
                   hexagram. More can be read about this method on{" "}
                   <a
                     href="https://www.wikihow.com/Consult-the-I-Ching-Using-3-Coins"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Wikihow
                   </a>
-                  .
+                  . Programmatically, I chose to represent these permutations as W (white, or yang)
+                  and B (black, or yin). I chose P and V to represent their unchanging counterparts
+                  due to their similarity in appearance.
                 </p>
               </div>
               <div className="codecontainer">
@@ -96,6 +104,31 @@ function AboutComponent(props) {
                   </ExpansionPanelSummary>
                   <ExpansionPanelDetails>
                     <Gist url="https://gist.github.com/erikksuzuki/dc5530a422eefe069e48366c2074d35e" />
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              </div>
+              <br />
+              <h3>Deriving the Hexagram Numbers:</h3>
+              <p>
+                The string obtained from method above is passed as an argument to a function called{" "}
+                <b>GetNumbers</b>, which converts the 4-letter string to its binary changing and{" "}
+                non-changing forms and gives us the Hexagram numbers for both in an object.
+              </p>
+              <p>
+                These numbers can be used to render the card images, to filter the descriptions, and{" "}
+                for comparison to check whether the hexagram has a transformed image.
+              </p>
+              <div className="codecontainer">
+                <ExpansionPanel>
+                  <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography className={classes.heading}>Get hexagram numbers</Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Gist url="https://gist.github.com/erikksuzuki/fec8ebcecd12143b76e9751bd7e380f3" />
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               </div>
@@ -139,27 +172,31 @@ function AboutComponent(props) {
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               </div>
+
               <br />
               <h3>Resources:</h3>
               <p>
-                Here are some resources which I found useful that made this project possible in its
-                current form.
+                Here are some of the resources that made this project possible in its current form.
               </p>
               <div className="aboutlinks">
                 <ul>
                   <li>
                     This single-page application uses{" "}
-                    <a href="https://reactjs.org/" target="_blank">
+                    <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
                       React.js
                     </a>{" "}
                     and{" "}
-                    <a href="https://material-ui.com/" target="_blank">
+                    <a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">
                       Material UI
                     </a>{" "}
                     for its Javascript library and UI.
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/watch?v=OV8MVmtgmoY" target="_blank">
+                    <a
+                      href="https://www.youtube.com/watch?v=OV8MVmtgmoY"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       CSS Flip Card Effect
                     </a>{" "}
                     by Arjun Khara was a tutorial I found on YouTube for creating the animation seen
@@ -167,26 +204,51 @@ function AboutComponent(props) {
                   </li>
 
                   <li>
-                    <a href="https://www.npmjs.com/package/super-react-gist" target="_blank">
+                    <a
+                      href="https://www.npmjs.com/package/super-react-gist"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Super React Gist
                     </a>{" "}
                     by George Gkasdrogkas and{" "}
-                    <a href="https://lonekorean.github.io/gist-syntax-themes/" target="_blank">
+                    <a
+                      href="https://lonekorean.github.io/gist-syntax-themes/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Gist Syntax Themes
                     </a>{" "}
-                    by Will Boyd was used for displaying code on this page.
+                    by Will Boyd enabled the displaying of code on this page.
                   </li>
                   <li>
-                    <a href="https://github.com/VincentGarreau/particles.js/" target="_blank">
+                    <a
+                      href="https://github.com/VincentGarreau/particles.js/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       particle.js
                     </a>{" "}
-                    by VincentGarreau was used for the ambient background effect.
+                    by Vincent Garreau was used for the cave dust background effect. You can find
+                    and copy the parameters I used{" "}
+                    <a
+                      href="https://gist.github.com/erikksuzuki/32e773c4a60156bc9be89f80f6ec8463"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      here
+                    </a>
+                    .
                   </li>
                   <li>
-                    <a href="https://www.jquery-backstretch.com/" target="_blank">
+                    <a
+                      href="https://www.jquery-backstretch.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       jQuery backstretch
                     </a>{" "}
-                    by Scott Robbin is still the simplest way to create fixed backgrounds that work
+                    by Scott Robbin is still the easiest way to create fixed backgrounds that work
                     in any mobile browser.
                   </li>
                   <li>
@@ -194,22 +256,28 @@ function AboutComponent(props) {
                     <a
                       href="https://www.gettyimages.com/detail/photo/light-rays-coming-inside-the-khao-luang-cave-khao-royalty-free-image/688429096"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       background image
                     </a>{" "}
                     is a stock photo from Getty Images.
                   </li>
                   <li>
-                    The descriptions for the readings were scraped from{" "}
-                    <a href="https://www.iching.online/" target="_blank">
+                    The descriptions for the readings were manually scraped from{" "}
+                    <a href="https://www.iching.online/" target="_blank" rel="noopener noreferrer">
                       I Ching Online
                     </a>
-                    . The same readings can be found on their website, and if you've found them
-                    useful, please consider making a donation to them through{" "}
-                    <a href="https://www.iching.online/" target="_blank">
-                      PayPal
-                    </a>
-                    .
+                    , converted to HTML strings and compiled into JSON format using Microsoft Excel.
+                    This app uses{" "}
+                    <a
+                      href="https://www.npmjs.com/package/react-html-parser"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      React HTML Parser
+                    </a>{" "}
+                    to render them into the DOM. If you've found these readings useful, please
+                    consider making a donation to I Ching Online through their home page.
                   </li>
                 </ul>
               </div>

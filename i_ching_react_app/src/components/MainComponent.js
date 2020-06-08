@@ -58,6 +58,7 @@ function MainComponent() {
     switch: {
       fontSize: 12,
       color: `rgba(255,255,255,0.7)`,
+      textShadow: "none",
       marginBottom: 10,
     },
     formControl: {
@@ -88,7 +89,7 @@ function MainComponent() {
 
   // data and methods for card selector
   const [open, setOpen] = useState(false);
-  const [cardstyle, setCardstyle] = useState("Scarabeo Cards");
+  const [cardstyle, setCardstyle] = useState("Clark-Gill Cards");
   const handleClose = () => {
     setOpen(false);
   };
@@ -101,6 +102,7 @@ function MainComponent() {
 
   // data and methods for reading type
   const [checked, setChecked] = useState(false);
+  const [currentpage, setPage] = useState("home");
   const [readingtype, setReadingtype] = useState(false);
   const toggleChecked = () => {
     setChecked((prev) => !prev);
@@ -160,6 +162,24 @@ function MainComponent() {
     resettimer();
   };
 
+  const spinnerClass = () => {
+    if (isLoading && currentpage === "home") {
+      return "loadcontainer";
+    } else {
+      return "loadinghidden";
+    }
+  };
+
+  const handleNavHome = () => {
+    setPage("home");
+  };
+  const handleNavIntro = () => {
+    setPage("intro");
+  };
+  const handleNavAbout = () => {
+    setPage("about");
+  };
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -179,28 +199,41 @@ function MainComponent() {
             <Typography
               variant="h6"
               className={classes.title}
-              style={{ marginRight: 30 }}
-              style={{ cursor: "default" }}
+              style={{ marginRight: 30, cursor: "default" }}
+              component={"span"}
             >
               I Ching
             </Typography>
             <Hidden smDown>
-              <Link to="/home" style={{ color: "#fff" }}>
+              <Link
+                to="/home"
+                onClick={handleNavHome}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <Button color="inherit" className={classes.menuButton} startIcon={<HomeIcon />}>
                   Home
                 </Button>
               </Link>
-              <Link to="/intro" style={{ color: "#fff" }}>
+              <Link
+                to="/intro"
+                onClick={handleNavIntro}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <Button color="inherit" className={classes.menuButton} startIcon={<HelpIcon />}>
                   Introduction
                 </Button>
               </Link>
-              <Link to="/about" style={{ color: "#fff" }}>
+              <Link
+                to="/about"
+                onClick={handleNavAbout}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <Button color="inherit" className={classes.menuButton} startIcon={<InfoIcon />}>
                   About this project
                 </Button>
               </Link>
             </Hidden>
+            <img src="/cards/back.jpg" alt="" style={{ width: 1, height: 1, opacity: 0.01 }} />
           </Toolbar>
         </AppBar>
         <Drawer anchor="left" open={drawerState["left"]} onClose={toggleDrawer("left", false)}>
@@ -215,7 +248,12 @@ function MainComponent() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title} style={{ marginRight: 30 }}>
+            <Typography
+              variant="h6"
+              className={classes.title}
+              style={{ marginRight: 30 }}
+              component={"span"}
+            >
               I Ching
             </Typography>
           </Toolbar>
@@ -226,7 +264,11 @@ function MainComponent() {
             onKeyDown={toggleDrawer("left", false)}
           >
             <List>
-              <Link to="/home" style={{ textDecoration: "none", color: "#fff" }}>
+              <Link
+                to="/home"
+                onClick={handleNavHome}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <ListItem button key="left">
                   <ListItemIcon>
                     <HomeIcon />
@@ -234,7 +276,11 @@ function MainComponent() {
                   <ListItemText primary="Home" />
                 </ListItem>
               </Link>
-              <Link to="/intro" style={{ textDecoration: "none", color: "#fff" }}>
+              <Link
+                to="/intro"
+                onClick={handleNavIntro}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <ListItem button key="left">
                   <ListItemIcon>
                     <HelpIcon />
@@ -242,7 +288,11 @@ function MainComponent() {
                   <ListItemText primary="Introduction" />
                 </ListItem>
               </Link>
-              <Link to="/about" style={{ textDecoration: "none", color: "#fff" }}>
+              <Link
+                to="/about"
+                onClick={handleNavAbout}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 <ListItem button key="left">
                   <ListItemIcon>
                     <InfoIcon />
@@ -274,6 +324,20 @@ function MainComponent() {
                     <MenuItem value={"Scarabeo Cards"}>Scarabeo Cards</MenuItem>
                   </Select>
                 </FormControl>
+                <div
+                  className={spinnerClass()}
+                  style={{
+                    position: "absolute",
+                    left: "50%",
+                    top: "334px",
+                    width: "80px",
+                    height: "80px",
+                    marginLeft: "-40px",
+                  }}
+                >
+                  <img src="bagua.png" className="loadingspin" alt="" />
+                  <br />
+                </div>
               </Box>
             </Grid>
             <Grid item xs={6}>
@@ -291,7 +355,6 @@ function MainComponent() {
 
         <Switch>
           <Route
-            exact
             path="/home"
             component={() => (
               <HomeComponent
@@ -305,8 +368,16 @@ function MainComponent() {
               />
             )}
           />
-          <Route path="/intro" component={() => <IntroComponent />} />
-          <Route path="/about" component={() => <AboutComponent />} />
+          <Route
+            path="/intro"
+            component={() => (
+              <IntroComponent stringstate={stringstate} startFunction={handleNavIntro} />
+            )}
+          />
+          <Route
+            path="/about"
+            component={() => <AboutComponent startFunction={handleNavAbout} />}
+          />
           <Redirect to="/home" />
         </Switch>
       </ThemeProvider>
