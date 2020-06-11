@@ -1,10 +1,13 @@
+$accent-color: #d88c00;
+
 .panelsigncontainer {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   height: 185px;
   width: 185px;
-  border: solid 0px white; }
+  border: solid 0px white;
+}
 
 .panelsign {
   position: absolute;
@@ -16,7 +19,8 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .panelplanet {
   display: block;
@@ -24,86 +28,104 @@
   margin-right: auto;
   position: relative;
   top: 120px;
-  width: 100px; }
+  width: 100px;
+}
 
 .leftarrow,
 .rightarrow {
   position: absolute;
   top: 35px;
   opacity: 0.8;
-  cursor: pointer; }
-
+  cursor: pointer;
+}
 .leftarrow.disabled,
 .rightarrow.disabled {
   opacity: 0.3;
-  cursor: default; }
-
+  cursor: default;
+}
 .leftarrow {
   left: 50%;
-  margin-left: -170px; }
-
+  margin-left: -170px;
+}
 .rightarrow {
   right: 50%;
-  margin-right: -170px; }
+  margin-right: -170px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .panelsign {
-    animation: constelationspin infinite 20s linear; }
+    animation: constelationspin infinite 20s linear;
+  }
   .leftarrow {
-    animation: left-backandforth infinite 1s linear; }
+    animation: left-backandforth infinite 1s linear;
+  }
   .rightarrow {
-    animation: right-backandforth infinite 1s linear; } }
-
+    animation: right-backandforth infinite 1s linear;
+  }
+}
 @keyframes constelationspin {
   from {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   to {
-    transform: rotate(360deg); } }
-
+    transform: rotate(360deg);
+  }
+}
 @keyframes left-backandforth {
   0% {
-    margin-left: -170px; }
+    margin-left: -170px;
+  }
   50% {
-    margin-left: -180px; }
+    margin-left: -180px;
+  }
   100% {
-    margin-left: -170px; } }
-
+    margin-left: -170px;
+  }
+}
 @keyframes right-backandforth {
   0% {
-    margin-right: -170px; }
+    margin-right: -170px;
+  }
   50% {
-    margin-right: -180px; }
+    margin-right: -180px;
+  }
   100% {
-    margin-right: -170px; } }
+    margin-right: -170px;
+  }
+}
 
 .empty {
   border: solid 3px #666666;
-  background-color: rgba(0, 0, 0, 0.3); }
-
+  background-color: rgba(0, 0, 0, 0.3);
+}
 .fire {
-  border: solid 3px #ac3838; }
-
+  border: solid 3px #ac3838;
+}
 .earth {
-  border: solid 3px #a36952; }
-
+  border: solid 3px #a36952;
+}
 .air {
-  border: solid 3px #65878a; }
-
+  border: solid 3px #65878a;
+}
 .water {
-  border: solid 3px #3b7ac2; }
+  border: solid 3px #3b7ac2;
+}
 
 .paneltitle {
   margin-top: 40px;
   font-size: 17px;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 .paneldescription {
   margin-top: 10px;
-  text-align: justify; }
+  text-align: justify;
+}
 
 .emptier {
   padding-top: 20px;
-  text-align: center !important; }
+  text-align: center !important;
+}
 
 .dropcap p::first-letter {
   display: block;
@@ -111,55 +133,67 @@
   float: left;
   font-size: 37px;
   margin: 3px 5px 0 0;
-  line-height: 28px; }
+  line-height: 28px;
+}
 
 .MuiTab-root {
   min-width: 10px !important;
   font-family: "AstroSymbol" !important;
-  font-size: 20px !important; }
-
+  font-size: 20px !important;
+}
 .MuiAppBar-colorDefault {
-  background-color: #000000 !important; }
+  background-color: #000000 !important;
+}
 
 .MuiTab-textColorPrimary.Mui-selected {
-  color: #d88c00 !important; }
+  color: $accent-color !important;
+}
 
 .MuiTabs-indicator {
-  background-color: #d88c00 !important; }
+  background-color: $accent-color !important;
+}
 
 .MuiInput-underline::before {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important; }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
 
 .MuiFormLabel-root.Mui-focused {
-  color: #d88c00 !important; }
+  color: $accent-color !important;
+}
 
 .MuiInput-underline.Mui-focused::after {
-  border-bottom: 2px solid #d88c00; }
+  border-bottom: 2px solid $accent-color;
+}
 
 .MuiSwitch-colorSecondary.Mui-checked {
-  color: #d88c00 !important; }
+  color: $accent-color !important;
+}
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: #d88c00 !important; }
+  background-color: $accent-color !important;
+}
 
 .fetchbuttonDisabled {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  background-color: black !important;
+  background-color: rgba(0, 0, 0, 1) !important;
   color: white !important;
   opacity: 0.3;
-  cursor: default !important; }
-
+  cursor: default !important;
+}
 .fetchbuttonDisabled:hover {
-  background-color: black !important; }
+  background-color: rgba(0, 0, 0, 1) !important;
+}
 
 .fetchbutton {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  background-color: #28455e !important;
+  background-color: rgba(40, 69, 94, 1) !important;
+
   color: white !important;
   opacity: 1;
-  cursor: pointer !important; }
+  cursor: pointer !important;
+}
 
 .aspecttitle {
   text-align: center;
@@ -168,21 +202,22 @@
   padding: 4px;
   margin-top: 30px;
   margin-bottom: 15px;
-  border: solid 1px white; }
-
+  border: solid 1px white;
+}
 .aspecttitle.conjunct {
-  border-color: #d88c00; }
-
+  border-color: #d88c00;
+}
 .aspecttitle.sextile,
 .aspecttitle.trine {
-  border-color: #1e8aad; }
-
+  border-color: #1e8aad;
+}
 .aspecttitle.square,
 .aspecttitle.opposition {
-  border-color: #c03333; }
-
+  border-color: #c03333;
+}
 .aspectcontent {
-  text-align: justify; }
-
+  text-align: justify;
+}
 .MuiSkeleton-root {
-  background-color: rgba(0, 60, 100, 0.23) !important; }
+  background-color: rgba(0, 60, 100, 0.23) !important;
+}
