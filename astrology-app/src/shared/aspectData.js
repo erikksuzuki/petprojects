@@ -109,26 +109,26 @@ export const aspectData = [
   },
   {
     Conjunct: [
-      ["", ""],
+      ["Moon conjunct Moon", " "],
       [
         "Moon conjunct Mercury",
-        "Moon conjunct Mercury description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "This conjunction multiplies the effect of harmonious aspects. These people have a sense for poetry and the ability to understand others. Any problems in the emotional area can be solved by clear thinking and accurate analysis. They need to have close contacts with their loved ones. The negative effect of this conjunction is the tendency to gossip. These people are very intelligent.",
       ],
       [
         "Moon conjunct Venus",
-        "Moon conjunct Venus description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "People with this conjunction are naturally charming and their charm opens doors to places they would otherwise enter only with lots of experience. They love luxury and pleasant aspects of life. They are diplomatic and they use their abilities to achieve harmonious relationships with other people.",
       ],
       [
         "Moon conjunct Mars",
-        "Moon conjunct Mars description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "This conjunction gives people courage, love for adventure and the ability to find unusual solutions. In a family environment they know exactly what they want and it is difficult to convince them that others also have the right to their own space. They do not like to conform, they love to travel, do business and get involved in research activities.",
       ],
       [
         "Moon conjunct Jupiter",
-        "Moon conjunct Jupiter description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "This conjunction can manifest itself in two different ways: These people can either be generous, kind and good-natured individuals who are great hosts, or they can be demanding people who require lot of luxury, care and love. They also like long journeys and they want to have large families. These introverts often lead religious life and spend lot of time contemplating. They can be selfish when they try to promote their interests and they like studying and living abroad.",
       ],
       [
         "Moon conjunct Saturn",
-        "Moon conjunct Saturn description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "This conjunction gives people stability and honesty, even in difficult situations. However, these people do not trust their feelings much and they may seem cold and reserved. They tend to have emotional problems and they look for older partners. Their feelings are stable, but they find it hard to express them.",
       ],
     ],
     Sextile: [
@@ -254,15 +254,15 @@ export const aspectData = [
       ],
       [
         "Mercury sextile Mars",
-        "This aspect is similar to conjunction but these people get offended more easily and their emotions are unbalanced – their friends can quickly become their enemies. They are very impulsive and they often want impossible things from their partners. They are easily filled with enthusiasm about something but they lose their interest very quickly.",
+        "This harmonious aspect strengthens thinking and gives these people the ability to act and think fast. They are analytical and they are often excellent researchers. Their thinking is fast and practical.",
       ],
       [
         "Mercury sextile Jupiter",
-        "People with this aspect are emotionally demanding. They are often unable to maintain friendships because of their interests, for example because of their religious activities, idealism, or long stays abroad. They often have artistic ambitions but they lack talent. They are difficult to get along with because they are often selfish and demanding. They like luxury items on which they spend considerable amounts of money.",
+        "This harmonious aspect brings optimism, kindness and openness. These people are often great philosophers. However, they like to satisfy their mental interests even if they do not have the money for it. They like to travel and they do not stay long in one place.",
       ],
       [
         "Mercury sextile Saturn",
-        "People with this aspect are responsible, reserved and hesitant. They also have restraints that are often the result of poor parenting or fear of other authorities. This also causes fear of loss - they are afraid to lose both their property and their loved ones. These people often submit their feelings to practicality (typical manifestation of this is getting married for security). They subconsciously fear unemployment and poverty.",
+        "This harmonious aspect gives people balance and practical approach to solving problems of everyday life. These people are conservative and they like routine activities. Their thinking is clear, straightforward and systematic. They are good students.",
       ],
     ],
     Trine: [
@@ -341,15 +341,15 @@ export const aspectData = [
       ["Venus sextile Venus", " "],
       [
         "Venus sextile Mars",
-        "This aspect is similar to conjunction but these people get offended more easily and their emotions are unbalanced – their friends can quickly become their enemies. They are very impulsive and they often want impossible things from their partners. They are easily filled with enthusiasm about something but they lose their interest very quickly.",
+        "These people are very considerate and kind. They usually have many friends and they like to spend their free time meaningfully. They have a lot of creative energy and they do most of things in a relaxed manner.",
       ],
       [
         "Venus sextile Jupiter",
-        "People with this aspect are emotionally demanding. They are often unable to maintain friendships because of their interests, for example because of their religious activities, idealism, or long stays abroad. They often have artistic ambitions but they lack talent. They are difficult to get along with because they are often selfish and demanding. They like luxury items on which they spend considerable amounts of money.",
+        "People with this harmonious aspect are kind and cordial. They easily adapt to new social trends and demands, and they like fashion. This aspect brings hospitality and generosity. It is also useful in case of legal disputes.",
       ],
       [
         "Venus sextile Saturn",
-        "People with this aspect are responsible, reserved and hesitant. They also have restraints that are often the result of poor parenting or fear of other authorities. This also causes fear of loss - they are afraid to lose both their property and their loved ones. These people often submit their feelings to practicality (typical manifestation of this is getting married for security). They subconsciously fear unemployment and poverty.",
+        "This harmonious aspect brings responsible and reserved behaviour in most of emotional and social activities of these people. They are very faithful, conventional and stable. They need a strong and stable relationship that gives them confidence and ability to trust. They have hidden fears of rejection, and their self-confidence in their relationships is too low. Older and reliable partners give them confidence. They are careful and responsible with things they are entrusted with.",
       ],
     ],
     Trine: [
@@ -426,11 +426,11 @@ export const aspectData = [
       ["Mars sextile Mars", " "],
       [
         "Mars sextile Jupiter",
-        "This aspect causes reckless and extreme reactions. These people are also relatively persistent in their activities and they often do not perceive the impact of their actions on their immediate surroundings. There are two developmental branches of this aspect- one leads to the desire for property, money and power, and the other focuses on idealistic movements and groups. In any case, this aspect also raises the desire for travel and adventure.",
+        "This harmonious aspect gives people energy and activity. People with this aspect need movement, whether in the form of active sport or tourism. They are also eager for new information so they like to participate in various courses, seminars and training sessions.",
       ],
       [
         "Mars sextile Saturn",
-        "This aspect brings one personality trait that is not very constructive - these people are often unable to finish things they have started, even when it is important for them. They can get excited about it but then they quickly give up when they see obstacles along the way that appear to happen ”by chance”. These people often have a weaker will which reduces their stamina. It is precisely the problem that they should learn to deal with in life - they should learn to be more persistent and firm and to complete things they have started.",
+        "People with this aspect can work without getting tired, they are careful, consistent and entrepreneurial. They also have excellent organisational skills. They like stability and security, and they do not like to take risks. They can easily deal with challenges and obstacles.",
       ],
     ],
     Trine: [
@@ -496,7 +496,7 @@ export const aspectData = [
       ["Jupiter sextile Jupiter", " "],
       [
         "Jupiter sextile Saturn",
-        "This aspect gives people somewhat contradictory possibilities and because of that they constantly have to decide whether to make important changes or take a risk and follow a good opportunity. If they manage to find a reasonable compromise, the result is often great.",
+        "This harmoninous aspect is extremely positive - it gives these people good foundation, stability and balance, and enables them to fully develop.",
       ],
     ],
     Trine: [
