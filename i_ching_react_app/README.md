@@ -1,6 +1,6 @@
 # I Ching divination app
 
-Click here for working demo: [https://alkemyst.co/projects/iching/]
+Click here for working demo: [https://iching.alkemyst.co/]
 
 ## Version history
 
