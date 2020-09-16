@@ -1,6 +1,6 @@
 # Vedic Astrology App
 
-Click here for working demo: [https://alkemyst.co/projects/astrology-app/]
+Click here for working demo: [https://astrology.alkemyst.co/]
 
 ## Version history
 
