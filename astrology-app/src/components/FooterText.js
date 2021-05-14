@@ -10,7 +10,7 @@ function FooterText() {
         target="_blank"
         style={{ color: "white" }}
       >
-        Version 1.10
+        Version 0.9.0
       </a>{" "}
       - by Eric Suzuki
     </div>
