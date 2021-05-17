@@ -2,18 +2,20 @@ import React from "react";
 import UniversalTarotCard from "./UniversalTarotCard";
 
 export default function Card(props) {
-  const { cardType, cardIndex, autoReveal, imageOnly, reversed } = props;
+  const { cardType, cardData, autoReveal, imageOnly, reversed, tooltip } =
+    props;
 
   function RenderCard() {
     if (cardType === null || cardType === undefined) {
       return "No Card Type Selected";
-    } else if (cardType === "The Universal Tarot") {
+    } else if (cardType === "universal-tarot") {
       return (
         <UniversalTarotCard
-          cardIndex={cardIndex}
+          cardData={cardData}
           autoReveal={autoReveal}
           imageOnly={imageOnly}
           reversed={reversed}
+          tooltip={tooltip}
         />
       );
     } else {
