@@ -2,22 +2,21 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import FitText from "@kennethormandy/react-fittext";
-import { cardFlipAnimation } from "./CardFlipAnimation.js";
+import { cardFlipAnimation } from "./Functions/cardFlipAnimation.js";
+import getCardImage from "./Functions/getCardImage";
 
 import Popover from "@material-ui/core/Popover";
-import CardTooltip from "../UIComponents/CardTooltip";
+import CardTooltip from "./CardTooltip";
 
 export default function UniversalTarotCard(props) {
   const { cardData, autoReveal, imageOnly, reversed, tooltip } = props;
   const [rotationState, setRotationState] = useState(180);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const cardImage = "'" + cardData.img_url + "'";
+  const cardImage = "'" + getCardImage(cardData.card_key) + "'";
   const cardTitle = cardData.full_name;
   const cardBackground =
-    '"https://cdn.image4.io/alkemyst/f_auto/04964846-a8fc-4df6-b7a3-f1b5dc691f15.jpg"';
-
-  console.log(cardData);
+    '"https://cdn.image4.io/alkemyst/f_auto/1d04697d-5052-462e-9150-eb0cc4f04875.jpg"';
 
   const handleInitial = () => {
     let degrees = rotationState;

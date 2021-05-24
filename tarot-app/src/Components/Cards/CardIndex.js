@@ -1,5 +1,5 @@
 import React from "react";
-import UniversalTarotCard from "./UniversalTarotCard";
+import UniversalTarotCard from "./UniversalTarot/UniversalTarotCard";
 
 export default function Card(props) {
   const { cardType, cardData, autoReveal, imageOnly, reversed, tooltip } =
