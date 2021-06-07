@@ -1,14 +1,21 @@
 import React from "react";
-import CardCollection from "./Components/Demos/CardCollection";
+import GetFirebase from "./GetFirebase";
+import { AuthProvider } from "./auth/Auth";
+import Login from "./auth/Login";
+import Welcome from "./Welcome";
+
 import "./App.css";
 
-// firebase.firestore().collection("universal-tarot-card-details").add({
-//   title: "Some Title",
-//   indexNumber: 100
-// });
-
 function App() {
-  return <CardCollection />;
+  return (
+    <>
+      <AuthProvider>
+        <Welcome />
+        <Login />
+        <GetFirebase />
+      </AuthProvider>
+    </>
+  );
 }
 
 export default App;

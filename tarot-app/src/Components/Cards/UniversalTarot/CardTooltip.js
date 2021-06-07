@@ -58,11 +58,11 @@ export default function CardTooltip({ cardData }) {
 
   function CardValueChip() {
     const cardValueChipText =
-      cardData.card_key.charAt(1) === "I"
-        ? cardData.card_key.charAt(3) === "0"
+      cardData.cardKey.charAt(1) === "I"
+        ? cardData.cardKey.charAt(3) === "0"
           ? "10"
-          : cardData.card_key.charAt(3)
-        : cardData.card_index - 53;
+          : cardData.cardKey.charAt(3)
+        : cardData.cardIndex - 53;
     return (
       <div
         className={classes.cardValueChip}
@@ -132,12 +132,12 @@ export default function CardTooltip({ cardData }) {
         <CardValueChip />
 
         <div className={classes.mainWrapper}>
-          <span className={classes.cardTitle}>{cardData.full_name}</span>
+          <span className={classes.cardTitle}>{cardData.fullName}</span>
           <br />
-          <span className={classes.cardDescription}>{cardData.deck_name}</span>
+          <span className={classes.cardDescription}>{cardData.deckName}</span>
           <Divider style={{ marginTop: "0.3rem" }} />
           <span className={classes.cardDescription}>
-            {cardData.description_short}
+            {cardData.descriptionShort}
           </span>
           <Divider style={{ marginTop: "1.5rem", marginBottom: "0.2rem" }} />
           <span className={classes.cardDescription}>

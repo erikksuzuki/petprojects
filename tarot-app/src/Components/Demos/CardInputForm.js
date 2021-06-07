@@ -32,8 +32,8 @@ export default function AddCardForm() {
     firebase
       .firestore()
       .collection("universal-tarot-card-details")
-      .add({
-        id: cardKey,
+      .doc(cardKey)
+      .set({
         card_key: cardKey,
         full_name: cardTitle,
         card_index: cardIndex,
@@ -49,6 +49,9 @@ export default function AddCardForm() {
       })
       .then(() => {
         setCardKey("");
+      })
+      .catch((err) => {
+        console.log("Something went wrong");
       });
   }
 

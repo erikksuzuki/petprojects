@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../Cards/CardIndex";
 import firebase from "../../firebase";
 import CardInputForm from "../Demos/CardInputForm";
+import AccordianDemo from "./AccordianDemo";
 
 const SORT_OPTIONS = {
   INDEX_ASC: { column: "card_index", direction: "asc" },
@@ -35,8 +36,6 @@ export default function CardCollection() {
   const [sortBy, setSortBy] = useState("INDEX_ASC");
   const cardDetails = useCardDetails(sortBy);
 
-  const ref = firebase.firestore().collection("universal-tarot-card-details");
-
   return (
     <div>
       <div>
@@ -53,27 +52,17 @@ export default function CardCollection() {
         {cardDetails.map((cardDetail) => (
           <div
             style={{
-              width: "19%",
+              width: "10rem",
               border: "solid 1px #ddd",
               padding: "1rem",
               display: "inline-block"
             }}
           >
-            <Card
-              key={cardDetail.card_index}
-              cardType="universal-tarot"
-              cardData={cardDetail}
-              autoReveal={true}
-              imageOnly={false}
-              reversed={false}
-              tooltip={true}
-            />
+            <Card cardData={cardDetail} autoReveal tooltip />
           </div>
         ))}
       </div>
       <CardInputForm />
-      <br />
-      <br />
       <br />
       <br />
     </div>

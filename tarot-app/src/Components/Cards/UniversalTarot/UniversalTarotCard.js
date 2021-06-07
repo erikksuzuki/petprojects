@@ -2,26 +2,22 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import FitText from "@kennethormandy/react-fittext";
-import { cardFlipAnimation } from "./Functions/cardFlipAnimation.js";
 import getCardImage from "./Functions/getCardImage";
 
 import Popover from "@material-ui/core/Popover";
 import CardTooltip from "./CardTooltip";
 
 export default function UniversalTarotCard(props) {
-  const { cardData, autoReveal, imageOnly, reversed, tooltip } = props;
-  const [rotationState, setRotationState] = useState(180);
+  const { cardData, autoReveal, imageOnly, reversed, unchanging, tooltip } =
+    props;
+  const [rotationState, setRotationState] = useState(unchanging ? 0 : 180);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const cardImage = "'" + getCardImage(cardData.card_key) + "'";
-  const cardTitle = cardData.full_name;
+  const cardImage = "'" + getCardImage(cardData.cardKey) + "'";
+  const cardTitle = cardData.fullName;
   const cardBackground =
     '"https://cdn.image4.io/alkemyst/f_auto/1d04697d-5052-462e-9150-eb0cc4f04875.jpg"';
 
-  const handleInitial = () => {
-    let degrees = rotationState;
-    autoReveal ? setRotationState(degrees + 180) : setRotationState(180);
-  };
   const handleFlip = () => {
     let degrees = rotationState;
     setRotationState(degrees + 180);
@@ -35,13 +31,27 @@ export default function UniversalTarotCard(props) {
   const open = Boolean(anchorEl);
 
   useEffect(() => {
-    handleInitial();
+    autoReveal & !unchanging && handleFlip();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const UniversalTarotStyles = makeStyles(() => ({
     popover: {
       pointerEvents: "none"
+    },
+    flipCardContainer: {
+      width: "100%",
+      position: "relative",
+      perspective: "1000px",
+      cursor: "pointer"
+    },
+    flipCard: {
+      position: "relative",
+      width: "100%",
+      transition: "transform 1s",
+      transformStyle: "preserve-3d",
+      borderRadius: "3%",
+      boxShadow: "5px 5px 15px 0px rgba(0,0,0,0.6)"
     },
     outerWrapper: {
       width: "100%",
@@ -61,7 +71,7 @@ export default function UniversalTarotCard(props) {
     },
     aspectRatio: {
       width: "100%",
-      paddingBottom: "141%",
+      paddingBottom: imageOnly ? "133%" : "141%",
       border: "solid 0px blue"
     },
     innerWrapper: {
@@ -79,12 +89,12 @@ export default function UniversalTarotCard(props) {
     },
     innerBorder: {
       position: "absolute",
-      top: "4.9%",
-      left: "7.76%",
+      top: imageOnly ? "0px" : "4.9%",
+      left: imageOnly ? "0px" : "7.76%",
       border: "solid 0px grey",
       borderRadius: "3%",
-      width: "84.8%",
-      height: "81%",
+      width: imageOnly ? "100%" : "84.8%",
+      height: imageOnly ? "100%" : "81%",
       backgroundColor: "grey"
     },
     innerImage: {
@@ -97,7 +107,7 @@ export default function UniversalTarotCard(props) {
       height: "99.3%",
       backgroundImage: `url(${cardImage})`,
       backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
+      backgroundSize: imageOnly ? "100% 100%" : "cover",
       backgroundPosition: "center top"
     },
     titleBorder: {
@@ -127,9 +137,6 @@ export default function UniversalTarotCard(props) {
   }));
   const classes = UniversalTarotStyles();
 
-  const UniversalTarotAnimationStyles = makeStyles(() => cardFlipAnimation);
-  const animationClasses = UniversalTarotAnimationStyles();
-
   return (
     <div
       aria-owns={open ? "mouse-over-popover" : undefined}
@@ -139,11 +146,11 @@ export default function UniversalTarotCard(props) {
     >
       <FitText compressor={2.15}>
         <div
-          className={animationClasses.flipCardContainer}
-          onClick={() => handleFlip()}
+          className={classes.flipCardContainer}
+          onClick={() => (!unchanging ? handleFlip() : null)}
         >
           <div
-            className={animationClasses.flipCard}
+            className={classes.flipCard}
             style={{
               transform: `rotateY(${rotationState}deg)`
             }}
@@ -194,31 +201,3 @@ export default function UniversalTarotCard(props) {
     </div>
   );
 }
-
-UniversalTarotCard.defaultProps = {
-  cardData: {
-    card_index: "1",
-    card_key: "MI_AW",
-    deck_author: "Maxwell Miller",
-    deck_name: "The Universal Tarot",
-    deck_website:
-      "https://www.weiserantiquarian.com/pages/books/57769/maxwell-miller/the-universal-tarot-boxed-set?soldItem=true",
-    deck_year: "1995",
-    description_long: "Long description",
-    description_short: "Short description",
-    full_name: "Ace of Wands",
-    img_url: "https://alkemyst.co/universal-tarot/IMG_2305.jpg",
-    suit: "Clubs",
-    symbol: "Power of Fire"
-  },
-  reversed: false,
-  autoReveal: true,
-  imageOnly: false,
-  tooltip: true
-};
-
-UniversalTarotCard.propTypes = {
-  reversed: PropTypes.bool,
-  autoReveal: PropTypes.bool,
-  imageOnly: PropTypes.bool
-};
